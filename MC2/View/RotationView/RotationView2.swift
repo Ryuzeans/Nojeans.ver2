@@ -13,6 +13,7 @@ struct RotationView2: View {
     @State private var finalAmount = Angle.zero
     @State private var revolving = false
     @State private var showingSuccess = false
+    @Binding var tag : Int
     
     var body: some View {
         
@@ -57,6 +58,9 @@ struct RotationView2: View {
                     if (finalAmount.degrees < -175 || finalAmount.degrees > 175) {
                         withAnimation(.easeOut(duration: 0.5)) {
                             showingSuccess = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                tag += 1
+                            }
                         }
                     } else {
                         showingSuccess = false
@@ -65,8 +69,4 @@ struct RotationView2: View {
     }
 }
 
-struct RotationView2_Previews: PreviewProvider {
-    static var previews: some View {
-        RotationView2()
-    }
-}
+

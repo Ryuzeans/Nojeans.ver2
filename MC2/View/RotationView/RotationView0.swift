@@ -9,28 +9,43 @@ import SwiftUI
 
 struct RotationView0: View {
     @State private var rotation = 0.0
+    @Binding var tag :Int
     var body: some View {
-        VStack(spacing: 100) {
-            Text("화면 돌리기")
-                .font(.system(size: 48,weight: .bold))
-            
-            Image("RotationCard")
-                .resizable()
-                .frame(width: 110, height: 130)
-                .rotationEffect(Angle.degrees(rotation))
-                .onAppear {
-                    withAnimation(.easeOut(duration: 3.0)) {
-                        rotation += 360.0
+        ZStack {
+            VStack(spacing: 100) {
+                Text("화면 돌리기")
+                    .font(.system(size: 48,weight: .bold))
+                
+                Image("RotationCard")
+                    .resizable()
+                    .frame(width: 110, height: 130)
+                    .rotationEffect(Angle.degrees(rotation))
+                    .onAppear {
+                        withAnimation(.easeOut(duration: 3.0)) {
+                            rotation += 360.0
+                        }
                     }
-                }
+                    
                 
-            
-            Text("아이콘을 움직이거나 \n음량을 바꾸거나")
-                .font(.system(size: 36, weight: .light))
-                .foregroundColor(Color(UIColor.lightGray))
-                .multilineTextAlignment(.center)
+                Text("아이콘을 움직이거나 \n음량을 바꾸거나")
+                    .font(.system(size: 36, weight: .light))
+                    .foregroundColor(Color(UIColor.lightGray))
+                    .multilineTextAlignment(.center)
 
+                    
+            }
+            
+            VStack {
                 
+                Spacer()
+                
+                Button {
+                    tag += 1
+                } label: {
+                    Text("다음")
+                }
+                .btnStyle()
+            }
         }
 //        GeometryReader { geo in
 //
@@ -74,11 +89,5 @@ struct RotationView0: View {
 //            .padding(geo.size.width / 8)
 //
 //        }
-    }
-}
-
-struct RotationView0_Previews: PreviewProvider {
-    static var previews: some View {
-        RotationView0()
     }
 }

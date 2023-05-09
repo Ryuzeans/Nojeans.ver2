@@ -60,12 +60,12 @@ struct PanView1: View {
                     .padding(.bottom, 50)
             }
             
-            Button {
-                tag += 1
-            } label: {
-                Text("다음")
-            }
-            .btnStyle()
+//            Button {
+//                tag += 1
+//            } label: {
+//                Text("다음")
+//            }
+//            .btnStyle()
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -74,13 +74,13 @@ struct PanView1: View {
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 9) {
                 withAnimation(.easeOut) {
                     showInitialText = 2
                 }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
                 withAnimation(.easeOut) {
                     self.tag = 2
                 }

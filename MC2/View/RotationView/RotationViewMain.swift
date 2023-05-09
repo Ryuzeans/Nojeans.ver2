@@ -10,18 +10,20 @@ import SwiftUI
 struct RotationViewMain: View {
     @State private var tag: Int = 0
     var body: some View {
-        
-        switch tag {
-        case 0:
-            RotationView0()
-        case 1:
-            RotationView1()
-        case 2:
-            RotationView2()
-        case 3:
-            RotationView3()
-        default:
-            RotationView0()
+        ZStack {
+            switch tag {
+            case 0:
+                RotationView0(tag: $tag)
+            case 1:
+                RotationView1(tag: $tag)
+            case 2:
+                RotationView2(tag: $tag)
+            case 3:
+                RotationView3(tag: $tag)
+            default:
+                RotationView0(tag: $tag)
+            }
+            
         }
     }
 }
