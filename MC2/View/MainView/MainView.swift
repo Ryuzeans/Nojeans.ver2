@@ -77,7 +77,7 @@ struct MainView: View {
                             .frame(maxWidth: .infinity,alignment: .leading)
                             .padding(.horizontal,16)
                             .padding(.vertical,20)
-                            .background(Color("HeaderColor"))
+                            .background(Color.gray.opacity(0.4))
                             
                         }
                         viewForBrand(brand)
