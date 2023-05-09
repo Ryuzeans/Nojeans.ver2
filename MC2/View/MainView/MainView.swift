@@ -97,7 +97,7 @@ struct MainView: View {
         case "길게 누르기":
             return AnyView(Color.gray)
         case "두 번 누르기":
-            return AnyView(DoubleTapView())
+            return EmptyView()
         case "나침반":
             return AnyView(PanViewMain().padding(.horizontal,16))
         case "회전하기":
