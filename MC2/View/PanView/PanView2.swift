@@ -31,12 +31,17 @@ struct PanView2: View {
                     .resizable()
                     .frame(width: 230,height: 230)
             }
-            Button {
-                tag += 1
-            } label: {
-                Text("다음")
+            
+            VStack {
+                
+                Spacer()
+                Button {
+                    tag += 1
+                } label: {
+                    Text("처음으로")
+                }
+                .btnStyle()
             }
-            .btnStyle()
             
             
         }

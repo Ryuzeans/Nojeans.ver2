@@ -9,24 +9,39 @@ import SwiftUI
 
 struct RotationView1: View {
     @State private var revolving = false
-    
+    @Binding var tag :Int
+
     var body: some View {
-        VStack {
+        ZStack {
+            VStack {
+                
+                Text("움직이는 \n두 개의 원처럼 \n두 손가락으로 \n화면을 돌려봐요 !")
+                    .font(.system(size: 36,weight: .bold))
+                    .multilineTextAlignment(.center)
+                
+                Image("RotationEx")
+                    .resizable()
+                    .scaledToFit()
+                    .rotationEffect(.degrees(revolving ? 180 : 360))
+                    .animation(.easeInOut(duration: 5).repeatForever(autoreverses: false), value: revolving)
+                    .onAppear {
+                        revolving.toggle()
+                    }
+                    .offset(x: 20, y: 50)
+                
+            }
             
-            Text("움직이는 \n두 개의 원처럼 \n두 손가락으로 \n화면을 돌려봐요 !")
-                .font(.system(size: 36,weight: .bold))
-                .multilineTextAlignment(.center)
-            
-            Image("RotationEx")
-                .resizable()
-                .scaledToFit()
-                .rotationEffect(.degrees(revolving ? 180 : 360))
-                .animation(.easeInOut(duration: 5).repeatForever(autoreverses: false), value: revolving)
-                .onAppear {
-                    revolving.toggle()
+            VStack {
+                
+                Spacer()
+                
+                Button {
+                    tag += 1
+                } label: {
+                    Text("다음")
                 }
-                .offset(x: 20, y: 50)
-            
+                .btnStyle()
+            }
         }
         //        GeometryReader { geo in
         //            VStack(alignment: .center) {
@@ -66,11 +81,5 @@ struct RotationView1: View {
         //            }
         //            .frame(width: geo.size.width, height: geo.size.height)
         //        }
-    }
-}
-
-struct RotationView1_Previews: PreviewProvider {
-    static var previews: some View {
-        RotationView1()
     }
 }
