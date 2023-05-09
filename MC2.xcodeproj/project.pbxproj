@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		608ADAC92A09D68D0044D0D2 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608ADAC82A09D68D0044D0D2 /* FontExtension.swift */; };
 		B5246A752A0010DF00656A33 /* MC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5246A742A0010DF00656A33 /* MC2App.swift */; };
 		B5246A772A0010DF00656A33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5246A762A0010DF00656A33 /* ContentView.swift */; };
 		B5246A792A0010E000656A33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5246A782A0010E000656A33 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		608ADAC82A09D68D0044D0D2 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		B5246A712A0010DF00656A33 /* MC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5246A742A0010DF00656A33 /* MC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2App.swift; sourceTree = "<group>"; };
 		B5246A762A0010DF00656A33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				B5246A932A00ACAD00656A33 /* ColorExtension.swift */,
 				B5CCC3732A094D7100C418B3 /* ViewExtension.swift */,
+				608ADAC82A09D68D0044D0D2 /* FontExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				B5CCC36E2A09438400C418B3 /* PanViewMain.swift in Sources */,
 				B5246A772A0010DF00656A33 /* ContentView.swift in Sources */,
 				B5246AA12A07D99D00656A33 /* PanView0.swift in Sources */,
+				608ADAC92A09D68D0044D0D2 /* FontExtension.swift in Sources */,
 				B5246AA32A07DCA400656A33 /* PanView1.swift in Sources */,
 				B5246A832A00115C00656A33 /* DoubleTapView0.swift in Sources */,
 				B5246AA92A07F58600656A33 /* MapView.swift in Sources */,
