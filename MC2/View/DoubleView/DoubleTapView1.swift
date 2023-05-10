@@ -10,7 +10,6 @@ import SwiftUI
 
 struct DoubleTapView1: View {
 
-    @Environment(\.dismiss) private var dismiss
     let nextViewAction: () -> Void
 
     var body: some View {

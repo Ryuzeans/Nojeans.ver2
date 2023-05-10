@@ -19,6 +19,7 @@ struct TapViewMain: View {
                   }
 
               }
+           .navigationBarBackButtonHidden(true)
 
     }
 

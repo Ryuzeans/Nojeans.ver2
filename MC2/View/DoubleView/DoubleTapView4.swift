@@ -9,64 +9,74 @@ import SwiftUI
 
 struct DoubleTapView4: View {
     
-        @State private var isZoomed = false
-        @State private var scale: CGFloat = 1.0
-    
+    @State private var scale: CGFloat = 1.0
+    @Environment(\.dismiss) private var dismiss
+    @Binding var buttonActive: Bool
 
         var body: some View {
-            ZStack {
-                Image("sample")
-//                    .scaledToFit()
-                .scaleEffect(scale)
-                .gesture(
-                    TapGesture(count: 2)
-                        .onEnded{ _ in
-                            if isZoomed {
-                                scale -= 1.5
-                            } else {
-                                scale += 1.5
-                            }
-                            isZoomed.toggle()
-                    })
-                VStack(spacing: 0) {
+            GeometryReader { proxy in
+                ZStack {
                     
-                    Text("두번 눌러볼까요?")
-                        .frame(height: 132)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.black)
-                        .background(Color.white)
-                        .font(.system(size: 48,weight: .black))
-                        .padding(.bottom,500)
+
+                    Image("sample")
+                        .resizable()
+                        .frame(width: proxy.size.width, height: proxy.size.height)
+                        .scaledToFit()
+                        .clipShape(Rectangle())
+                        .modifier(ImageModifier2(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height)))
                     
-                    Button("다음") {
+                    VStack(){
+                        Text("두번 눌러볼까요?")
+                            .font(.customTitle())
+                            .frame(height: 132)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.white)
+                        Spacer()
+                        Button("처음으로")   {
+                            dismiss()
+                        }
+                        .btnStyle()
+                        
                         
                     }
-                    .btnStyle()
-                    .animation(.linear)
-                    .opacity(isZoomed ? 1 : 0)
-                    .padding(.vertical,50)
-                    .padding(.horizontal,152)
                 }
-                
-
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fit)
-//                            .frame( maxWidth:  isZoomed ? .infinity : 150)
-//                            .edgesIgnoringSafeArea(.all)
-//                            .onTapGesture(count: 2) {
-//                                withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
-//                                    isZoomed.toggle()
-//                                }
-//                            }
-                    
-                
-
-            }
+            }  
         }
 }
 
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        DoubleTapView4()
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DoubleTapView4()
+//    }
+//}
+struct ImageModifier2: ViewModifier {
+    private var contentSize: CGSize
+    private var min: CGFloat = 1.0
+    private var max: CGFloat = 3.0
+    @State var currentScale: CGFloat = 1.0
+    @State var buttonActive: Bool = false
+
+    init(contentSize: CGSize) {
+        self.contentSize = contentSize
+    }
+    
+    var doubleTapGesture: some Gesture {
+        TapGesture(count: 2).onEnded {
+            buttonActive = true
+            if currentScale <= min { currentScale = max } else
+            if currentScale >= max { currentScale = min } else {
+                currentScale = ((max - min) * 0.5 + min) < currentScale ? max : min
+            }
+        }
+    }
+    
+    func body(content: Content) -> some View {
+        ScrollView([.horizontal, .vertical]) {
+            content
+                .frame(width: contentSize.width * currentScale, height: contentSize.height * currentScale, alignment: .center)
+                .modifier(PinchToZoom(minScale: min, maxScale: max, scale: $currentScale))
+        }
+        .gesture(doubleTapGesture)
+        .animation(.easeInOut, value: currentScale)
     }
 }
