@@ -38,6 +38,7 @@ struct PanViewMain: View {
             }
             
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

@@ -15,6 +15,7 @@ struct LongPressMain: View {
             LongPressView1(selection: $selection).tag(1)
             LongPressView2(selection: $selection).tag(2)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

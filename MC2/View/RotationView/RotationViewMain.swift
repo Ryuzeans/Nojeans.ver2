@@ -25,6 +25,7 @@ struct RotationViewMain: View {
             }
             
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
     
