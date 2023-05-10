@@ -71,6 +71,7 @@ struct SwipeView1: View {
                         }
                         else {
                             Button {
+        
                             }
                             label: {
                                 Text("")
