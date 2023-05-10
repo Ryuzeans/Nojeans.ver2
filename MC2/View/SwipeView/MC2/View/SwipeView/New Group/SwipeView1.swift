@@ -70,9 +70,7 @@ struct SwipeView1: View {
                             
                         }
                         else {
-                            Button {
-        
-                            }
+                            Button { }
                             label: {
                                 Text("")
                                     .font(.customNextButton())
