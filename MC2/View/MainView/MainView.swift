@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct TouchGesture: Identifiable,Hashable{
+    let id = UUID()
     let name: String
-    let id = NSUUID().uuidString
+    var image: String
+    let subName: String
 }
 
 struct MainView: View {
     
     let brands: [TouchGesture] = [
-        .init(name: "길게 누르기"),
-        .init(name: "두 번 누르기"),
-        .init(name: "나침반"),
-        .init(name: "끌어오기"),
-        .init(name: "살짝 쓸기"),
-        .init(name: "확대, 축소하기"),
-        .init(name: "회전하기"),
+        .init(name: "길게 누르기", image: "Image1", subName: "Long Tap"),
+        .init(name: "두 번 누르기", image: "Image2", subName: "Double Tap"),
+        .init(name: "화면 움직이기", image: "Image3", subName: "Fan"),
+        .init(name: "끌어오기", image: "Image1", subName: "Drag"),
+        .init(name: "살짝 쓸기", image: "Image2", subName: "Swipe"),
+        .init(name: "확대, 축소하기", image: "Image3", subName: "Zoom in, out"),
+        .init(name: "회전하기", image: "Image1", subName: "Rotate"),
     ]
     
     @State private var navigationPath = [TouchGesture]()
@@ -37,15 +39,29 @@ struct MainView: View {
                     ScrollView{
                         ForEach(brands) { brand in
                             NavigationLink(value: brand) {
-                                Text(brand.name)
-                                    .font(.system(size: 40))
-                                    .fontWeight(.black)
-                                    .frame(maxWidth: .infinity,alignment: .leading)
-                                    .frame(height: 196)
-                                    .background(Color.orange)
-                                    .font(.body)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(15)
+                                
+                                Image(brand.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .overlay(
+                                        VStack {
+                                            
+                                            Text(brand.name)
+                                                .font(.customTitle())
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity,alignment: .leading)
+                                            
+                                            Text(brand.subName)
+                                                .font(.customExplain())
+                                                .foregroundColor(.white)
+                                                .frame(maxWidth: .infinity,alignment: .leading)
+                                        }
+                                            .padding(.leading,20)
+                                            
+                                            
+                                    )
+                                    .padding(.bottom,20)
+
                             }
                         }
                     }
@@ -105,6 +121,8 @@ struct MainView: View {
             return AnyView(DoubleTapView())
         case "나침반":
             return AnyView(PanViewMain())
+        case "살짝 쓸기":
+            return AnyView(SwipeViewMain())
         case "회전하기":
             return AnyView(RotationViewMain())
         default:
