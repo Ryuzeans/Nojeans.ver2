@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		07451F8C2A0AAE1C00F557B8 /* DoubleTapView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */; };
 		078A75872A0B277B009592E0 /* DoubleTapView2-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A75862A0B277B009592E0 /* DoubleTapView2-1.swift */; };
+		078A75892A0B5C09009592E0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A75882A0B5C09009592E0 /* CustomButton.swift */; };
 		07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CD92A09EFAB0005314D /* MainView.swift */; };
 		07E45CE92A09F8C50005314D /* DoubleTapView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE52A09F8C50005314D /* DoubleTapView1.swift */; };
 		07E45CEA2A09F8C50005314D /* DoubleTapView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE62A09F8C50005314D /* DoubleTapView3.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapView4.swift; sourceTree = "<group>"; };
 		078A75862A0B277B009592E0 /* DoubleTapView2-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoubleTapView2-1.swift"; sourceTree = "<group>"; };
+		078A75882A0B5C09009592E0 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		07E45CD92A09EFAB0005314D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		07E45CE52A09F8C50005314D /* DoubleTapView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTapView1.swift; sourceTree = "<group>"; };
 		07E45CE62A09F8C50005314D /* DoubleTapView3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTapView3.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				07E45CD92A09EFAB0005314D /* MainView.swift */,
+				078A75882A0B5C09009592E0 /* CustomButton.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078A75892A0B5C09009592E0 /* CustomButton.swift in Sources */,
 				B5246A9B2A0140E500656A33 /* RotationView1.swift in Sources */,
 				608045D42A0B1F1E0069F680 /* SwipeView1.swift in Sources */,
 				07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */,
