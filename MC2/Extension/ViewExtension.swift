@@ -11,9 +11,10 @@ import SwiftUI
 struct BtnStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .frame(width: 358, height: 48)
+            .frame(maxWidth:.infinity)
+            .frame(height: 48)
             .font(.headline)
-            .padding()
+            .padding(.horizontal, 16)
             .foregroundColor(.white)
             .background(Color.blue)
             .cornerRadius(10)

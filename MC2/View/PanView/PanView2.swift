@@ -55,3 +55,5 @@ struct PanView2: View {
         
     }
 }
+
+
