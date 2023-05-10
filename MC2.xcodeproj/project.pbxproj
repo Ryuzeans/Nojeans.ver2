@@ -19,6 +19,9 @@
 		608045D82A0B214E0069F680 /* SwipeView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608045D72A0B214E0069F680 /* SwipeView3.swift */; };
 		608045DB2A0B42120069F680 /* SwipeViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608045DA2A0B42120069F680 /* SwipeViewMain.swift */; };
 		608ADAC92A09D68D0044D0D2 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608ADAC82A09D68D0044D0D2 /* FontExtension.swift */; };
+		609EFDA02A0B70F700702210 /* LongPressMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609EFD9F2A0B70F700702210 /* LongPressMainView.swift */; };
+		609EFDA22A0B712600702210 /* LongPressView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609EFDA12A0B712600702210 /* LongPressView1.swift */; };
+		609EFDA42A0B713C00702210 /* LongPressView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609EFDA32A0B713C00702210 /* LongPressView2.swift */; };
 		B5246A752A0010DF00656A33 /* MC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5246A742A0010DF00656A33 /* MC2App.swift */; };
 		B5246A772A0010DF00656A33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5246A762A0010DF00656A33 /* ContentView.swift */; };
 		B5246A792A0010E000656A33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5246A782A0010E000656A33 /* Assets.xcassets */; };
@@ -49,6 +52,9 @@
 		608045D72A0B214E0069F680 /* SwipeView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwipeView3.swift; path = "MC2/View/SwipeView/MC2/View/SwipeView/New Group/SwipeView3.swift"; sourceTree = SOURCE_ROOT; };
 		608045DA2A0B42120069F680 /* SwipeViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewMain.swift; sourceTree = "<group>"; };
 		608ADAC82A09D68D0044D0D2 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		609EFD9F2A0B70F700702210 /* LongPressMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressMainView.swift; sourceTree = "<group>"; };
+		609EFDA12A0B712600702210 /* LongPressView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressView1.swift; sourceTree = "<group>"; };
+		609EFDA32A0B713C00702210 /* LongPressView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressView2.swift; sourceTree = "<group>"; };
 		B5246A712A0010DF00656A33 /* MC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5246A742A0010DF00656A33 /* MC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2App.swift; sourceTree = "<group>"; };
 		B5246A762A0010DF00656A33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -214,6 +220,9 @@
 		B5246A912A00AC5600656A33 /* LongPressView */ = {
 			isa = PBXGroup;
 			children = (
+				609EFD9F2A0B70F700702210 /* LongPressMainView.swift */,
+				609EFDA12A0B712600702210 /* LongPressView1.swift */,
+				609EFDA32A0B713C00702210 /* LongPressView2.swift */,
 			);
 			path = LongPressView;
 			sourceTree = "<group>";
@@ -307,11 +316,14 @@
 				608045D42A0B1F1E0069F680 /* SwipeView1.swift in Sources */,
 				07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */,
 				608045DB2A0B42120069F680 /* SwipeViewMain.swift in Sources */,
+				609EFDA22A0B712600702210 /* LongPressView1.swift in Sources */,
+				609EFDA42A0B713C00702210 /* LongPressView2.swift in Sources */,
 				07E45CEC2A09F8C50005314D /* DoubleTapView.swift in Sources */,
 				608045D62A0B1F2A0069F680 /* SwipeView2.swift in Sources */,
 				B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */,
 				078A75872A0B277B009592E0 /* DoubleTapView2-1.swift in Sources */,
 				B5246A9D2A01435300656A33 /* RotationView2.swift in Sources */,
+				609EFDA02A0B70F700702210 /* LongPressMainView.swift in Sources */,
 				07E45CEB2A09F8C50005314D /* DoubleTapView2.swift in Sources */,
 				B5CCC36E2A09438400C418B3 /* PanViewMain.swift in Sources */,
 				608045D82A0B214E0069F680 /* SwipeView3.swift in Sources */,
