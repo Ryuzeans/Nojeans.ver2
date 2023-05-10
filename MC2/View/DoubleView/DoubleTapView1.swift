@@ -14,34 +14,50 @@ struct DoubleTapView1: View {
     let nextViewAction: () -> Void
 
     var body: some View {
-        VStack(alignment: .center,spacing: 0){
-            
-            HStack {    
-                Image(systemName: "Chevron.left")
+        ZStack {
+            VStack(alignment: .center,spacing: 0){
+                
+                Text("두번 누르기")
+                    .font(.system(size: 48,weight: .black))
+                    .padding(.top, 41)
+                
+                Text("(Double Tap)")
+                    .font(.system(size: 48,weight: .black))
+                    .padding(.top,8)
+                
+                Image("PanCircle")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 116, height: 116)
+                    .padding(.top,95)
+                
+                Text("사진을 확대/축소할 때,\n글자를 수정할 때\n 사용해요")
+                    .foregroundColor(Color.black)
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing(10)
+                    .font(.system(size: 32,weight: .light))
+                    .padding(.top,104)
+                    .padding(.bottom,32)
+                
+                Spacer()
             }
-            
-            Text("두번 누르기")
-                .font(.system(size: 48,weight: .black))
-                .padding(.bottom,97)
-            
-            Image("PanCircle")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
-                .padding(.bottom,113)
-            
-            Text("글자 복사하기 및 붙여넣기  화면 확대하거나 축소할 때 사용해요")
-                .foregroundColor(Color.gray)
-                .multilineTextAlignment(.center)
-                .lineSpacing(10)
-                .font(.system(size: 32,weight: .light))
-                .padding(.bottom,97)
-            
-            Button("다음") {
-                nextViewAction()
+            VStack(){
+                Spacer()
+                Button("다음") {
+                    nextViewAction()
+                }
+                .btnStyle()
+                
+                
             }
         }
-        .navigationBarBackButtonHidden(true) // Hide default back button
         
+        
+    }
+}
+
+struct DoubleTapView1_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
     }
 }
