@@ -38,10 +38,11 @@ struct DoubleTapView4: View {
                         .font(.system(size: 48,weight: .black))
                         .padding(.bottom,500)
                     
-                    Button("완료") {
+                    Button("다음") {
                         
                     }
                     .btnStyle()
+                    .animation(.linear)
                     .opacity(isZoomed ? 1 : 0)
                     .padding(.vertical,50)
                     .padding(.horizontal,152)
