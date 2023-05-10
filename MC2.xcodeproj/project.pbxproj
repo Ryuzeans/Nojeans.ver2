@@ -44,6 +44,10 @@
 		B5CCC36E2A09438400C418B3 /* PanViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCC36D2A09438300C418B3 /* PanViewMain.swift */; };
 		B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCC36F2A09474200C418B3 /* RotationViewMain.swift */; };
 		B5CCC3742A094D7100C418B3 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCC3732A094D7100C418B3 /* ViewExtension.swift */; };
+		DC6886032A0B731000266423 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6886022A0B731000266423 /* TapView.swift */; };
+		DC6886072A0B731D00266423 /* TapViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6886042A0B731D00266423 /* TapViewMain.swift */; };
+		DC6886082A0B731D00266423 /* TapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6886052A0B731D00266423 /* TapView2.swift */; };
+		DC6886092A0B731D00266423 /* TapView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6886062A0B731D00266423 /* TapView1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +89,10 @@
 		B5CCC36D2A09438300C418B3 /* PanViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanViewMain.swift; sourceTree = "<group>"; };
 		B5CCC36F2A09474200C418B3 /* RotationViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationViewMain.swift; sourceTree = "<group>"; };
 		B5CCC3732A094D7100C418B3 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		DC6886022A0B731000266423 /* TapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
+		DC6886042A0B731D00266423 /* TapViewMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapViewMain.swift; sourceTree = "<group>"; };
+		DC6886052A0B731D00266423 /* TapView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapView2.swift; sourceTree = "<group>"; };
+		DC6886062A0B731D00266423 /* TapView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapView1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 		B5246A892A00ABA100656A33 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DC6886012A0B72E800266423 /* TapView */,
 				07E45CE42A09F8C50005314D /* DoubleView */,
 				B5246A952A00ACF800656A33 /* MainView */,
 				B5246A922A00AC8500656A33 /* ZoomView */,
@@ -179,7 +188,6 @@
 				B5246A902A00AC4200656A33 /* PanView */,
 				608045D92A0B41BF0069F680 /* SwipeView */,
 				B5246A8E2A00AC2F00656A33 /* DragView */,
-				B5246A8D2A00AC2700656A33 /* TapView */,
 				B5246A8C2A00AC0100656A33 /* RotationView */,
 			);
 			path = View;
@@ -203,13 +211,6 @@
 				B5CCC36F2A09474200C418B3 /* RotationViewMain.swift */,
 			);
 			path = RotationView;
-			sourceTree = "<group>";
-		};
-		B5246A8D2A00AC2700656A33 /* TapView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TapView;
 			sourceTree = "<group>";
 		};
 		B5246A8E2A00AC2F00656A33 /* DragView */ = {
@@ -261,6 +262,17 @@
 				078A75882A0B5C09009592E0 /* CustomButton.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		DC6886012A0B72E800266423 /* TapView */ = {
+			isa = PBXGroup;
+			children = (
+				DC6886022A0B731000266423 /* TapView.swift */,
+				DC6886062A0B731D00266423 /* TapView1.swift */,
+				DC6886052A0B731D00266423 /* TapView2.swift */,
+				DC6886042A0B731D00266423 /* TapViewMain.swift */,
+			);
+			path = TapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				078A75892A0B5C09009592E0 /* CustomButton.swift in Sources */,
+				DC6886082A0B731D00266423 /* TapView2.swift in Sources */,
 				B5246A9B2A0140E500656A33 /* RotationView1.swift in Sources */,
 				608045D42A0B1F1E0069F680 /* SwipeView1.swift in Sources */,
 				07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */,
@@ -341,6 +354,7 @@
 				608045DB2A0B42120069F680 /* SwipeViewMain.swift in Sources */,
 				100D34E62A0B6842009AAEA0 /* DragViewMain.swift in Sources */,
 				07E45CEC2A09F8C50005314D /* DoubleTapView.swift in Sources */,
+				DC6886032A0B731000266423 /* TapView.swift in Sources */,
 				608045D62A0B1F2A0069F680 /* SwipeView2.swift in Sources */,
 				B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */,
 				078A75872A0B277B009592E0 /* DoubleTapView2-1.swift in Sources */,
@@ -352,6 +366,8 @@
 				B5246AA12A07D99D00656A33 /* PanView0.swift in Sources */,
 				608ADAC92A09D68D0044D0D2 /* FontExtension.swift in Sources */,
 				B5246AA32A07DCA400656A33 /* PanView1.swift in Sources */,
+				DC6886072A0B731D00266423 /* TapViewMain.swift in Sources */,
+				DC6886092A0B731D00266423 /* TapView1.swift in Sources */,
 				100D34DD2A0B681C009AAEA0 /* ZoomView0.swift in Sources */,
 				B5246AA92A07F58600656A33 /* MapView.swift in Sources */,
 				100D34E02A0B681C009AAEA0 /* ZoomViewMain.swift in Sources */,
