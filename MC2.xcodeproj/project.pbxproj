@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07451F8C2A0AAE1C00F557B8 /* DoubleTapView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */; };
+		078A75872A0B277B009592E0 /* DoubleTapView2-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A75862A0B277B009592E0 /* DoubleTapView2-1.swift */; };
 		07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CD92A09EFAB0005314D /* MainView.swift */; };
 		07E45CE92A09F8C50005314D /* DoubleTapView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE52A09F8C50005314D /* DoubleTapView1.swift */; };
 		07E45CEA2A09F8C50005314D /* DoubleTapView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CE62A09F8C50005314D /* DoubleTapView3.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapView4.swift; sourceTree = "<group>"; };
+		078A75862A0B277B009592E0 /* DoubleTapView2-1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DoubleTapView2-1.swift"; sourceTree = "<group>"; };
 		07E45CD92A09EFAB0005314D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		07E45CE52A09F8C50005314D /* DoubleTapView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTapView1.swift; sourceTree = "<group>"; };
 		07E45CE62A09F8C50005314D /* DoubleTapView3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTapView3.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				07E45CE62A09F8C50005314D /* DoubleTapView3.swift */,
 				07E45CE72A09F8C50005314D /* DoubleTapView2.swift */,
 				07E45CE82A09F8C50005314D /* DoubleTapView.swift */,
+				07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */,
+				078A75862A0B277B009592E0 /* DoubleTapView2-1.swift */,
 			);
 			path = DoubleView;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 				07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */,
 				07E45CEC2A09F8C50005314D /* DoubleTapView.swift in Sources */,
 				B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */,
+				078A75872A0B277B009592E0 /* DoubleTapView2-1.swift in Sources */,
 				B5246A9D2A01435300656A33 /* RotationView2.swift in Sources */,
 				07E45CEB2A09F8C50005314D /* DoubleTapView2.swift in Sources */,
 				B5CCC36E2A09438400C418B3 /* PanViewMain.swift in Sources */,
@@ -298,6 +305,7 @@
 				B5246AA72A07F35300656A33 /* PanView2.swift in Sources */,
 				07E45CEA2A09F8C50005314D /* DoubleTapView3.swift in Sources */,
 				B5246A9F2A014E1C00656A33 /* RotationView3.swift in Sources */,
+				07451F8C2A0AAE1C00F557B8 /* DoubleTapView4.swift in Sources */,
 				07E45CE92A09F8C50005314D /* DoubleTapView1.swift in Sources */,
 				B5246A752A0010DF00656A33 /* MC2App.swift in Sources */,
 				B5246A942A00ACAD00656A33 /* ColorExtension.swift in Sources */,

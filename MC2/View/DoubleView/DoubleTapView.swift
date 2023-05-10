@@ -11,7 +11,9 @@ struct DoubleTapView: View {
     enum ViewState {
         case first
         case second
+        case second1
         case third
+        case four
     }
     
     @State private var viewState: ViewState = .first
@@ -24,11 +26,30 @@ struct DoubleTapView: View {
                     viewState = .second
                 })
             case .second:
+//                EmptyView()
                 DoubleTapView2(nextViewAction: {
+                    viewState = .second1
+                })
+            case .second1:
+//                EmptyView()
+                DoubleTapView2_1(nextViewAction: {
                     viewState = .third
                 })
             case .third:
-                DoubleTapView3()
+                DoubleTapView3(nextViewAction: {
+                    viewState = .four
+                })
+            case .four:
+                DoubleTapView4()
+            }
+            
+        }
+        .padding(.horizontal,16)
+//        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("두 번 누르기")
             }
         }
     }

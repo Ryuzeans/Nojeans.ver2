@@ -1,13 +1,13 @@
 //
-//  DoubleTapView1.swift
+//  DoubleTapView2-1.swift
 //  MC2
 //
-//  Created by 하명관 on 2023/05/08.
+//  Created by 하명관 on 2023/05/10.
 //
 
 import SwiftUI
 
-struct DoubleTapView2: View {
+struct DoubleTapView2_1: View {
     
     @State private var doubleTapActive: Bool = false
     @State private var tapcount: Int = 0
@@ -22,24 +22,23 @@ struct DoubleTapView2: View {
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: doubleTapActive ? .infinity : 100 )
-                        .frame(height: doubleTapActive ? geo.size.height : geo.size.height / 3)
+                        .frame(height: doubleTapActive ? geo.size.height/2 : geo.size.height / 3)
                         .onTapGesture(count: 2) {
                             withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
                                 tapcount += 1
                                 doubleTapActive.toggle()
                                 print(tapcount)
-                                
                             }
                         }
                         .padding(.horizontal,25)
                     
-                    Text("가볍게 두 번 \n눌러볼까요?")
+                    Text("마지막으로\n한 번 더!")
                         .font(.system(size: geo.size.width / 9).weight(.bold))
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 0 : 1)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/6.5)
                     
-                    Text("한 번 더 \n해볼까요?")
+                    Text("잘하셨어요!")
                         .foregroundColor(.white)
                         .font(.system(size: geo.size.width / 9).weight(.bold))
                         .frame(maxWidth: .infinity)
@@ -50,11 +49,19 @@ struct DoubleTapView2: View {
                                 doubleTapActive.toggle()
                                 tapcount += 1
                                 print(tapcount)
-                                if tapcount >= 1 {
-                                    nextViewAction()
-                                }
                             }
                         }
+                    
+                    VStack(){
+                        Spacer()
+                        Button("다음") {
+                            nextViewAction()
+                        }
+                        .opacity(doubleTapActive ? 1 : 0)
+                        .btnStyle()
+                        
+                        
+                    }
                 }
             }
         }
@@ -62,8 +69,8 @@ struct DoubleTapView2: View {
     
 }
 
-//struct DoubleTapView2_Previews: PreviewProvider {
-//    static var previews: some View {
-////        DoubleTapView2()
-//    }
-//}
+struct DoubleTapView2_1_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}
