@@ -29,6 +29,10 @@
 		B5CCC36E2A09438400C418B3 /* PanViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCC36D2A09438300C418B3 /* PanViewMain.swift */; };
 		B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCC36F2A09474200C418B3 /* RotationViewMain.swift */; };
 		B5CCC3742A094D7100C418B3 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCC3732A094D7100C418B3 /* ViewExtension.swift */; };
+		DCCD5A3D2A0B2F8D0058FF45 /* TapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD5A3C2A0B2F8D0058FF45 /* TapView.swift */; };
+		DCCD5A3F2A0B306E0058FF45 /* TapView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD5A3E2A0B306E0058FF45 /* TapView1.swift */; };
+		DCCD5A412A0B31250058FF45 /* TapViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD5A402A0B31250058FF45 /* TapViewMain.swift */; };
+		DCCD5A432A0B36250058FF45 /* TapView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCD5A422A0B36250058FF45 /* TapView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,10 @@
 		B5CCC36D2A09438300C418B3 /* PanViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanViewMain.swift; sourceTree = "<group>"; };
 		B5CCC36F2A09474200C418B3 /* RotationViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationViewMain.swift; sourceTree = "<group>"; };
 		B5CCC3732A094D7100C418B3 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		DCCD5A3C2A0B2F8D0058FF45 /* TapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView.swift; sourceTree = "<group>"; };
+		DCCD5A3E2A0B306E0058FF45 /* TapView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView1.swift; sourceTree = "<group>"; };
+		DCCD5A402A0B31250058FF45 /* TapViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapViewMain.swift; sourceTree = "<group>"; };
+		DCCD5A422A0B36250058FF45 /* TapView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,10 @@
 		B5246A8D2A00AC2700656A33 /* TapView */ = {
 			isa = PBXGroup;
 			children = (
+				DCCD5A3C2A0B2F8D0058FF45 /* TapView.swift */,
+				DCCD5A3E2A0B306E0058FF45 /* TapView1.swift */,
+				DCCD5A422A0B36250058FF45 /* TapView2.swift */,
+				DCCD5A402A0B31250058FF45 /* TapViewMain.swift */,
 			);
 			path = TapView;
 			sourceTree = "<group>";
@@ -289,6 +301,7 @@
 			files = (
 				B5246A9B2A0140E500656A33 /* RotationView1.swift in Sources */,
 				07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */,
+				DCCD5A412A0B31250058FF45 /* TapViewMain.swift in Sources */,
 				07E45CEC2A09F8C50005314D /* DoubleTapView.swift in Sources */,
 				B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */,
 				B5246A9D2A01435300656A33 /* RotationView2.swift in Sources */,
@@ -303,10 +316,13 @@
 				07E45CEA2A09F8C50005314D /* DoubleTapView3.swift in Sources */,
 				B5246A9F2A014E1C00656A33 /* RotationView3.swift in Sources */,
 				07E45CE92A09F8C50005314D /* DoubleTapView1.swift in Sources */,
+				DCCD5A3F2A0B306E0058FF45 /* TapView1.swift in Sources */,
 				B5246A752A0010DF00656A33 /* MC2App.swift in Sources */,
+				DCCD5A432A0B36250058FF45 /* TapView2.swift in Sources */,
 				B5246A942A00ACAD00656A33 /* ColorExtension.swift in Sources */,
 				B5CCC3742A094D7100C418B3 /* ViewExtension.swift in Sources */,
 				B5246A972A00CB7100656A33 /* RotationView0.swift in Sources */,
+				DCCD5A3D2A0B2F8D0058FF45 /* TapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
