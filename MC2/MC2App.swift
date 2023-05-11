@@ -12,7 +12,6 @@ struct MC2App: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-
         }
     }
 }
