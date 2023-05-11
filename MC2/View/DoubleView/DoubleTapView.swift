@@ -59,6 +59,6 @@ struct DoubleTapView: View {
 
 struct DoubleTapView_Previews: PreviewProvider {
     static var previews: some View {
-        DoubleTapView()
+        MainView()
     }
 }

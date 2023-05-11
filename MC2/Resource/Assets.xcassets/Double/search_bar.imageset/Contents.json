@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "search_bar.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -10,6 +9,7 @@
       "scale" : "2x"
     },
     {
+      "filename" : "search_bar1.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

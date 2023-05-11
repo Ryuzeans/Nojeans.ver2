@@ -19,7 +19,6 @@ struct DoubleTapView4: View {
             Image("sample")
                 .resizable()
                 .scaleEffect(scale)
-                
                 .gesture(
                     TapGesture(count: 2)
                         .onEnded{ _ in
@@ -33,13 +32,20 @@ struct DoubleTapView4: View {
                             }
                         })
                 .frame(height: 400)
+                .position(x:196.5, y:300)
             
-            Text("두 번 눌러볼까요?")
-                .font(.customTitle())
-                .frame(height: 132)
-                .frame(maxWidth: .infinity)
-                .foregroundColor(.black)
-                .background(Color.white)
+            Rectangle()
+                .foregroundColor(Color.white)
+                .frame(height: 200)
+                .overlay(
+                    Text("두 번 눌러볼까요?")
+                        .font(.customTitle())
+                        .frame(height: 132)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.black)
+                )
+                
+
                 .padding(.bottom,520)
                 .opacity(isZoomed ? 0 : 1)
             
@@ -60,7 +66,7 @@ struct DoubleTapView4: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        DoubleTapView()
+        DoubleTapView4()
     }
 }
 
