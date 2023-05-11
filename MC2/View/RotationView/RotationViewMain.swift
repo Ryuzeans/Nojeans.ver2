@@ -21,7 +21,7 @@ struct RotationViewMain: View {
             case 3:
                 RotationView3(tag: $tag)
             default:
-                RotationView0(tag: $tag)
+                MainView()
             }
             
         }

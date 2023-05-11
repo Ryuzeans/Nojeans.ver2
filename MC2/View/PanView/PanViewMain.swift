@@ -20,7 +20,7 @@ struct PanViewMain: View {
             case 2:
                 PanView2(tag: $tag)
             default:
-                PanView0()
+                MainView()
             }
             
             VStack {
@@ -34,6 +34,7 @@ struct PanViewMain: View {
                         Text("다음")
                     }
                     .btnStyle()
+                    .padding(.horizontal,16)
                 }
             }
             

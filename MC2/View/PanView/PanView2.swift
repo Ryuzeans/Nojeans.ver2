@@ -16,8 +16,10 @@ struct PanView2: View {
         
         ZStack {
             MapView()
+                .ignoresSafeArea()
             
             Color.black.opacity(showing ? 0 : 0.7)
+                .ignoresSafeArea()
                 .edgesIgnoringSafeArea(.all)
             
             if showing == false {
@@ -41,6 +43,8 @@ struct PanView2: View {
                     Text("처음으로")
                 }
                 .btnStyle()
+                .padding(.horizontal,16)
+
             }
             
             

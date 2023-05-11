@@ -45,6 +45,8 @@ struct RotationView0: View {
                     Text("다음")
                 }
                 .btnStyle()
+                .padding(.horizontal,16)
+
             }
         }
 //        GeometryReader { geo in
