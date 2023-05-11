@@ -69,10 +69,10 @@
 		100D34E32A0B6842009AAEA0 /* DragView3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragView3.swift; sourceTree = "<group>"; };
 		100D34E42A0B6842009AAEA0 /* DragView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragView1.swift; sourceTree = "<group>"; };
 		100D34E52A0B6842009AAEA0 /* DragView0.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragView0.swift; sourceTree = "<group>"; };
-		608045D32A0B1F1E0069F680 /* SwipeView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwipeView1.swift; path = "MC2/View/SwipeView/MC2/View/SwipeView/New Group/SwipeView1.swift"; sourceTree = SOURCE_ROOT; };
-		608045D52A0B1F2A0069F680 /* SwipeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwipeView2.swift; path = "MC2/View/SwipeView/MC2/View/SwipeView/New Group/SwipeView2.swift"; sourceTree = SOURCE_ROOT; };
-		608045D72A0B214E0069F680 /* SwipeView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwipeView3.swift; path = "MC2/View/SwipeView/MC2/View/SwipeView/New Group/SwipeView3.swift"; sourceTree = SOURCE_ROOT; };
-		608045DA2A0B42120069F680 /* SwipeViewMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeViewMain.swift; sourceTree = "<group>"; };
+		608045D32A0B1F1E0069F680 /* SwipeView1.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SwipeView1.swift; sourceTree = "<group>"; };
+		608045D52A0B1F2A0069F680 /* SwipeView2.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SwipeView2.swift; sourceTree = "<group>"; };
+		608045D72A0B214E0069F680 /* SwipeView3.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SwipeView3.swift; sourceTree = "<group>"; };
+		608045DA2A0B42120069F680 /* SwipeViewMain.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SwipeViewMain.swift; sourceTree = "<group>"; };
 		608ADAC82A09D68D0044D0D2 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		609EFD9F2A0B70F700702210 /* LongPressMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressMainView.swift; sourceTree = "<group>"; };
 		609EFDA12A0B712600702210 /* LongPressView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressView1.swift; sourceTree = "<group>"; };
@@ -131,8 +131,7 @@
 				608045D72A0B214E0069F680 /* SwipeView3.swift */,
 				608045DA2A0B42120069F680 /* SwipeViewMain.swift */,
 			);
-			name = SwipeView;
-			path = PanView/SwipeView;
+			path = SwipeView;
 			sourceTree = "<group>";
 		};
 		B5246A682A0010DE00656A33 = {
