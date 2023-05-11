@@ -66,7 +66,7 @@ struct RotationView2: View {
                         showingSuccess = false
                     }
                 })
+
     }
 }
-
 
