@@ -9,35 +9,39 @@ import SwiftUI
 
 struct DoubleTapView4: View {
     
-    @State private var scale: CGFloat = 1.0
-    @Environment(\.dismiss) private var dismiss
-    @Binding var buttonActive: Bool
+        @State private var isZoomed = false
+        @State private var scale: CGFloat = 1.0
+        @Environment(\.dismiss) private var dismiss
 
         var body: some View {
-            GeometryReader { proxy in
-                ZStack {
+            ZStack {
+                Image("sample")
+//                    .scaledToFit()
+                .scaleEffect(scale)
+                .gesture(
+                    TapGesture(count: 2)
+                        .onEnded{ _ in
+                            withAnimation(.linear) {
+                                if isZoomed {
+                                    scale -= 1.5
+                                } else {
+                                    scale += 1.5
+                                }
+                                isZoomed.toggle()
+                            }
+                    })
+                VStack(spacing: 0) {
                     
-
-                    Image("sample")
-                        .resizable()
-                        .frame(width: proxy.size.width, height: proxy.size.height)
-                        .scaledToFit()
-                        .clipShape(Rectangle())
-                        .modifier(ImageModifier2(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height)))
+                    Text("두번 눌러볼까요?")
+                        .font(.customTitle())
+                        .frame(height: 132)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.black)
+                        .background(Color.white)
+                        .padding(.bottom,500)
                     
-                    VStack(){
-                        Text("두번 눌러볼까요?")
-                            .font(.customTitle())
-                            .frame(height: 132)
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white)
-                        Spacer()
-                        Button("처음으로")   {
-                            dismiss()
-                        }
-                        .btnStyle()
-                        
-                        
+                    Button("다음") {
+                        dismiss()
                     }
                 }
             }  

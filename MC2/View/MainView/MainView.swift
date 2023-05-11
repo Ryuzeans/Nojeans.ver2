@@ -19,7 +19,7 @@ struct MainView: View {
     let brands: [TouchGesture] = [
         .init(name: "길게 누르기", image: "Image1", subName: "Long Tap"),
         .init(name: "두 번 누르기", image: "Image2", subName: "Double Tap"),
-        .init(name: "화면 움직이기", image: "Image3", subName: "Fan"),
+        .init(name: "화면 움직이기", image: "Image3", subName: "Pan"),
         .init(name: "끌어오기", image: "Image1", subName: "Drag"),
         .init(name: "살짝 쓸기", image: "Image2", subName: "Swipe"),
         .init(name: "확대, 축소하기", image: "Image3", subName: "Zoom in, out"),
