@@ -22,7 +22,7 @@ struct DoubleTapView3: View {
                         .frame(maxWidth: .infinity,alignment: .center)
                         .multilineTextAlignment(.center)
                         .padding(.top,43)
-                        .padding(.bottom,214)
+//                        .padding(.bottom,204)
                         
                         
 
@@ -35,15 +35,16 @@ struct DoubleTapView3: View {
                             Image("paste_bar")
                                 .resizable()
                                 .scaledToFit()
-                                .opacity(doubleTapActive ? 1 : 0)
-                                .frame(maxWidth: .infinity)
-                                .offset(x:-70 , y:-40)
+//                                .opacity(doubleTapActive ? 1 : 0)
+                                .frame(maxWidth: doubleTapActive ? .infinity :0)
+                                .offset(x:-55 , y:-45)
                         )
                         .onTapGesture(count: 2) {
-                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
+                            withAnimation(.interactiveSpring(response: 0.5,dampingFraction: 0.5, blendDuration: 0.5)) {
                                 doubleTapActive.toggle()
                             }
                         }
+                        .padding(.top,200)
                         
                     Spacer()
                     

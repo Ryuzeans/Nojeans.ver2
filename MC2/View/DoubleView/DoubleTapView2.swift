@@ -11,6 +11,8 @@ struct DoubleTapView2: View {
     
     @State private var doubleTapActive: Bool = false
     @State private var tapcount: Int = 0
+    @State private var handSize : CGFloat = 150
+    @State private var flashAnimation: Bool = false
     let nextViewAction: () -> Void
     
     var body: some View {
@@ -18,7 +20,7 @@ struct DoubleTapView2: View {
             VStack {
                 ZStack() {
                     
-                    Image("TouchCircle")
+                    Image("DoubleCircle")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: doubleTapActive ? .infinity : 100 )
@@ -33,6 +35,20 @@ struct DoubleTapView2: View {
                         }
                         .padding(.horizontal,25)
                     
+                    Image("TouchHand")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: handSize)
+                        .position(x:doubleTapActive ? 2000 : 250,y:500)
+                        .opacity(flashAnimation ? 1 : 0)
+                        .onAppear{
+                            withAnimation(.linear(duration: 0.7).repeatForever(autoreverses: true)){
+                                                       flashAnimation.toggle()
+                                                       // withAnimation:모든 glow에 적용 .linear: 일정한속도, duration: 0.5초동안 반짝거리기 . repeatforever(autoreverses:true)끝없이 반복
+                                                       
+                                                   }
+                        }
+                    
                     Text("가볍게 두 번 \n눌러볼까요?")
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
@@ -41,13 +57,14 @@ struct DoubleTapView2: View {
                     
                     Text("한 번 더 \n해볼까요?")
                         .foregroundColor(.white)
-                        .font(.customExplain())
+                        .font(.customTitle())
+                        .frame(height: 400)
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 1 : 0)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
                         .onTapGesture(count: 2) {
                             withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
-                                doubleTapActive.toggle()
+                                doubleTapActive = true
                                 tapcount += 1
                                 print(tapcount)
                                 if tapcount >= 1 {

@@ -26,13 +26,13 @@ struct DoubleTapView1: View {
                     .font(.system(size: 48,weight: .black))
                     .padding(.top,8)
                 
-                Image("TouchCircle")
+                Image("DoubleCircle")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 116, height: 116)
                     .padding(.top,95)
                 
-                Text("사진을 확대/축소할 때,\n글자를 수정할 때\n 사용해요")
+                Text("사진을 확대/축소할 때,\n글자를 수정할 때\n사용해요")
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.leading)
                     .lineSpacing(10)
