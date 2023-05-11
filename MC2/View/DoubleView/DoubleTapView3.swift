@@ -57,8 +57,10 @@ struct DoubleTapView3: View {
                     }
                     .opacity(doubleTapActive ? 1 : 0)
                     .btnStyle()
+                 
                 }
             }
+            .padding(.horizontal,16)
         }
     }
 }

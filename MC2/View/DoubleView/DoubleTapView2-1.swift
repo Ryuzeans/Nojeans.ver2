@@ -59,7 +59,7 @@ struct DoubleTapView2_1: View {
                         }
                         .opacity(doubleTapActive ? 1 : 0)
                         .btnStyle()
-                        
+                        .padding(.horizontal,16)
                         
                     }
                 }

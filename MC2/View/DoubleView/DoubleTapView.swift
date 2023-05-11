@@ -41,11 +41,10 @@ struct DoubleTapView: View {
                     viewState = .four
                 })
             case .four:
-                DoubleTapView4(buttonActive: $buttonActive)
+                DoubleTapView4()
             }
             
         }
-        .padding(.horizontal,16)
         .navigationBarBackButtonHidden(true)
 //        .navigationBarTitleDisplayMode(.inline)
 //        .toolbar {
