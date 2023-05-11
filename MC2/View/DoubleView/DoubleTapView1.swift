@@ -48,10 +48,11 @@ struct DoubleTapView1: View {
                     nextViewAction()
                 }
                 .btnStyle()
-                
+
                 
             }
         }
+        .padding(.horizontal,16)
         
         
     }
