@@ -13,25 +13,31 @@ struct TapView2: View {
 
     
     var body: some View {
-        VStack{
-            
-            Text("잘하셨어요!\n이제 부터 저의 설명에 따라\n터치 여행을 떠나봐요.")
-                .font(.system(size: 40 , weight: .bold))
-                .frame(height : 200)
+        ZStack(alignment: .bottom){
+            VStack{
+                Spacer()
+                Text("잘하셨어요!\n이제 부터 저의 설명에 따라\n터치 여행을 떠나봐요.")
+                    .font(.system(size: 40 , weight: .bold))
+                    .frame(height : 200)
 
-                Image("TouchBall")
-                }
-                
-                Button(action: {
-                    tag += 1
-                }) {
-                Image("RButton")
-                .padding(.top,700)
-                    
+                    Image("TouchBall")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100,height: 100)
+                Spacer()
+                    }
+            Button {
+                tag += 1
+            } label: {
+                Text("다음")
+                    .font(.customNextButton())
+                                }
+                      .btnStyle()
+        }
                 }
                 
             }
-    }
+
     
 
 struct TapView2_Previews: PreviewProvider {
