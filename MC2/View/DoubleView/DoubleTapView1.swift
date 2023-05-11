@@ -17,14 +17,16 @@ struct DoubleTapView1: View {
             VStack(alignment: .center,spacing: 0){
                 
                 Text("두번 누르기")
-                    .font(.system(size: 48,weight: .black))
+                    .font(.customTitle())
                     .padding(.top, 41)
                 
                 Text("(Double Tap)")
+                    .foregroundColor(Color("SubTitleColor"))
+                    .font(.customEngTitle())
                     .font(.system(size: 48,weight: .black))
                     .padding(.top,8)
                 
-                Image("PanCircle")
+                Image("TouchCircle")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 116, height: 116)
@@ -34,7 +36,7 @@ struct DoubleTapView1: View {
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.leading)
                     .lineSpacing(10)
-                    .font(.system(size: 32,weight: .light))
+                    .font(.customExplain())
                     .padding(.top,104)
                     .padding(.bottom,32)
                 
