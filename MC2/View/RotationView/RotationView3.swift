@@ -36,9 +36,11 @@ struct RotationView3: View {
                 Button {
                     tag += 1
                 } label: {
-                    Text("다음")
+                    Text("처음으로")
                 }
                 .btnStyle()
+                .padding(.horizontal,16)
+
             }
         }
     }

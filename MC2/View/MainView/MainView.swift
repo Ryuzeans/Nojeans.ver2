@@ -69,38 +69,39 @@ struct MainView: View {
                     .padding(.horizontal,16)
                     .navigationDestination(for: TouchGesture.self) { brand in
                         VStack{
-    //                        Button {
-    //                            navigationPath = []
-    //                        } label: {
-    //                            HStack(spacing: 5) {
-    //
-    //                                Image(systemName: "chevron.backward")
-    //                                    .frame(width: 6, height: 11)
-    //                                    .foregroundColor(.pink)
-    //
-    //                                Text("처음으로")
-    //                                    .font(.system(size: 16))
-    //                                    .foregroundColor(.pink)
-    //
-    //                                Spacer()
-    //
-    //                                Text("\(brand.name)")
-    //                                    .font(.system(size: 17))
-    //                                    .fontWeight(.black)
-    //                                    .foregroundColor(.gray)
-    //
-    //                                Spacer()
-    //
-    //                                Spacer()
-    //
-    //
-    //                            }
-    //                            .frame(maxWidth: .infinity,alignment: .leading)
-    //                            .padding(.horizontal,16)
-    //                            .padding(.vertical,20)
-    //                            .background(Color.gray.opacity(0.4))
-    //
-    //                        }
+                            Button {
+                                navigationPath = []
+                            } label: {
+                                HStack(spacing: 5) {
+    
+                                    Image(systemName: "chevron.backward")
+                                        .frame(width: 6, height: 11)
+                                        .foregroundColor(.pink)
+    
+                                    Text("처음으로")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.pink)
+    
+                                    Spacer()
+    
+                                    Text("\(brand.name)")
+                                        .font(.system(size: 17))
+                                        .fontWeight(.black)
+                                        .foregroundColor(.gray)
+    
+                                    Spacer()
+    
+                                    Spacer()
+    
+    
+                                }
+                                .frame(maxWidth: .infinity,alignment: .leading)
+                                .padding(.horizontal,16)
+                                .padding(.vertical,20)
+                                .background(Color("HeaderColor"))
+                                
+    
+                            }
                             viewForBrand(brand)
                             
                             
@@ -116,13 +117,17 @@ struct MainView: View {
     func viewForBrand(_ brand: TouchGesture) -> AnyView {
         switch brand.name {
         case "길게 누르기":
-            return AnyView(Color.gray)
+            return AnyView(LongPressMain())
         case "두 번 누르기":
             return AnyView(DoubleTapView())
-        case "나침반":
+        case "화면 움직이기":
             return AnyView(PanViewMain())
+        case "끌어오기":
+            return AnyView(DragViewMain())
         case "살짝 쓸기":
             return AnyView(SwipeViewMain())
+        case "확대, 축소하기":
+            return AnyView(ZoomViewMain())
         case "회전하기":
             return AnyView(RotationViewMain())
         default:

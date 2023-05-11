@@ -16,6 +16,7 @@ struct SwipeViewMain: View {
             SwipeView2(selection: $selection).tag(2)
             SwipeView3(selection: $selection).tag(3)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
