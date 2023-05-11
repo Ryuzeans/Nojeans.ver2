@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DoubleTapView1: View {
-    
+
     let nextViewAction: () -> Void
 
     var body: some View {

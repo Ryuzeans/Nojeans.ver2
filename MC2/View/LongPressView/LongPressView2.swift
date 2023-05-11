@@ -15,13 +15,18 @@ struct LongPressView2: View {
     
     var body: some View {
         VStack {
-            Text("아래 카메라를\n 3초간\n눌러 볼까요?")
+            Text("카메라를 1초간\n눌러 볼까요?")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
                 .padding(.top, 80)
-              
+            Spacer()
             Image("Camera")
-                .padding()
+                .padding(16)
+                .onLongPressGesture(minimumDuration: 1.0, perform: {
+                    buttonActive = true
+                }, onPressingChanged: { _ in
+                    buttonActive = true
+                })
                 .contextMenu {
                     Button {} label: {Label("셀피 찍기", systemImage: "person.crop.square")}
                     Button {} label: {Label("비디오 녹화", systemImage: "video")}
@@ -31,28 +36,19 @@ struct LongPressView2: View {
                     Button {} label: {Label("홈 화면 편집", systemImage: "apps.iphone")}
                     Button(role: .destructive) {} label: {Label("앱 제거", systemImage: "minus.circle")}
                 }
-                .gesture(
-                    LongPressGesture(minimumDuration: 1.0)
-                        .updating($isUpdating, body: {currentState, gestureState, transaction in
-                            gestureState = currentState
-                        })
-                        .onEnded{ value in
-                            buttonActive = true
-                        }
-                )
-            
+            Spacer()
             if buttonActive {
                 Button {
-                    //TODO: 다음 뷰 이동
+                   // TODO: DoubleTapView로 수정
                 } label: {
-                    Text("다음").foregroundColor(.white)
-                }.btnStyle().padding()
+                    Text("다음").font(.customNextButton())
+                }.offset(y: 52).btnStyle().frame(height: 50)
             } else {
                 Button { } label: {
-                    Text("").foregroundColor(.white)
-                }.padding()
+                    Text("")
+                }.offset(y: 52).frame(height: 50)
             }
-        }.edgesIgnoringSafeArea(.all)
+        }.padding(16)
     }
 }
 

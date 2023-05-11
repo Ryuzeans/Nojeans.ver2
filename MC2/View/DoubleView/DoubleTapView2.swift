@@ -62,8 +62,8 @@ struct DoubleTapView2: View {
     
 }
 
-//struct DoubleTapView2_Previews: PreviewProvider {
-//    static var previews: some View {
-////        DoubleTapView2()
-//    }
-//}
+struct DoubleTapView2_Previews: PreviewProvider {
+    static var previews: some View {
+        DoubleTapView()
+    }
+}

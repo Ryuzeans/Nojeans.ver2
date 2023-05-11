@@ -23,6 +23,7 @@ struct DragViewMain: View {
                 DragView0(tag: $tag)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
