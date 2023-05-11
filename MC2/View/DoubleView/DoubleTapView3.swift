@@ -18,7 +18,7 @@ struct DoubleTapView3: View {
                 VStack(spacing: 0){
                     
                     Text(doubleTapActive ? "\n잘하셨어요!" : "검색창을 두 번 \n눌러볼까요?" )
-                        .font(.system(size: 48).weight(.black))
+                        .font(.customTitle())
                         .frame(maxWidth: .infinity,alignment: .center)
                         .multilineTextAlignment(.center)
                         .padding(.top,43)

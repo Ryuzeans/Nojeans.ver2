@@ -11,7 +11,7 @@ struct DoubleTapView4: View {
     
         @State private var isZoomed = false
         @State private var scale: CGFloat = 1.0
-    
+        @Environment(\.dismiss) private var dismiss
 
         var body: some View {
             ZStack {
@@ -21,25 +21,27 @@ struct DoubleTapView4: View {
                 .gesture(
                     TapGesture(count: 2)
                         .onEnded{ _ in
-                            if isZoomed {
-                                scale -= 1.5
-                            } else {
-                                scale += 1.5
+                            withAnimation(.linear) {
+                                if isZoomed {
+                                    scale -= 1.5
+                                } else {
+                                    scale += 1.5
+                                }
+                                isZoomed.toggle()
                             }
-                            isZoomed.toggle()
                     })
                 VStack(spacing: 0) {
                     
                     Text("두번 눌러볼까요?")
+                        .font(.customTitle())
                         .frame(height: 132)
                         .frame(maxWidth: .infinity)
                         .foregroundColor(.black)
                         .background(Color.white)
-                        .font(.system(size: 48,weight: .black))
                         .padding(.bottom,500)
                     
                     Button("다음") {
-                        
+                        dismiss()
                     }
                     .btnStyle()
                     .animation(.linear)
