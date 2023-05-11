@@ -11,13 +11,17 @@ import MapKit
 struct PanView2: View {
     @State private var showing = false
     @Binding var tag :Int
+    @Environment(\.dismiss) private var dismiss
+
 
     var body: some View {
         
         ZStack {
             MapView()
+                .ignoresSafeArea()
             
             Color.black.opacity(showing ? 0 : 0.7)
+                .ignoresSafeArea()
                 .edgesIgnoringSafeArea(.all)
             
             if showing == false {
@@ -36,11 +40,13 @@ struct PanView2: View {
                 
                 Spacer()
                 Button {
-                    tag += 1
+                    dismiss()
                 } label: {
                     Text("처음으로")
                 }
                 .btnStyle()
+                .padding(.horizontal,16)
+
             }
             
             

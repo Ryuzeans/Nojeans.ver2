@@ -18,7 +18,7 @@ struct DoubleTapView2_1: View {
             VStack {
                 ZStack() {
                     
-                    Image("PanCircle")
+                    Image("TouchCircle")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: doubleTapActive ? .infinity : 100 )
@@ -33,14 +33,14 @@ struct DoubleTapView2_1: View {
                         .padding(.horizontal,25)
                     
                     Text("마지막으로\n한 번 더!")
-                        .font(.system(size: geo.size.width / 9).weight(.bold))
+                        .font(.customTitle())
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 0 : 1)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/6.5)
                     
                     Text("잘하셨어요!")
                         .foregroundColor(.white)
-                        .font(.system(size: geo.size.width / 9).weight(.bold))
+                        .font(.customTitle())
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 1 : 0)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
@@ -59,7 +59,7 @@ struct DoubleTapView2_1: View {
                         }
                         .opacity(doubleTapActive ? 1 : 0)
                         .btnStyle()
-                        
+                        .padding(.horizontal,16)
                         
                     }
                 }

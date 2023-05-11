@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PanViewMain: View {
     @State private var tag: Int = 0
+//    @Binding var path: NavigationPath
     var body: some View {
         ZStack {
             switch tag {
@@ -20,7 +21,7 @@ struct PanViewMain: View {
             case 2:
                 PanView2(tag: $tag)
             default:
-                PanView0()
+                EmptyView()
             }
             
             VStack {
@@ -34,15 +35,18 @@ struct PanViewMain: View {
                         Text("다음")
                     }
                     .btnStyle()
+                    .padding(.horizontal,16)
                 }
             }
             
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 struct PanViewMain_Previews: PreviewProvider {
     static var previews: some View {
+//        PanViewMain(path: $NavigationPath)
         PanViewMain()
     }
 }

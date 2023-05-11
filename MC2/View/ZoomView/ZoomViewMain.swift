@@ -23,6 +23,7 @@ struct ZoomViewMain: View {
                 DragView0(tag: $tag)
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 
 }

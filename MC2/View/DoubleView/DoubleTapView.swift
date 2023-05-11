@@ -17,6 +17,7 @@ struct DoubleTapView: View {
     }
     
     @State private var viewState: ViewState = .first
+    @State private var buttonActive: Bool = false
     
     var body: some View {
         VStack {
@@ -44,14 +45,13 @@ struct DoubleTapView: View {
             }
             
         }
-        .padding(.horizontal,16)
-//        .navigationBarBackButtonHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("두 번 누르기")
-            }
-        }
+        .navigationBarBackButtonHidden(true)
+//        .navigationBarTitleDisplayMode(.inline)
+//        .toolbar {
+//            ToolbarItem(placement: .principal) {
+//                Text("두 번 누르기")
+//            }
+//        }
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RotationView3: View {
     @Binding var tag :Int
+    @Environment(\.dismiss) private var dismiss
     var body: some View {
         ZStack {
             VStack {
@@ -34,11 +35,14 @@ struct RotationView3: View {
                 Spacer()
                 
                 Button {
-                    tag += 1
+//                    tag += 1
+                    dismiss()
                 } label: {
-                    Text("다음")
+                    Text("처음으로")
                 }
                 .btnStyle()
+                .padding(.horizontal,16)
+
             }
         }
     }
