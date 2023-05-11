@@ -16,7 +16,7 @@ struct BtnStyle: ButtonStyle {
             .font(.headline)
             .padding(.horizontal, 16)
             .foregroundColor(.white)
-            .background(Color.blue)
+            .background(Color("BrandColor"))
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
     }
