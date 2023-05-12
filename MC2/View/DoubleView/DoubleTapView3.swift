@@ -10,6 +10,7 @@ import SwiftUI
 struct DoubleTapView3: View {
     
     @State private var doubleTapActive: Bool = false
+    @State private var buttonActive: Bool = false
     let nextViewAction: () -> Void
     
     var body: some View {
@@ -17,7 +18,7 @@ struct DoubleTapView3: View {
             ZStack{
                 VStack(spacing: 0){
                     
-                    Text(doubleTapActive ? "잘하셨어요!" : "검색창을 두 번\n눌러볼까요?" )
+                    Text(doubleTapActive ? "잘하셨어요!\n" : "검색창을 두 번\n눌러볼까요?" )
                         .font(.customTitle())
                         .frame(maxWidth: .infinity,alignment: .center)
                         .multilineTextAlignment(.center)
@@ -41,7 +42,8 @@ struct DoubleTapView3: View {
                         )
                         .onTapGesture(count: 2) {
                             withAnimation(.interactiveSpring(response: 0.5,dampingFraction: 0.5, blendDuration: 0.5)) {
-                                doubleTapActive = true
+                                doubleTapActive.toggle()
+                                buttonActive = true
                             }
                         }
                         .padding(.top,200)
@@ -56,7 +58,7 @@ struct DoubleTapView3: View {
                     Button("다음") {
                         nextViewAction()
                     }
-                    .opacity(doubleTapActive ? 1 : 0)
+                    .opacity(buttonActive ? 1 : 0)
                     .btnStyle()
                  
                 }

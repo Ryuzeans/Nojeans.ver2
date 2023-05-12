@@ -26,14 +26,13 @@ struct DoubleTapView2: View {
                         .frame(maxWidth: doubleTapActive ? .infinity : 100 )
                         .frame(height: doubleTapActive ? geo.size.height : geo.size.height / 3)
                         .onTapGesture(count: 2) {
-                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
+                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.4, blendDuration: 0.4)) {
+                                doubleTapActive = true
                                 tapcount += 1
-                                doubleTapActive.toggle()
                                 print(tapcount)
                                 if tapcount >= 2 {
                                     nextViewAction()
                                 }
-                                
                             }
                         }
                         .padding(.horizontal,25)
@@ -42,7 +41,7 @@ struct DoubleTapView2: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: handSize)
-                        .position(x:doubleTapActive ? 2000 : 220,y: flashAnimation ? 550 : 500)
+                        .position(x:doubleTapActive ? 600 : 220,y: flashAnimation ? 550 : 500)
 //                        .opacity(flashAnimation ? 1 : 0)
                         .onAppear{
                             withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)){
@@ -52,14 +51,15 @@ struct DoubleTapView2: View {
                                                    }
                         }
                     
-                    Text("가볍게 두 번 \n눌러볼까요?")
+                    Text("가볍게 두 번\n눌러볼까요?")
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 0 : 1)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.3)
 
                     
-                    Text("한 번 더 \n해볼까요?")
+                    Text("한 번 더\n해볼까요?")
+                        .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .font(.customTitle())
                         .frame(height: 400)
@@ -67,7 +67,7 @@ struct DoubleTapView2: View {
                         .opacity(doubleTapActive ? 1 : 0)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
                         .onTapGesture(count: 2) {
-                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
+                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.4, blendDuration: 0.4)) {
                                 doubleTapActive = true
                                 tapcount += 1
                                 print(tapcount)

@@ -10,6 +10,7 @@ import SwiftUI
 struct DoubleTapView2_1: View {
     
     @State private var doubleTapActive: Bool = false
+    @State private var buttonActive: Bool = false
     @State private var tapcount: Int = 0
     let nextViewAction: () -> Void
     
@@ -27,6 +28,7 @@ struct DoubleTapView2_1: View {
                             withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
                                 tapcount += 1
                                 doubleTapActive.toggle()
+                                buttonActive = true
                                 print(tapcount)
                             }
                         }
@@ -47,7 +49,7 @@ struct DoubleTapView2_1: View {
                         .opacity(doubleTapActive ? 1 : 0)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
                         .onTapGesture(count: 2) {
-                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.5, blendDuration: 0.5)) {
+                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.4, blendDuration: 0.4)) {
                                 doubleTapActive.toggle()
                                 tapcount += 1
                                 print(tapcount)
@@ -59,7 +61,7 @@ struct DoubleTapView2_1: View {
                         Button("다음") {
                             nextViewAction()
                         }
-                        .opacity(doubleTapActive ? 1 : 0)
+                        .opacity(buttonActive ? 1 : 0)
                         .btnStyle()
                         .padding(.horizontal,16)
                         
