@@ -15,26 +15,25 @@ struct Message: Identifiable, Equatable, Hashable {
     var time: String
 }
 
-var messageData =  [
-    Message(imageName: "person.circle.fill", phNumber: "+82-1234-5678", text: "[Web]\n손오공, 별천지...", time: "오후 4:20"),
-    Message(imageName: "person.circle.fill", phNumber: "+1-1353-8843", text: "[WEB 발신] 회신 주세요...\n", time: "어제"),
-    Message(imageName: "person.circle.fill", phNumber: "+010-9471-8933", text: "안녕하세요...\n", time: "금요일")
-]
-
 struct SwipeView3: View {
     @State var btnActive = false
     @Binding var swpSelection: Int
     
+    @State var messageData =  [
+        Message(imageName: "person.circle.fill", phNumber: "+82-1234-5678", text: "[Web]\n손오공, 별천지...", time: "오후 4:20"),
+        Message(imageName: "person.circle.fill", phNumber: "+1-1353-8843", text: "[WEB 발신] 회신 주세요...\n", time: "어제"),
+        Message(imageName: "person.circle.fill", phNumber: "+010-9471-8933", text: "안녕하세요...\n", time: "금요일")
+    ]
+    
     var body: some View {
         VStack {
-            Text("메시지를 밀고\n휴지통을 눌러\n삭제해 보세요")
+            Text("메시지를 밀어서\n삭제해 보세요")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 80)
+                .padding(.top, 60)
             
             List() {
                 ForEach(messageData, id: \.id) { message in
-               
                     HStack {
                         Image(systemName: message.imageName)
                             .font(.system(size: 44))
@@ -51,8 +50,7 @@ struct SwipeView3: View {
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button(role: .destructive , action: {
                             btnActive = true
-                            deleteMessage(message)
-
+                            self.deleteMessage(message)
                         }) {
                             Image(systemName: "trash.fill")
                         }
@@ -69,17 +67,19 @@ struct SwipeView3: View {
             .listStyle(.plain)
             .frame(maxHeight: 320)
             
+            Spacer()
+
             if btnActive {
                 Button {
                     //TODO: FanView로 수정
                 } label: {
                         Text("다음").font(.customNextButton())
-                }.offset(y: 52).btnStyle().frame(height: 50)
+                }.btnStyle().frame(height: 50)
             }
             else {
                 Button { } label: {
                     Text("")
-                }.offset(y: 52).frame(height: 50)
+                }.frame(height: 50)
             }
         }.padding(16)
     }

@@ -10,10 +10,17 @@ import SwiftUI
 struct LongPressMain: View {
     @State private var selection = 0
     var body: some View {
-        TabView(selection: $selection) {
-            LongPressSubscriptionView(selection: $selection).tag(0)
-            LongPressView1(selection: $selection).tag(1)
-            LongPressView2(selection: $selection).tag(2)
+        ZStack {
+            switch selection {
+            case 0:
+                LongPressSubscriptionView(selection: $selection)
+            case 1:
+                LongPressView1(selection: $selection)
+            case 2:
+                LongPressView2(selection: $selection)
+            default:
+                LongPressSubscriptionView(selection: $selection)
+            }
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -23,9 +30,8 @@ struct LongPressSubscriptionView: View {
     @Binding var selection: Int
     
     var body: some View{
-        
         VStack {
-            Text("길게 누르기").font(.customTitle()).padding(.top, 80)
+            Text("길게 누르기").font(.customTitle()).padding(.top, 60)
             Text("Long Tap").font(.customEngTitle()).foregroundColor(Color(red: 0.776, green: 0.776, blue: 0.784))
             Spacer()
             Image("TouchBall")
@@ -40,7 +46,7 @@ struct LongPressSubscriptionView: View {
                 selection = 1
             } label: {
                 Text("다음").font(.customNextButton())
-            }.btnStyle().offset(y: 52)
+            }.btnStyle()
         }.padding(16)
     }
 }
