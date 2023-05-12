@@ -35,8 +35,9 @@ struct DoubleTapView2_1: View {
                     Text("마지막으로\n한 번 더!")
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
+                        .multilineTextAlignment(.center)
                         .opacity(doubleTapActive ? 0 : 1)
-                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.2)
+                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.3)
                     
                     Text("잘하셨어요!")
                         .foregroundColor(.white)

@@ -16,11 +16,11 @@ struct DoubleTapView1: View {
         ZStack {
             VStack(alignment: .center,spacing: 0){
                 
-                Text("두번 누르기")
+                Text("두 번 누르기")
                     .font(.customTitle())
-                    .padding(.top, 41)
+                    .padding(.top, 40)
                 
-                Text("(Double Tap)")
+                Text("Double Tap")
                     .foregroundColor(Color("SubTitleColor"))
                     .font(.customEngTitle())
                     .font(.system(size: 48,weight: .black))
