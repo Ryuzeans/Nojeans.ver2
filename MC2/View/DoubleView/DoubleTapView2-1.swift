@@ -36,7 +36,7 @@ struct DoubleTapView2_1: View {
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 0 : 1)
-                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/6.5)
+                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.2)
                     
                     Text("잘하셨어요!")
                         .foregroundColor(.white)
