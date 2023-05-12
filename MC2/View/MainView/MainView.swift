@@ -39,7 +39,7 @@ struct MainView: View {
                 Color("BackgroundColor")
                     .ignoresSafeArea()
                 VStack(alignment: .leading,spacing: 0) {
-                    ScrollView{
+                    ScrollView(showsIndicators: false){
                         ForEach(brands) { brand in
                             NavigationLink(value: brand) {
                                 
@@ -64,12 +64,12 @@ struct MainView: View {
                                         }
                                             .padding(.leading,20)
                                     )
-                                    .padding(.bottom,30)
+                                    .padding(.bottom,12)
 
                             }
                         }
                     }
-                    .navigationTitle("메인")
+                    .navigationTitle("Toucher")
                     .padding(.horizontal,16)
                     .navigationDestination(for: TouchGesture.self) { brand in
                         VStack{

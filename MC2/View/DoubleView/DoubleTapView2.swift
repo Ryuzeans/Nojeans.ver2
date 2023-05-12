@@ -30,6 +30,9 @@ struct DoubleTapView2: View {
                                 tapcount += 1
                                 doubleTapActive.toggle()
                                 print(tapcount)
+                                if tapcount >= 2 {
+                                    nextViewAction()
+                                }
                                 
                             }
                         }
@@ -39,10 +42,10 @@ struct DoubleTapView2: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: handSize)
-                        .position(x:doubleTapActive ? 2000 : 250,y:500)
-                        .opacity(flashAnimation ? 1 : 0)
+                        .position(x:doubleTapActive ? 2000 : 220,y: flashAnimation ? 550 : 500)
+//                        .opacity(flashAnimation ? 1 : 0)
                         .onAppear{
-                            withAnimation(.linear(duration: 0.7).repeatForever(autoreverses: true)){
+                            withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)){
                                                        flashAnimation.toggle()
                                                        // withAnimation:모든 glow에 적용 .linear: 일정한속도, duration: 0.5초동안 반짝거리기 . repeatforever(autoreverses:true)끝없이 반복
                                                        
@@ -53,7 +56,8 @@ struct DoubleTapView2: View {
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 0 : 1)
-                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.2)
+                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.3)
+
                     
                     Text("한 번 더 \n해볼까요?")
                         .foregroundColor(.white)
