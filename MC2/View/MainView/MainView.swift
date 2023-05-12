@@ -65,6 +65,7 @@ struct MainView: View {
                                             
                                             
                                     )
+                                    .shadow(radius: 4,x:2,y:2)
                                     .padding(.bottom,30)
 
                             }
