@@ -19,7 +19,7 @@ struct LongPressView1: View {
             Text("아래 원을 1초 동안\n눌러 볼까요?")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 80)
+                .padding(.top, 60)
             
             Spacer()
             
@@ -28,18 +28,18 @@ struct LongPressView1: View {
                     .resizable()
                     .frame(width: 116, height: 116)
                     .padding(.top, 36)
-                    .scaleEffect(buttonAnimate ? 0.8 : 1.0)
+                    .scaleEffect(buttonAnimate ? 0.9 : 1.0)
                     .opacity(buttonAnimate ? 0.8 : 1.0)
                     .onAppear {
 
                         if !buttonActive {
-                            withAnimation(.spring(response: 0.4, dampingFraction: 0.4).repeatForever()) {
+                            withAnimation(.easeIn(duration: 0.8).repeatCount(6)) {
 
                                 buttonAnimate.toggle()
                             }
                         }
                     }
-                
+                    
                     .onLongPressGesture(minimumDuration: 1.0, perform: {
                         buttonActive = true
                         buttonAnimate = false
@@ -56,12 +56,12 @@ struct LongPressView1: View {
                         .cornerRadius(36)
                         .padding(.bottom, 232)
                 }
-                Image("hand")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-                    .scaleEffect(isUpdating ? 1.5 : 1.0)
-                    .rotationEffect(isUpdating ? .degrees(15) : .degrees(0))
-                    .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
+//                Image("hand")
+//                    .resizable()
+//                    .frame(width: 60, height: 60)
+//                    .scaleEffect(isUpdating ? 1.5 : 1.0)
+//                    .rotationEffect(isUpdating ? .degrees(15) : .degrees(0))
+//                    .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
                 
                 
             }.frame(height: 300)
@@ -73,15 +73,15 @@ struct LongPressView1: View {
                     selection = 2
                 } label: {
                     Text("다음").font(.customNextButton())
-                }.btnStyle().offset(y: 52)
+                }.btnStyle()
                     .frame(height: 50)
             }
             else {
                 Button {
                 } label: {
                     Text("").font(.customNextButton())
-                }.offset(y: 52)
-                    .frame(height: 50)
+                }
+                .frame(height: 50)
             }
         }.padding(16)
     }

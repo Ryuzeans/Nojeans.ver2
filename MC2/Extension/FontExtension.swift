@@ -25,6 +25,6 @@ extension Font {
         return Font.custom("AppleSDGothicNeo-Medium", size: 17, relativeTo: .subheadline)
     }
     static func customNextButton() -> Font {
-        return Font.custom("AppleSDGothicNeo-SemiBold", size: 17, relativeTo: .caption)
+        return Font.custom("AppleSDGothicNeo-Bold", size: 17, relativeTo: .subheadline)
     }
 }
