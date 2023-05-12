@@ -17,8 +17,14 @@ struct TapView2: View {
             VStack{
                 Spacer()
                 Text("잘하셨어요!\n이제 부터 저의 설명에 따라\n터치 여행을 떠나봐요.")
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
                     .font(.system(size: 40 , weight: .bold))
                     .frame(height : 200)
+                    .background(Color.red)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
+                    .padding(.bottom, 100)
 
                     Image("TouchBall")
                     .resizable()

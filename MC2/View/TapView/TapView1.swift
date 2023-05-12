@@ -9,18 +9,32 @@ struct TapView1: View {
 
     var body: some View {
         VStack{
-            Text("안녕하세요.\n저는 터처 요청 김터치예요.\n한번 더 눌러보실래요?")
-                .font(.system(size: 40 , weight: .bold))
-                .frame(height : 200)
-            Image("Bell")
+            HStack {
+                Text("안녕하세요.\n저는 터치 요청 김터치예요.\n한번 더 눌러보실래요?")
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .font(.system(size: 40 , weight: .bold))
+                    .frame(height : 200)
+                   // .padding(.bottom,100)
+            }
+            .frame(height: 200)
+            .padding(.bottom, 10)
             
+            .background(Color.red)
+            .cornerRadius(10)
+            .shadow(radius: 10)
+            .padding(.bottom,100)
+                       
             Button(action: {
                 tag += 1
             }) {
-                Image("TouchBall")
+                Image("TouchBell2")
                     .resizable()
                     .scaledToFit()
                     .frame(width: ballSize,height: ballSize)
+                    .overlay{
+                        Image("bell2").padding(.bottom,180)
+                    }
                     .animation(Animation.linear(duration: 1.3) .repeatForever(autoreverses: true))
                     .onAppear{
                         ballSize = 130}
