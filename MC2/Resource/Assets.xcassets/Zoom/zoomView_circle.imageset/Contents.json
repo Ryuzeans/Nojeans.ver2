@@ -1,11 +1,7 @@
 {
   "images" : [
     {
-<<<<<<< Updated upstream:MC2/Resource/Assets.xcassets/Double/sample.imageset/Contents.json
-      "filename" : "sampel.png",
-=======
       "filename" : "zoomView_circle.png",
->>>>>>> Stashed changes:MC2/Resource/Assets.xcassets/Zoom/zoomView_circle.imageset/Contents.json
       "idiom" : "universal",
       "scale" : "1x"
     },

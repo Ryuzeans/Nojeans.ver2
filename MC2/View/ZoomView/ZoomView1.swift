@@ -15,9 +15,12 @@ struct ZoomView1: View {
     @State private var draggedOffset1 = CGSize(width: 47, height: -47)
     @State private var accumulatedOffset1 = CGSize(width: 47, height: -47)
     //
+    @State private var dx: CGFloat = .zero
+    @State private var dy: CGFloat = .zero
+    
     @State private var draggedOffset2 = CGSize(width: -47, height: 47)
     @State private var accumulatedOffset2 = CGSize(width: -47, height: 47)
-    @State private var changedSize : CGSize = CGSize(width: 42,height: 22)
+
     @State private var isDraged = false
     @State private var isFan = false
     @State private var isFold = false
@@ -49,7 +52,7 @@ struct ZoomView1: View {
                 }
                 ZStack{
                     Rectangle()
-                        .frame(width: changedSize.width * 1.5, height: changedSize.height * 1.5)
+                        .frame(width: draggedOffset1.width * 1.3, height: -draggedOffset1.height * 0.8)
                         .cornerRadius(10)
                         .foregroundColor(Color("SubTitleColor"))
                     Image("TouchCircle")
@@ -88,34 +91,32 @@ struct ZoomView1: View {
         DragGesture()
             .onChanged { gesture in
                 isDraged = true
-                var dx = gesture.translation.width
-                var dy = gesture.translation.height
-                if dx < 0 {
-                    dx = 0
-                }
-                if dy > 0{
-                    dy = 0
-                }
-                if dx > 80{
-                    dx = 80
-                }
-                if dy < -80{
-                    dy = -80
-                }
+                dx = gesture.translation.width
+                dy = gesture.translation.height
+//                if (draggedOffset1.width - 47) < 0 {
+//                    dx = 0
+//                }
+//                if (draggedOffset1.width - 47) > 80{
+//                    dx = 80
+//                }
+//                if (draggedOffset1.height + 47) > 0{
+//                    dy = 0
+//                }
+//                if (draggedOffset1.height + 47) < -80{
+//                    dy = -80
+//                }
                 if(dx > 70 && dy < -70){
                     isFan = true;
                 }
                 if(dx < 10 && dy > -10 && isFan){
                     isFold = true
                 }
-                changedSize = CGSize(width: dx, height: -dy) + CGSize(width: 42,height: 22)
-                let upperCircle = CGSize(width: dx, height: dy)
-                let underCircle = CGSize(width: -dx, height: -dy)
-                draggedOffset1 = accumulatedOffset1 + upperCircle
-                draggedOffset2 = accumulatedOffset2 + underCircle
+                draggedOffset1 = accumulatedOffset1 + CGSize(width: dx, height: dy)
+                draggedOffset2 = accumulatedOffset2 + CGSize(width: -dx, height: -dy)
             }
             .onEnded { gesture in
-                
+                accumulatedOffset1 = accumulatedOffset1 + CGSize(width: dx, height: dy)
+                accumulatedOffset2 = accumulatedOffset2 + CGSize(width: -dx, height: -dy)
             }
     }
 }
