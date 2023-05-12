@@ -48,21 +48,34 @@ struct MainView: View {
                                     .frame(height: 115)
                                     .frame(maxWidth: .infinity)
                                     .cornerRadius(10)
-                                    .shadow(radius: 4,x:2,y:2)
+                                    .padding(.horizontal,16)
+                                    .shadow(radius: 4,x:0,y:0)
                                     .overlay(
-                                        VStack {
-                                            
-                                            Text(brand.name)
-                                                .font(.customTitle())
-                                                .foregroundColor(.white)
-                                                .frame(maxWidth: .infinity,alignment: .leading)
-                                            
-                                            Text(brand.subName)
-                                                .font(.customHeader())
-                                                .foregroundColor(.white)
-                                                .frame(maxWidth: .infinity,alignment: .leading)
+                                        
+                                        HStack {
+                                            VStack() {
+                                                
+                                                Text(brand.name)
+                                                    .font(.customTitle())
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 280,alignment: .leading)
+                                                
+                                                Text(brand.subName)
+                                                    .font(.customHeader())
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 280,alignment: .leading)
+                                                    
+                                            }
+                                            .padding(.leading,36)
+                                            Image(systemName: "chevron.forward")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 11, height: 18)
+                                                .foregroundColor(Color.white)
+                                                .fontWeight(.bold)
+                                                .padding(.trailing,50)
                                         }
-                                            .padding(.leading,20)
+                                        
                                     )
                                     .padding(.bottom,12)
 
@@ -70,7 +83,7 @@ struct MainView: View {
                         }
                     }
                     .navigationTitle("Toucher")
-                    .padding(.horizontal,16)
+//                    .padding(.horizontal,16)
                     .navigationDestination(for: TouchGesture.self) { brand in
                         VStack{
                             Button {
@@ -80,11 +93,11 @@ struct MainView: View {
     
                                     Image(systemName: "chevron.backward")
                                         .frame(width: 6, height: 11)
-                                        .foregroundColor(.pink)
+                                        .foregroundColor(Color("BrandColor"))
     
                                     Text("처음으로")
                                         .font(.system(size: 16))
-                                        .foregroundColor(.pink)
+                                        .foregroundColor(Color("BrandColor"))
     
                                     Spacer()
     
