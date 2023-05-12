@@ -10,18 +10,19 @@ import SwiftUI
 struct DragView2: View {
     @Binding var tag :Int
     @State private var sliderValue = 0.0
+    @State private var isEnd = false
     var body: some View {
         ZStack(alignment: .bottom){
             VStack{
                 Spacer().frame(height: 100)
-                if(sliderValue < 0.9){
+                if(!isEnd){
                     Text("원을\n좌우로\n움직여보세요")
-                        .font(.system(size: 40,weight: .bold))
+                        .font(Font.customExplain())
                         .padding(10)
                 }
                 else{
                     Text("잘하셨어요\n\n")
-                        .font(.system(size: 40,weight: .bold))
+                        .font(Font.customExplain())
                         .padding(10)
                 }
                 Spacer().frame(height: 100)
@@ -31,15 +32,21 @@ struct DragView2: View {
                         .scaledToFit()
                         .frame(width: 100, height: 100)
                 }
-                    .tint(Color("BrandColor"))
+                .onChange(of: sliderValue, perform: { value in
+                    if sliderValue > 0.9{
+                        isEnd = true
+                    }
+                })
+                .frame(width: 300, height:50)
+                .tint(Color("BrandColor"))
                 Spacer()
             }
-            if(sliderValue > 0.9){
+            if(isEnd){
                 Button(action: {
                     tag += 1
                 }) {
-                    Text("다음")
-                }.btnStyle()
+                    Text("다음").font(Font.customNextButton())
+                }.btnStyle().padding(16)
             }
         }
     }

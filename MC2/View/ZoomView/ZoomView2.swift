@@ -14,10 +14,10 @@ struct ZoomView2: View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom){
                 VStack{
-                    Spacer().frame(height:100)
+                    Spacer().frame(height: 41)
                     Text("확대해 볼까요?")
                         .font(.system(size: 40,weight: .bold))
-                    Image("ZoomImage")
+                    Image("zoomView_circle")
                         .resizable()
                         .frame(width: proxy.size.width, height: proxy.size.height)
                         .scaledToFit()
@@ -26,9 +26,7 @@ struct ZoomView2: View {
                 }
                 Button(action: {
                     tag += 1
-                }) {
-                    Text("다음")
-                }.btnStyle()
+                }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
             }
         }
     }
