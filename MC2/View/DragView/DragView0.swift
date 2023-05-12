@@ -12,27 +12,34 @@ struct DragView0: View {
     var body: some View {
         ZStack(alignment: .bottom){
             VStack{
-                Spacer()
+                Rectangle().frame(height: 0)
+                Spacer().frame(height: 41)
                 Rectangle().frame(height: 0)
                 Text("끌어 오기")
-                    .font(.system(size: 40,weight: .bold))
+                    .font(Font.customTitle())
                 Text("(Drag)")
-                    .font(.system(size: 30))
+                    .font(.customEngTitle())
                     .foregroundColor(Color("SubTitleColor"))
-                
-                Image("TouchCircle")
-                    .frame(width: 116, height: 116)
+                Spacer().frame(height: 105)
+                Image("drag_seq")
+                Spacer().frame(height: 100)
                 VStack(alignment: .leading){
-                    Rectangle().frame(height: 0)
-                    Text("아이콘을 움직일 때,\n음량을 바꿀 때 사용해요")
-                        .font(.system(size: 32,weight: .bold))
-                        .padding(10)
+                    Text("아이콘을 움직일 때,")
+                        .font(Font.customExplainEmphasis())
+                        .padding(.bottom,0.5)
+                    HStack{
+                        Text("음량을 바꿀 때 ")
+                            .font(Font.customExplainEmphasis())
+                        Text("사용해요,")
+                            .font(Font.customExplain())
+                    }
+                        
                 }
                 Spacer()
             }
             Button(action: {
                 tag += 1
-            }, label: {Text("다음")}).btnStyle()
+            }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
         }
         }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct MC2App: App {
+    let newBackgroundColor = Color.red
     var body: some Scene {
         WindowGroup {
             MainView()

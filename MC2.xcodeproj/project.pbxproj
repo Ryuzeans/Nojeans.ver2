@@ -231,11 +231,11 @@
 		B5246A902A00AC4200656A33 /* PanView */ = {
 			isa = PBXGroup;
 			children = (
+				B5CCC36D2A09438300C418B3 /* PanViewMain.swift */,
 				B5246AA02A07D99D00656A33 /* PanView0.swift */,
 				B5246AA22A07DCA400656A33 /* PanView1.swift */,
 				B5246AA62A07F35300656A33 /* PanView2.swift */,
 				B5246AA82A07F58600656A33 /* MapView.swift */,
-				B5CCC36D2A09438300C418B3 /* PanViewMain.swift */,
 			);
 			path = PanView;
 			sourceTree = "<group>";

@@ -10,7 +10,7 @@ import SwiftUI
 struct DragView1: View {
     @Binding var tag :Int
     static let defaultCGSize : CGSize = CGSize(width: 0, height: 0)
-    let goalOffset = CGSize(width: 0, height: 177)
+    let goalOffset = CGSize(width: 0, height: 279)
     @State private var draggedOffset = defaultCGSize
     @State private var accumulatedOffset = defaultCGSize
     @State private var isArrived: Bool = false
@@ -20,72 +20,85 @@ struct DragView1: View {
     @State private var onClicked = false
     @State private var onLongPressed = false
     var body: some View {
+        let longPressGesture = LongPressGesture().onEnded { item in
+            withAnimation(.easeOut){
+                onLongPressed = true
+            }
+        }
         ZStack(alignment:.bottom){
             ZStack{
                 VStack{
-                    Spacer().frame(height: 133)
+                    Spacer().frame(height: 41)
                     VStack{
                         Rectangle().frame(height: 0)
                         if(onLongPressed){
                             if(!isEnded){
-                                Text("원을\n구멍 안으로\n옮겨보세요")
-                                    .font(.system(size: 40,weight: .bold))
+                                Text("원을\n구멍 안으로 옮겨보세요")
+                                    .font(Font.customExplain())
+                                    .multilineTextAlignment(.center)
                                     .padding(10)
                             }
                             else{
-                                Text("잘하셨어요")
-                                    .font(.system(size: 40,weight: .bold))
+                                Text("잘하셨어요\n")
+                                    .font(Font.customExplain())
+                                    .multilineTextAlignment(.center)
                                     .padding(10)
                             }
                         }
                         else{
                             Text("아래의 원을 \n2초간 눌러 볼까요?")
-                                .font(.system(size: 40,weight: .bold))
+                                .font(Font.customExplain())
+                                .multilineTextAlignment(.center)
                                 .padding(10)
                         }
                     }
-                    Spacer()
-                    if(!onLongPressed){
-                        Image("Arrow")
+                    Spacer().frame(height: 300)
+                    ZStack{
+                        Image("GoalCircle")
                             .resizable()
-                            .frame(width: 22, height: 44)
+                            .frame(width: 116, height: 116)
+                        Circle()
+                            .stroke(Color.yellow, lineWidth: strokeAnimation)
+                            .frame(width: 100, height: 100)
+                            .scaleEffect(animationAmount)
+                            .opacity(Double(2 - animationAmount))
                     }
-                    else{
-                        Spacer().frame(height: 44)
-                    }
-                    Image("GoalCircle")
-                        .frame(width: 121, height: 121)
-                    Spacer().frame(height: 141)
+                    Spacer()
                     }
                 ZStack{
-                    Image("TouchCircle")
-                        .resizable()
-                        .frame(width: !onLongPressed || isArrived ? 116 : 152,
-                               height: !onLongPressed || isArrived ? 116 : 152)
+                    VStack{
+                        Spacer().frame(height:175)
+                        Image("TouchCircle")
+                            .resizable()
+                            .frame(width: !onLongPressed || onClicked ? 100 : 140,
+                                   height: !onLongPressed || onClicked ? 100 : 140)
+                        if(!onLongPressed){
+                            Image("Arrow")
+                                .resizable()
+                                .frame(width: 22, height: 44)
+                                .padding(9)
+                        }
+                        else{
+                            Spacer().frame(height: 44)
+                        }
+                        Spacer()
+                    }
+
                     if(!onLongPressed){
                         Image(systemName: "exclamationmark")
                             .foregroundColor(.white)
                             .font(.largeTitle)
                     }
-                    Circle()
-                        .stroke(Color.yellow, lineWidth: strokeAnimation)
-                        .frame(width: 100, height: 100)
-                        .scaleEffect(animationAmount)
-                        .opacity(Double(2 - animationAmount))
                 }
                 .offset(draggedOffset)
-                .onLongPressGesture{
-                    withAnimation(.easeOut){
-                        onLongPressed = true
-                    }
-                }
-                .gesture(drag)
+                .gesture(longPressGesture.sequenced(before: drag))
+
             }
-            Button(action: {
-                tag += 1
-            }) {
-                Text("다음")
-            }.btnStyle()
+            if isEnded{
+                Button(action: {
+                    tag += 1
+                }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
+            }
         }
         }
     func isMatch() -> Void{
@@ -104,7 +117,7 @@ struct DragView1: View {
     var drag: some Gesture {
       DragGesture()
         .onChanged { gesture in
-            withAnimation(.easeOut){
+            withAnimation(.easeOut(duration: 1)){
                 onClicked = true
                 isMatch()
             }
