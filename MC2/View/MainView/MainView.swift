@@ -48,6 +48,7 @@ struct MainView: View {
                                     .frame(height: 115)
                                     .frame(maxWidth: .infinity)
                                     .cornerRadius(10)
+                                    .shadow(radius: 4,x:2,y:2)
                                     .overlay(
                                         VStack {
                                             
@@ -62,10 +63,7 @@ struct MainView: View {
                                                 .frame(maxWidth: .infinity,alignment: .leading)
                                         }
                                             .padding(.leading,20)
-                                            
-                                            
                                     )
-                                    .shadow(radius: 4,x:2,y:2)
                                     .padding(.bottom,30)
 
                             }
