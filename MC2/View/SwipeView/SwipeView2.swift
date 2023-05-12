@@ -18,9 +18,9 @@ struct SwipeView2: View {
             Text(text[index])
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 80)
+                .padding(.top, 60)
             Spacer()
-            VStack (spacing: 20){
+            VStack (spacing: 16){
                 List {
                     HStack{}
                         .frame(height: 80)
@@ -33,19 +33,18 @@ struct SwipeView2: View {
                                     index = 0
                                 }
                         }
-                        .cornerRadius(24)
-                        .listRowBackground((Color(red: 0.85, green: 0.85, blue: 0.85)))
+                        .listRowBackground((Color(red: 0.95, green: 0.95, blue: 0.95)))
                 }
+                .cornerRadius(20)
                 .scrollDisabled(true)
                 .listStyle(.plain)
-                .frame(height: 120)
-                
+                .frame(height: 100)
+
                 List {
                     HStack {}
                         .frame(height: 80)
                         .swipeActions {
                             Button {
-                                
                             } label: { Image(systemName: "bell.slash.fill") }.tint(.purple)
                                 .onAppear {
                                     index = 2
@@ -54,28 +53,28 @@ struct SwipeView2: View {
                                     index = 0
                                 }
                         }
-                        .listRowBackground((Color(red: 0.85, green: 0.85, blue: 0.85)))
+                        .listRowBackground((Color(red: 0.95, green: 0.95, blue: 0.95)))
                 }
+                .cornerRadius(20)
                 .scrollDisabled(true)
                 .listStyle(.plain)
-                .frame(height: 120)
+                .frame(height: 100)
             }
-            .padding()
+            .padding(4)
             
             Spacer()
 
-            
             if index != 0 {
                 Button {
                     swpSelection = 3
                 } label: {
                     Text("다음").font(.customNextButton())
-                }.offset(y: 52).btnStyle().frame(height: 50)
+                }.btnStyle().frame(height: 50)
             }
             else {
                 Button { } label: {
                     Text("")
-                }.offset(y: 52).frame(height: 50)
+                }.frame(height: 50)
             }
         }.padding(16)
     }

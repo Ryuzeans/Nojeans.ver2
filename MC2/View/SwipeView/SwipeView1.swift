@@ -13,43 +13,72 @@ struct SwipeView1: View {
     @GestureState private var dragOffset: CGSize = .zero
     @State private var did: Bool = false
     @Binding var swpSelection: Int
+    // let fingerAnimation = Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)
+    // @State var animate: Bool = true
+    @State private var offset: CGFloat = 100.0
     
     var body: some View {
         VStack {
             Text(titles[selectedIndex])
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 80)
+                .padding(.top, 60)
             Spacer()
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 32) {
-                    Rectangle()
-                        .frame(width: 520, height: 300)
-                        .foregroundColor(Color(red: 0.85, green: 0.85, blue: 0.85))
-                        .cornerRadius(38)
-                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.25), radius: 4, x: 0, y: 4)
-                        .offset(x: dragOffset.width)
-                        .padding(.horizontal, 48)
-                }.frame(width: 720, height: 320).edgesIgnoringSafeArea(.all)
-            }
-            .gesture(DragGesture()
-                .onChanged({ value in
-                    if value.translation.width > 0 && did == false {
-                        did = true
-                        selectedIndex = 0
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack {
+                        Rectangle()
+                            .frame(width: 400, height: 300)
+                            .foregroundColor(Color(red: 0.95, green: 0.95, blue: 0.95))
+                            .cornerRadius(38)
+                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 4, x: 0, y: 0)
+                            .offset(x: dragOffset.width)
+                            .padding(.horizontal, 16)
+                        
                     }
-                    else if value.translation.width < 0  && did == false {
-                        did = true
-                        selectedIndex = 1
+                    .frame(width: 520, height: 320)
+                    .edgesIgnoringSafeArea(.all)
+                }
+                .gesture(DragGesture()
+                    .onChanged({ value in
+                        if value.translation.width > 0 && did == false {
+                            did = true
+                            selectedIndex = 0
+                        }
+                        else if value.translation.width < 0  && did == false {
+                            did = true
+                            selectedIndex = 1
+                        }
+                        else if value.translation.width > 0 && did == true {
+                            selectedIndex = 2
+                        }
+                        else if value.translation.width < 0  && did == true {
+                            selectedIndex = 2
+                        }
+                    })
+                )
+                .overlay {
+                    if selectedIndex == 0 {
+                        Image("swipe")
+                            .resizable()
+                            .frame(width: 184, height: 116)
+                            .offset(x: -40, y: -60)
+                            .rotationEffect(.degrees(180))
+                        
+                        Image(systemName:"hand.point.up.fill")
+                            .resizable()
+                            .frame(width: 110, height: 150)
+                            .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
+                            .offset(x: self.offset, y: 150.0 )
+                            .onAppear {
+                                withAnimation(.easeInOut(duration: 0.8).repeatForever()) {
+                                    self.offset = 50
+                                }
+                            }
                     }
-                    else if value.translation.width > 0 && did == true {
-                        selectedIndex = 2
-                    }
-                    else if value.translation.width < 0  && did == true {
-                        selectedIndex = 2
-                    }
-                })
-            )
+                }
+               
+            
+            
             
             Spacer()
             Group {
@@ -57,11 +86,9 @@ struct SwipeView1: View {
                     Button {
                         swpSelection = 2
                     } label: {
-                        Text("다음")
-                            .font(.customNextButton())
+                        Text("다음").font(.customNextButton())
                     }
-                    .btnStyle().padding(.horizontal, 16)
-                    .offset(y: 52)
+                    .btnStyle()
                     .frame(height: 50)
                 }
                 
@@ -70,15 +97,15 @@ struct SwipeView1: View {
                     } label: {
                         Text("")
                     }
-                    .offset(y: 52)
                     .frame(height: 50)
                 }
-                
             }.padding(16)
             
         }
+        
     }
 }
+
 
 struct SwipeView1_Previews: PreviewProvider {
     static var previews: some View {

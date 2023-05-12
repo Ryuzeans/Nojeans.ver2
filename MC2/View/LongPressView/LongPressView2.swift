@@ -18,7 +18,7 @@ struct LongPressView2: View {
             Text("카메라를 1초간\n눌러 볼까요?")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 80)
+                .padding(.top, 60)
             Spacer()
             Image("Camera")
                 .padding(16)
@@ -39,14 +39,14 @@ struct LongPressView2: View {
             Spacer()
             if buttonActive {
                 Button {
-                   // TODO: DoubleTapView로 수정
+                   // TODO: 다음 화면으로 수정
                 } label: {
-                    Text("다음").font(.customNextButton())
-                }.offset(y: 52).btnStyle().frame(height: 50)
+                    Text("완료").font(.customNextButton())
+                }.btnStyle().frame(height: 50)
             } else {
                 Button { } label: {
                     Text("")
-                }.offset(y: 52).frame(height: 50)
+                }.frame(height: 50)
             }
         }.padding(16)
     }
