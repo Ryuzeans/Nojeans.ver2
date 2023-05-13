@@ -18,7 +18,7 @@ struct LongPressView2: View {
             Text("카메라를 1초간\n눌러 볼까요?")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 60)
+                .padding(.top, 40)
             Spacer()
             Image("Camera")
                 .padding(16)

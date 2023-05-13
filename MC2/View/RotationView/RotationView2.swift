@@ -23,7 +23,7 @@ struct RotationView2: View {
                 VStack {
                     
                     Text("잘하셨어요!\n")
-                        .font(.system(size: 36,weight: .bold))
+                        .font(Font.customTitle())
                         .multilineTextAlignment(.center)
                     
                     Image("RotationOn")
@@ -36,7 +36,7 @@ struct RotationView2: View {
                 VStack {
                     
                     Text("회전을 시켜\n제 마음을 확인해봐요!")
-                        .font(.system(size: 36,weight: .bold))
+                        .font(Font.customTitle())
                         .multilineTextAlignment(.center)
                     
                     Image("RotationOff")

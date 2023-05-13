@@ -10,74 +10,72 @@ import SwiftUI
 struct SwipeView1: View {
     @State private var selectedIndex: Int = 0
     @State private var titles: [String] = ["가볍게 왼쪽으로\n밀어볼까요?", "이번엔 오른쪽으로\n밀어볼까요?", "잘하셨어요!\n"]
-    @GestureState private var dragOffset: CGSize = .zero
     @State private var did: Bool = false
     @Binding var swpSelection: Int
-    // let fingerAnimation = Animation.easeInOut(duration: 0.8).repeatForever(autoreverses: true)
-    // @State var animate: Bool = true
-    @State private var offset: CGFloat = 100.0
+    @State private var offset: CGFloat = 50
     
     var body: some View {
         VStack {
             Text(titles[selectedIndex])
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 60)
+                .padding(.top, 40)
             Spacer()
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack {
-                        Rectangle()
-                            .frame(width: 400, height: 300)
-                            .foregroundColor(Color(red: 0.95, green: 0.95, blue: 0.95))
-                            .cornerRadius(38)
-                            .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 4, x: 0, y: 0)
-                            .offset(x: dragOffset.width)
-                            .padding(.horizontal, 16)
-                        
-                    }
-                    .frame(width: 520, height: 320)
-                    .edgesIgnoringSafeArea(.all)
-                }
-                .gesture(DragGesture()
-                    .onChanged({ value in
-                        if value.translation.width > 0 && did == false {
-                            did = true
-                            selectedIndex = 0
-                        }
-                        else if value.translation.width < 0  && did == false {
-                            did = true
-                            selectedIndex = 1
-                        }
-                        else if value.translation.width > 0 && did == true {
-                            selectedIndex = 2
-                        }
-                        else if value.translation.width < 0  && did == true {
-                            selectedIndex = 2
-                        }
-                    })
-                )
+            ScrollView(.horizontal, showsIndicators: false) {
+                
+                ZStack {
+                    Rectangle()
+                        .frame(width: 400, height: 300)
+                        .foregroundColor(Color(red: 0.95, green: 0.95, blue: 0.95))
+                        .cornerRadius(38)
+                        .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 4, x: 0, y: 0)
+                        .padding(.horizontal, 60)
+                } .frame(height: 420)
+                .edgesIgnoringSafeArea(.all)
+
+
+               
                 .overlay {
                     if selectedIndex == 0 {
                         Image("swipe")
                             .resizable()
                             .frame(width: 184, height: 116)
-                            .offset(x: -40, y: -60)
+                            .offset(x: 0, y: -40)
                             .rotationEffect(.degrees(180))
                         
                         Image(systemName:"hand.point.up.fill")
                             .resizable()
                             .frame(width: 110, height: 150)
                             .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
-                            .offset(x: self.offset, y: 150.0 )
+                            .offset(x: self.offset, y: 130 )
                             .onAppear {
                                 withAnimation(.easeInOut(duration: 0.8).repeatForever()) {
-                                    self.offset = 50
+                                    self.offset = 0
                                 }
                             }
                     }
                 }
                
-            
+            }
+
+            .gesture(DragGesture()
+                .onChanged({ value in
+                    if value.translation.width > 0 && did == false {
+                        did = true
+                        selectedIndex = 0
+                    }
+                    else if value.translation.width < 0  && did == false {
+                        did = true
+                        selectedIndex = 1
+                    }
+                    else if value.translation.width > 0 && did == true {
+                        selectedIndex = 2
+                    }
+                    else if value.translation.width < 0  && did == true {
+                        selectedIndex = 2
+                    }
+                })
+            )
             
             
             Spacer()
@@ -100,9 +98,7 @@ struct SwipeView1: View {
                     .frame(height: 50)
                 }
             }.padding(16)
-            
         }
-        
     }
 }
 

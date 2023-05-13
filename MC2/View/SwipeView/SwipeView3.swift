@@ -30,7 +30,7 @@ struct SwipeView3: View {
             Text("메시지를 밀어서\n삭제해 보세요")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 60)
+                .padding(.top, 40)
             
             List() {
                 ForEach(messageData, id: \.id) { message in

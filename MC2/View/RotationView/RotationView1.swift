@@ -16,7 +16,7 @@ struct RotationView1: View {
             VStack {
                 
                 Text("움직이는 \n두 개의 원처럼 \n두 손가락으로 \n화면을 돌려봐요 !")
-                    .font(.system(size: 36,weight: .bold))
+                    .font(Font.customTitle())
                     .multilineTextAlignment(.center)
                 
                 Image("RotationEx")

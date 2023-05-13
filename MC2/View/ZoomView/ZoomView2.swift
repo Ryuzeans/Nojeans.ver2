@@ -14,7 +14,7 @@ struct ZoomView2: View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom){
                 VStack{
-                    Spacer().frame(height: 41)
+                    Spacer().frame(height: 40)
                     Text("확대해 볼까요?")
                         .font(.system(size: 40,weight: .bold))
                     Image("zoomView_circle")

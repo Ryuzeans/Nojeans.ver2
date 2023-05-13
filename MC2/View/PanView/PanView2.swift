@@ -26,7 +26,7 @@ struct PanView2: View {
             
             if showing == false {
                 Text("지도를\n이동해봐요!")
-                    .font(.system(size: 48,weight: .bold))
+                    .font(Font.customTitle())
                     .foregroundColor(.white)
                     .multilineTextAlignment(.center)
                     .offset(y: -200)

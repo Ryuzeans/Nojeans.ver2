@@ -35,21 +35,33 @@ struct SwipeSubscriptionView: View {
     @Binding var swpSelection: Int
     var body: some View{
         VStack {
-            Text("살짝 쓸기").font(.customTitle()).padding(.top, 60)
-            Text("Swipe").font(.customEngTitle()).foregroundColor(Color(red: 0.776, green: 0.776, blue: 0.784))
+            Text("살짝 쓸기").font(.customTitle()).padding(.top, 40)
+            Text("Swipe").font(.customEngTitle()).foregroundColor(Color("SubTitleColor"))
             Spacer()
+                                                                  
             Image("swipe")
                 .resizable()
                 .frame(width: 184, height: 116)
             Spacer()
+                                                                  
             HStack {
-                Text("현재 보이지 않는 화면을\n찾을 때 주로 사용해요").font(.customExplain()).padding(.horizontal, 16)
+                Text("현재 ")
+                    .font(.customExplain()) +
+                Text("보이지 않는 화면을\n")
+                    .font(.customExplainEmphasis()) +
+                Text("찾을 때 ")
+                    .font(.customExplainEmphasis()) +
+                Text("주로 사용해요")
+                    .font(.customExplain())
                 Spacer()
             }
+            .lineSpacing(10)
+            .padding(.horizontal, 16)
+            
             Button {
                 swpSelection = 1
             } label: {
-                Text("다음").font(.customNextButton())
+                Text("다음").font(.customNextButton()).kerning(2)
             }.btnStyle()
         }.padding(16)
     }
