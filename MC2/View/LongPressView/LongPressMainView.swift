@@ -28,24 +28,31 @@ struct LongPressMain: View {
 
 struct LongPressSubscriptionView: View {
     @Binding var selection: Int
-    
     var body: some View{
         VStack {
-            Text("길게 누르기").font(.customTitle()).padding(.top, 60)
-            Text("Long Tap").font(.customEngTitle()).foregroundColor(Color(red: 0.776, green: 0.776, blue: 0.784))
+            Text("길게 누르기").font(.customTitle()).padding(.top, 40)
+            Text("Long Tap").font(.customEngTitle()).foregroundColor(Color("SubTitleColor"))
             Spacer()
+            
             Image("TouchBall")
                 .resizable()
                 .frame(width: 116, height: 116)
             Spacer()
+            
             HStack {
-                Text("아이콘에서\n추가적인 기능이나\n조작을 할 때 사용해요").font(.customExplain()).padding(.horizontal,16)
+                Text("아이콘의 추가 기능과 미리보기 기능을\n")
+                    .font(.customExplainEmphasis()) +
+                Text("볼 때 사용돼요")
+                    .font(Font.customExplain())
                 Spacer()
             }
+            .lineSpacing(10)
+            .padding(.horizontal,16)
+            
             Button {
                 selection = 1
             } label: {
-                Text("다음").font(.customNextButton())
+                Text("다음").font(.customNextButton()).kerning(2)
             }.btnStyle()
         }.padding(16)
     }

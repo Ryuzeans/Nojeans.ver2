@@ -14,15 +14,16 @@ struct DragView2: View {
     var body: some View {
         ZStack(alignment: .bottom){
             VStack{
-                Spacer().frame(height: 100)
+                Spacer().frame(height: 40)
                 if(!isEnd){
                     Text("원을\n좌우로\n움직여보세요")
-                        .font(Font.customExplain())
+                        .font(Font.customTitle())
+
                         .padding(10)
                 }
                 else{
                     Text("잘하셨어요\n\n")
-                        .font(Font.customExplain())
+                        .font(Font.customTitle())
                         .padding(10)
                 }
                 Spacer().frame(height: 100)

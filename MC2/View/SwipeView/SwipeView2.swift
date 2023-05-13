@@ -18,7 +18,7 @@ struct SwipeView2: View {
             Text(text[index])
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 60)
+                .padding(.top, 40)
             Spacer()
             VStack (spacing: 16){
                 List {

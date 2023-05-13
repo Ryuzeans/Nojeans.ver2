@@ -19,33 +19,44 @@ struct PanView0: View {
                 self.position = .zero
             }
         
-        ZStack {
-            VStack {
-                Text("화면 움직이기\n입니다.")
-                    .font(.system(size: 48,weight: .bold))
-                    .multilineTextAlignment(.center)
-                
-                ZStack {
-                    
-                    Image("PanArrow")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 304, height: 304)
-                    
-                    Image("PanCircle")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .offset(x: position.width, y: position.height)
-                        .gesture(drag)
-                }
-                
-                Text("상하좌우로\n움직일 수 있어요.")
-                    .font(.system(size: 36, weight: .light))
-                    .foregroundColor(Color(UIColor.lightGray))
-                    .multilineTextAlignment(.center)
-                
+        VStack {
+            Spacer().frame(height: 40)
+            Text("화면 움직이기")
+                .font(.customTitle())
+            Text("Pan")
+                .font(Font.customEngTitle())
+                .foregroundColor(Color("SubTitleColor"))
+            Spacer()
+            
+            ZStack {
+                Image("PanArrow")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 240, height: 240)
+                Image("TouchBall")
+                    .resizable()
+                    .frame(width: 116, height: 116)
+                    .offset(x: position.width, y: position.height)
+                    .gesture(drag)
             }
-        }
+            Spacer()
+            
+            HStack {
+                Text("현재 ")
+                    .font(.customExplain()) +
+                Text("화면을 상하좌우로\n")
+                    .font(.customExplainEmphasis()) +
+                Text("움직일 때 ")
+                    .font(.customExplainEmphasis()) +
+                Text("사용해요")
+                    .font(.customExplain())
+                Spacer()
+            }
+            .lineSpacing(10)
+            .padding(.horizontal,16)
+            
+            Spacer().frame(height: 70)
+        }.padding(16)
     }
 }
 

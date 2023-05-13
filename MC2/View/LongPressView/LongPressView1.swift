@@ -19,7 +19,7 @@ struct LongPressView1: View {
             Text("아래 원을 1초 동안\n눌러 볼까요?")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 60)
+                .padding(.top, 40)
             
             Spacer()
             

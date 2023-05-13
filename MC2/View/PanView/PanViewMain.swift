@@ -32,13 +32,13 @@ struct PanViewMain: View {
                     Button {
                         tag += 1
                     } label: {
-                        Text("다음")
+                        Text("다음").kerning(2).font(.customNextButton())
                     }
                     .btnStyle()
-                    .padding(.horizontal,16)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 16)
                 }
             }
-            
         }
         .navigationBarBackButtonHidden(true)
     }

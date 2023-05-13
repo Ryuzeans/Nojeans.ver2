@@ -10,38 +10,37 @@ import SwiftUI
 struct DragView0: View {
     @Binding var tag :Int
     var body: some View {
-        ZStack(alignment: .bottom){
-            VStack{
-                Rectangle().frame(height: 0)
-                Spacer().frame(height: 41)
-                Rectangle().frame(height: 0)
-                Text("끌어 오기")
-                    .font(Font.customTitle())
-                Text("(Drag)")
-                    .font(.customEngTitle())
-                    .foregroundColor(Color("SubTitleColor"))
-                Spacer().frame(height: 105)
-                Image("drag_seq")
-                Spacer().frame(height: 100)
-                VStack(alignment: .leading){
-                    Text("아이콘을 움직일 때,")
-                        .font(Font.customExplainEmphasis())
-                        .padding(.bottom,0.5)
-                    HStack{
-                        Text("음량을 바꿀 때 ")
-                            .font(Font.customExplainEmphasis())
-                        Text("사용해요,")
-                            .font(Font.customExplain())
-                    }
-                        
-                }
+        VStack{
+            Spacer().frame(height: 40)
+            Text("끌어 오기")
+                .font(Font.customTitle())
+            Text("Drag")
+                .font(.customEngTitle())
+                .foregroundColor(Color("SubTitleColor"))
+            Spacer()
+            
+            Image("drag_seq")
+                .resizable()
+                .frame(width: 116, height: 156)
+            Spacer()
+            
+            HStack {
+                Text("아이콘을 움직일 때,\n")
+                    .font(Font.customExplainEmphasis()) +
+                Text("음량을 바꿀 때 ")
+                    .font(Font.customExplainEmphasis()) +
+                Text("사용해요")
+                    .font(Font.customExplain())
                 Spacer()
             }
+            .lineSpacing(10)
+            .padding(.horizontal,16)
+            
             Button(action: {
                 tag += 1
-            }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
-        }
-        }
+            }, label: {Text("다음").font(Font.customNextButton()).kerning(2)}).btnStyle()
+        }.padding(16)
+    }
 }
 
 //struct DragView0_Previews: PreviewProvider {

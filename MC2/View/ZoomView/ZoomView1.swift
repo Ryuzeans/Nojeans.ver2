@@ -27,7 +27,7 @@ struct ZoomView1: View {
     var body: some View {
         ZStack(alignment: .bottom){
             VStack{
-                Spacer().frame(height: 41)
+                Spacer().frame(height: 40)
                 if(isFan && !isFold){
                     Text("이번엔 원을\n가운데로 모아볼까요?")
                         .font(Font.customExplain())
@@ -55,16 +55,15 @@ struct ZoomView1: View {
                         .frame(width: draggedOffset1.width * 1.3, height: -draggedOffset1.height * 0.8)
                         .cornerRadius(10)
                         .foregroundColor(Color("SubTitleColor"))
-                    Image("TouchCircle")
+                    Image("TouchBall")
                         .resizable()
                         .frame(width: 116,height: 116)
                         .offset(draggedOffset1)
                         .gesture(upperDrag)
-                    Image("TouchCircle")
+                    Image("TouchBall")
                         .resizable()
                         .frame(width: 116,height: 116)
                         .offset(draggedOffset2)
-
                 }.frame(height : 200)
                 if !isDraged{
                     VStack(alignment: .leading){

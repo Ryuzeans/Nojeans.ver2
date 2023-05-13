@@ -28,26 +28,26 @@ struct DragView1: View {
         ZStack(alignment:.bottom){
             ZStack{
                 VStack{
-                    Spacer().frame(height: 41)
+                    Spacer().frame(height: 40)
                     VStack{
                         Rectangle().frame(height: 0)
                         if(onLongPressed){
                             if(!isEnded){
                                 Text("원을\n구멍 안으로 옮겨보세요")
-                                    .font(Font.customExplain())
+                                    .font(Font.customTitle())
                                     .multilineTextAlignment(.center)
                                     .padding(10)
                             }
                             else{
                                 Text("잘하셨어요\n")
-                                    .font(Font.customExplain())
+                                    .font(Font.customTitle())
                                     .multilineTextAlignment(.center)
                                     .padding(10)
                             }
                         }
                         else{
                             Text("아래의 원을 \n2초간 눌러 볼까요?")
-                                .font(Font.customExplain())
+                                .font(Font.customTitle())
                                 .multilineTextAlignment(.center)
                                 .padding(10)
                         }

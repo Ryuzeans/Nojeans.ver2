@@ -18,17 +18,16 @@ struct DragView3: View {
         ZStack(alignment: .bottom){
             VStack {
                 Rectangle().frame(height:0)
-                Spacer().frame(height: 41)
+                Spacer().frame(height: 40)
                 if(!isReached){
                     Text("카메라 어플을\n3초 누른 뒤\n빈 원에 옮겨볼까요?")
-                        .font(Font.customExplain())
+                        .font(Font.customTitle())
                         .multilineTextAlignment(.center)
                         .padding(10)
-
                 }
                 else{
                     Text("잘 하셨어요\n\n")
-                        .font(Font.customExplain())
+                        .font(Font.customTitle())
                         .padding(10)
 
                 }

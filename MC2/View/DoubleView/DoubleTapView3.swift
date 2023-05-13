@@ -22,11 +22,9 @@ struct DoubleTapView3: View {
                         .font(.customTitle())
                         .frame(maxWidth: .infinity,alignment: .center)
                         .multilineTextAlignment(.center)
-                        .padding(.top,43)
+                        .padding(.top,40)
 //                        .padding(.bottom,204)
-                        
-                        
-
+                    
                     
                     Image("search_bar")
                         .resizable()

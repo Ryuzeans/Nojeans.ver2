@@ -20,7 +20,7 @@ struct DoubleTapView2: View {
             VStack {
                 ZStack() {
                     
-                    Image("DoubleCircle")
+                    Image("TouchBall")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: doubleTapActive ? .infinity : 100 )
