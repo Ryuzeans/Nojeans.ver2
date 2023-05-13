@@ -10,7 +10,7 @@ import SwiftUI
 struct DragView1: View {
     @Binding var tag :Int
     static let defaultCGSize : CGSize = CGSize(width: 0, height: 0)
-    let goalOffset = CGSize(width: 0, height: 279)
+    let goalOffset = CGSize(width: 0, height: 297)
     @State private var draggedOffset = defaultCGSize
     @State private var accumulatedOffset = defaultCGSize
     @State private var isArrived: Bool = false
@@ -33,7 +33,7 @@ struct DragView1: View {
                         Rectangle().frame(height: 0)
                         if(onLongPressed){
                             if(!isEnded){
-                                Text("원을\n구멍 안으로 옮겨보세요")
+                                Text("원을 구멍 안으로\n옮겨보세요")
                                     .font(Font.customTitle())
                                     .multilineTextAlignment(.center)
                                     .padding(10)
@@ -46,7 +46,7 @@ struct DragView1: View {
                             }
                         }
                         else{
-                            Text("아래의 원을 \n2초간 눌러 볼까요?")
+                            Text("아래의 원을\n2초간 눌러 볼까요?")
                                 .font(Font.customTitle())
                                 .multilineTextAlignment(.center)
                                 .padding(10)
@@ -149,8 +149,8 @@ extension CGSize {
   }
 }
 
-//struct DragView1_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DragView1()
-//    }
-//}
+struct DragView1_Previews: PreviewProvider {
+    static var previews: some View {
+        DragView1(tag: .constant(1))
+    }
+}

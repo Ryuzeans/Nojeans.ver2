@@ -16,7 +16,8 @@ struct ZoomView2: View {
                 VStack{
                     Spacer().frame(height: 40)
                     Text("확대해 볼까요?")
-                        .font(.system(size: 40,weight: .bold))
+                        .font(Font.customTitle())
+
                     Image("zoomView_circle")
                         .resizable()
                         .frame(width: proxy.size.width, height: proxy.size.height)
@@ -26,8 +27,8 @@ struct ZoomView2: View {
                 }
                 Button(action: {
                     tag += 1
-                }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
-            }
+                }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
+            }.padding(16)
         }
     }
 }

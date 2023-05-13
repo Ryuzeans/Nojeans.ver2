@@ -26,7 +26,7 @@ struct DragView3: View {
                         .padding(10)
                 }
                 else{
-                    Text("잘 하셨어요\n\n")
+                    Text("잘하셨어요\n\n")
                         .font(Font.customTitle())
                         .padding(10)
 

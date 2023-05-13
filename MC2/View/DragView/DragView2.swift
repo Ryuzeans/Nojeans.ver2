@@ -16,9 +16,9 @@ struct DragView2: View {
             VStack{
                 Spacer().frame(height: 40)
                 if(!isEnd){
-                    Text("원을\n좌우로\n움직여보세요")
+                    Text("원을 좌우로\n움직여보세요")
                         .font(Font.customTitle())
-
+                        .multilineTextAlignment(.center)
                         .padding(10)
                 }
                 else{

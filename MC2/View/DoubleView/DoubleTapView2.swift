@@ -37,10 +37,11 @@ struct DoubleTapView2: View {
                         }
                         .padding(.horizontal,25)
                     
-                    Image("TouchHand")
+                    Image(systemName:"hand.point.up.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: handSize)
+                        .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
                         .position(x:doubleTapActive ? 600 : 220,y: flashAnimation ? 550 : 500)
 //                        .opacity(flashAnimation ? 1 : 0)
                         .onAppear{

@@ -30,15 +30,18 @@ struct ZoomView1: View {
                 Spacer().frame(height: 40)
                 if(isFan && !isFold){
                     Text("이번엔 원을\n가운데로 모아볼까요?")
-                        .font(Font.customExplain())
+                        .font(Font.customTitle())
+                        .multilineTextAlignment(.center)
                 }
                 else if(isFan && isFold){
-                    Text("잘 하셨어요!\n")
-                        .font(Font.customExplain())
+                    Text("잘하셨어요!\n")
+                        .font(Font.customTitle())
+                        .multilineTextAlignment(.center)
                 }
                 else{
-                    Text("원 위에 손을 올리고\n원을 벌려보세요.")
-                        .font(Font.customExplain())
+                    Text("원 위에 손을 올리고\n손을 벌려보세요")
+                        .font(Font.customTitle())
+                        .multilineTextAlignment(.center)
                 }
                 if !isDraged{
                     VStack(alignment: .trailing){
