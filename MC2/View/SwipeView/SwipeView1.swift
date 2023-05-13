@@ -30,34 +30,42 @@ struct SwipeView1: View {
                         .cornerRadius(38)
                         .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.15), radius: 4, x: 0, y: 0)
                         .padding(.horizontal, 60)
-                } .frame(height: 420)
+                }
+                .frame(height: 420)
                 .edgesIgnoringSafeArea(.all)
-
-
-               
                 .overlay {
                     if selectedIndex == 0 {
-                        Image("swipe")
-                            .resizable()
-                            .frame(width: 184, height: 116)
-                            .offset(x: 0, y: -40)
-                            .rotationEffect(.degrees(180))
+                        HStack(spacing: 26) {
+                            Arrows()
+                            Image("TouchBall")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                        }
+                        .offset(x: 0, y: 40)
                         
                         Image(systemName:"hand.point.up.fill")
                             .resizable()
-                            .frame(width: 110, height: 150)
+                            .frame(width: 90, height: 120)
                             .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
-                            .offset(x: self.offset, y: 130 )
+                            .offset(x: self.offset, y: 150 )
                             .onAppear {
-                                withAnimation(.easeInOut(duration: 0.8).repeatForever()) {
+                                withAnimation(.easeInOut(duration: 0.9).repeatForever()) {
                                     self.offset = 0
                                 }
                             }
                     }
+                    
+                    else if selectedIndex == 1 {
+                        HStack(spacing: 26) {
+                            Image("TouchBall")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                            Arrows().rotationEffect(.degrees(180))
+                        }.offset(x: 0, y: 40)
+                    }
                 }
-               
             }
-
+            
             .gesture(DragGesture()
                 .onChanged({ value in
                     if value.translation.width > 0 && did == false {
@@ -77,14 +85,13 @@ struct SwipeView1: View {
                 })
             )
             
-            
             Spacer()
             Group {
                 if selectedIndex == 2 {
                     Button {
                         swpSelection = 2
                     } label: {
-                        Text("다음").font(.customNextButton())
+                        Text("다음").font(.customNextButton()).kerning(2)
                     }
                     .btnStyle()
                     .frame(height: 50)
@@ -98,7 +105,7 @@ struct SwipeView1: View {
                     .frame(height: 50)
                 }
             }.padding(16)
-        }
+        }.padding(.top, 16)
     }
 }
 
@@ -106,5 +113,33 @@ struct SwipeView1: View {
 struct SwipeView1_Previews: PreviewProvider {
     static var previews: some View {
         SwipeView1(swpSelection: .constant(1))
+    }
+}
+
+
+struct Arrows: View {
+    @State var scale:CGFloat = 1.0
+    @State var fade:Double = 0.2
+    @State var isAnimating: Bool = false
+    
+    var body: some View {
+        HStack(spacing: 6){
+            ForEach(0..<3) { i in
+                Image(systemName: "chevron.left")
+                    .resizable()
+                    .frame(width: 12, height: 22)
+                    .foregroundColor(Color("BrandColor"))
+                    .opacity(self.fade)
+                    .scaleEffect(self.scale)
+                    .animation(Animation.easeOut(duration: 0.9)
+                    .repeatForever(autoreverses: true)
+                    .delay(0.3 * Double(3 - i)), value: isAnimating)
+            }
+        }
+        .onAppear() {
+            self.isAnimating = true
+            self.scale = 1.1
+            self.fade = 1.0
+        }
     }
 }
