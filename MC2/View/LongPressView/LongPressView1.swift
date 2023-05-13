@@ -11,8 +11,9 @@ struct LongPressView1: View {
     @State var buttonActive: Bool = false
     @State private var showingPopover = false
     @State var buttonAnimate: Bool = true
-    @GestureState var  isUpdating = false
     @Binding var selection: Int
+    @State private var offset: CGFloat = 100
+    @State var isOffsetAnimate: Bool = true
     
     var body: some View {
         VStack {
@@ -28,25 +29,33 @@ struct LongPressView1: View {
                     .resizable()
                     .frame(width: 116, height: 116)
                     .padding(.top, 36)
-                    .scaleEffect(buttonAnimate ? 0.9 : 1.0)
-                    .opacity(buttonAnimate ? 0.8 : 1.0)
+                    .scaleEffect(buttonAnimate ? 1.1 : 1.0)
                     .onAppear {
-
+                        
                         if !buttonActive {
-                            withAnimation(.easeIn(duration: 0.8).repeatCount(6)) {
+                            withAnimation(.easeIn(duration: 0.8).repeatForever()) {
 
                                 buttonAnimate.toggle()
                             }
                         }
                     }
-                    
                     .onLongPressGesture(minimumDuration: 1.0, perform: {
+                        
                         buttonActive = true
                         buttonAnimate = false
                         showingPopover.toggle()
-                    })
+                        isOffsetAnimate = false
+                    }) { pressing in
+                        if pressing {
+                                    // long press started, do something here
+                                } else {
+                                    // long press ended, generate haptic feedback
+                                    let impactLight = UIImpactFeedbackGenerator(style: .medium)
+                                    impactLight.impactOccurred()
+                                }
+                    }
+                    
                 
-                if showingPopover {
                     Image(systemName: "heart.fill")
                         .resizable()
                         .foregroundColor(.red)
@@ -55,14 +64,27 @@ struct LongPressView1: View {
                         .background(.quaternary)
                         .cornerRadius(36)
                         .padding(.bottom, 232)
-                }
-//                Image("hand")
-//                    .resizable()
-//                    .frame(width: 60, height: 60)
-//                    .scaleEffect(isUpdating ? 1.5 : 1.0)
-//                    .rotationEffect(isUpdating ? .degrees(15) : .degrees(0))
-//                    .animation(Animation.easeInOut(duration: 1.0).repeatForever(autoreverses: true))
+                        .opacity(showingPopover ? 1.0 : 0.0)
+                        .scaleEffect(showingPopover ? 1.0 : 0.0)
+                        .animation(.easeInOut(duration: 0.3).delay(0.1), value: showingPopover)
+        
                 
+                
+                Image(systemName:"hand.point.up.fill")
+                    .resizable()
+                    .frame(width: 90, height: 120)
+                    .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
+                    .offset(x: 10, y: isOffsetAnimate ? self.offset : 500)
+                
+                    .opacity( !showingPopover && !buttonActive ? 1 : 0)
+                //  .scaleEffect(!showingPopover && !buttonActive ? 1 : 0)
+                    .onAppear {
+                        withAnimation(.easeInOut(duration: 0.8).repeatForever()) {
+                            self.offset = 150
+                        }
+                    }
+                    .animation(Animation.easeOut(duration: 0.4), value: !showingPopover && !buttonActive )
+                    .animation(Animation.easeInOut(duration: 0.8).repeatForever(), value: isOffsetAnimate)
                 
             }.frame(height: 300)
             
@@ -72,7 +94,7 @@ struct LongPressView1: View {
                 Button {
                     selection = 2
                 } label: {
-                    Text("다음").font(.customNextButton())
+                    Text("다음").font(.customNextButton()).kerning(2)
                 }.btnStyle()
                     .frame(height: 50)
             }

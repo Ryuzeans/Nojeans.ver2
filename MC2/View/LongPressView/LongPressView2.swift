@@ -20,28 +20,38 @@ struct LongPressView2: View {
                 .multilineTextAlignment(.center)
                 .padding(.top, 40)
             Spacer()
-            Image("Camera")
-                .padding(16)
-                .onLongPressGesture(minimumDuration: 1.0, perform: {
-                    buttonActive = true
-                }, onPressingChanged: { _ in
-                    buttonActive = true
-                })
-                .contextMenu {
-                    Button {} label: {Label("셀피 찍기", systemImage: "person.crop.square")}
-                    Button {} label: {Label("비디오 녹화", systemImage: "video")}
-                    Button {} label: {Label("인물 사진 찍기", systemImage: "person.and.background.dotted")}
-                    Button {} label: {Label("인물 사진 셀피 찍기", systemImage: "person.and.background.dotted")}
-                    Divider()
-                    Button {} label: {Label("홈 화면 편집", systemImage: "apps.iphone")}
-                    Button(role: .destructive) {} label: {Label("앱 제거", systemImage: "minus.circle")}
-                }
+            VStack {
+                Image("Camera")
+                    .resizable()
+                    .frame(width: 128, height: 128)
+                    .scaledToFill()
+            }
+            .frame(width: 128, height: 128)
+            .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 28.0))
+            
+            .contextMenu {
+                Button {} label: {Label("셀피 찍기", systemImage: "person.crop.square")}
+                Button {} label: {Label("비디오 녹화", systemImage: "video")}
+                Button {} label: {Label("인물 사진 찍기", systemImage: "person.and.background.dotted")}
+                Button {} label: {Label("인물 사진 셀피 찍기", systemImage: "person.and.background.dotted")}
+                Divider()
+                Button {} label: {Label("홈 화면 편집", systemImage: "apps.iphone")}
+                Button(role: .destructive) {} label: {Label("앱 제거", systemImage: "minus.circle")}
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            withAnimation(.easeOut) {
+                                buttonActive = true
+                            }
+                        }
+                        
+                    }
+            }
             Spacer()
             if buttonActive {
                 Button {
-                   // TODO: 다음 화면으로 수정
+                    // TODO: 다음 화면으로 수정
                 } label: {
-                    Text("완료").font(.customNextButton())
+                    Text("완료").font(.customNextButton()).kerning(2)
                 }.btnStyle().frame(height: 50)
             } else {
                 Button { } label: {

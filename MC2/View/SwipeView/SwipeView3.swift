@@ -31,7 +31,7 @@ struct SwipeView3: View {
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
                 .padding(.top, 40)
-            
+            Spacer()
             List() {
                 ForEach(messageData, id: \.id) { message in
                     HStack {
@@ -73,7 +73,7 @@ struct SwipeView3: View {
                 Button {
                     //TODO: FanView로 수정
                 } label: {
-                        Text("다음").font(.customNextButton())
+                        Text("완료").font(.customNextButton()).kerning(2)
                 }.btnStyle().frame(height: 50)
             }
             else {
