@@ -22,7 +22,7 @@ struct MainView: View {
         .init(name: "살짝 쓸기", image: "ListColor 2", subName: "Swipe"),
         .init(name: "끌어오기", image: "ListColor 4", subName: "Drag"),
         .init(name: "화면 움직이기", image: "ListColor 3", subName: "Pan"),
-        .init(name: "확대, 축소하기", image: "ListColor 1", subName: "Zoom in, out"),
+        .init(name: "확대 축소하기", image: "ListColor 1", subName: "Zoom in, out"),
         .init(name: "회전하기", image: "ListColor", subName: "Rotate"),
     ]
     
