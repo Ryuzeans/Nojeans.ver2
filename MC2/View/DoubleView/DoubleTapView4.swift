@@ -31,7 +31,7 @@ struct DoubleTapView4: View {
                 }
                 if(isClicked){
                     Button(action: {
-                        //tag += 1
+                        dismiss()
                     }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
                 }
             }.padding(16)
