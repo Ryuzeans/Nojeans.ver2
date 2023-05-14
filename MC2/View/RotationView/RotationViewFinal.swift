@@ -18,7 +18,7 @@ struct RotationViewFinal: View {
             Spacer()
             Image("RotateExp")
             Spacer()
-            Text("살짝 쓸기 학습을\n완료했습니다!").font(.customTitle())
+            Text("회전하기 학습을\n완료했습니다!").font(.customTitle())
                 .multilineTextAlignment(.center)
             Spacer()
             Button {

@@ -17,13 +17,13 @@ struct TouchGesture: Identifiable,Hashable{
 struct MainView: View {
     
     let brands: [TouchGesture] = [
-        .init(name: "두 번 누르기", image: "ListColor 6", subName: "Double Tap"),
-        .init(name: "길게 누르기", image: "ListColor 5", subName: "Long Tap"),
-        .init(name: "살짝 쓸기", image: "ListColor 2", subName: "Swipe"),
+        .init(name: "두 번 누르기", image: "ListColor 1", subName: "Double Tap"),
+        .init(name: "길게 누르기", image: "ListColor 2", subName: "Long Tap"),
+        .init(name: "살짝 쓸기", image: "ListColor 3", subName: "Swipe"),
         .init(name: "끌어오기", image: "ListColor 4", subName: "Drag"),
-        .init(name: "화면 움직이기", image: "ListColor 3", subName: "Pan"),
-        .init(name: "확대 축소하기", image: "ListColor 1", subName: "Zoom in, out"),
-        .init(name: "회전하기", image: "ListColor", subName: "Rotate"),
+        .init(name: "화면 움직이기", image: "ListColor 5", subName: "Pan"),
+        .init(name: "확대 축소하기", image: "ListColor 6", subName: "Zoom in, out"),
+        .init(name: "회전하기", image: "ListColor 7", subName: "Rotate"),
     ]
     
     @State private var navigationPath = [TouchGesture]()
