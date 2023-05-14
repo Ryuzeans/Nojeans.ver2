@@ -61,20 +61,20 @@ struct DoubleTapView2: View {
                             }
                         }
                     
-                    Text("가볍게 두 번\n눌러볼까요?")
-                        .font(.customTitle())
+                    Text("빠르게 두 번\n눌러볼까요?")
+                        .font(.customTitle()).multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive || oneMoreTapActive ? 0 : 1)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.3)
                     
-                    Text("마지막으로\n한번 더!")
+                    Text("마지막으로\n한 번 더!").multilineTextAlignment(.center)
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
                         .opacity(oneMoreTapActive ? 1 : 0)
                         .position(x: geo.size.width / 2 , y : oneMoreTapActive ? geo.size.height/8.3 : geo.size.height/2)
                     
                     
-                    Text("잘했어요\n한번 더!")
+                    Text("잘했어요\n한 번 더!")
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .font(.customTitle())
@@ -104,19 +104,17 @@ struct DoubleTapView2: View {
                         Button {
                             nextViewAction()
                         } label: {
-                            Text("다음")
+                            Text("다음").kerning(2)
                                 .font(.customNextButton())
                         }
                         .btnStyle()
                         .opacity(tapcount >= 3 ? 1 : 0)
-                        
                     }
-                    .padding(.horizontal,16)
+                    .padding(16)
                 }
             }
         }
     }
-    
 }
 
 struct DoubleTapView2_Previews: PreviewProvider {

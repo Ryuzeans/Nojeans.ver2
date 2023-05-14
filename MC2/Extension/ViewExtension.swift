@@ -22,8 +22,27 @@ struct BtnStyle: ButtonStyle {
     }
 }
 
+struct BtnWhiteStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth:.infinity)
+            .frame(height: 48)
+            .font(.headline)
+            .padding(.horizontal, 16)
+            .foregroundColor(Color("BrandColor"))
+            .background(.white)
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color("BrandColor"), lineWidth: 0.5))
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+    }
+}
+
 extension View {
     func btnStyle() -> some View {
         self.buttonStyle(BtnStyle())
     }
+    
+    func btnWhiteStyle() -> some View {
+        self.buttonStyle(BtnWhiteStyle())
+    }
+    
 }

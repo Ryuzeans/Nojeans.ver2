@@ -74,9 +74,9 @@ struct LongPressView1: View {
                     .resizable()
                     .frame(width: 90, height: 120)
                     .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
-                    .offset(x: 10, y: isOffsetAnimate ? self.offset : 500)
-                
-                    .opacity( !showingPopover && !buttonActive ? 1 : 0)
+                    .offset(x: 10, y: isOffsetAnimate ? self.offset : 350)
+                    .opacity( isOffsetAnimate ? 1 : 0)
+                    //.opacity( !showingPopover && !buttonActive ? 1 : 0)
                 //  .scaleEffect(!showingPopover && !buttonActive ? 1 : 0)
                     .onAppear {
                         withAnimation(.easeInOut(duration: 0.8).repeatForever()) {

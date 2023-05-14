@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct DoubleTapView4: View {
-    
+    let nextViewAction: () -> Void
     @State private var isZoomed = false
     @State private var scale: CGFloat = 1.0
-    @Environment(\.dismiss) private var dismiss
     @State private var isClicked = false
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom){
                 VStack{
                     Spacer().frame(height: 40)
-                    Text("두 번 눌러볼까요?")
-                        .font(Font.customTitle())
+                    Text("빠르게 두 번 눌러\n사진을 확대해볼까요?")
+                        .font(Font.customTitle()).multilineTextAlignment(.center)
 
                     Image("sample")
                         .resizable()
@@ -27,14 +26,13 @@ struct DoubleTapView4: View {
                         .scaledToFit()
                         .clipShape(Rectangle())
                         .modifier(ImageModifier2(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height),isClicked: $isClicked))
-                    
                 }
                 if(isClicked){
                     Button(action: {
-                        dismiss()
-                    }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
+                        nextViewAction()
+                    }, label: {Text("완료").font(Font.customNextButton()).kerning(2)}).btnStyle().padding(16)
                 }
-            }.padding(16)
+            }
         }
     }
 }
@@ -72,11 +70,11 @@ struct ImageModifier2: ViewModifier {
         .animation(.easeInOut, value: currentScale)
     }
 }
-struct SwiftUIView_Previews: PreviewProvider {
-    static var previews: some View {
-        DoubleTapView4()
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DoubleTapView4()
+//    }
+//}
 
 
 class MyObservableObject: ObservableObject {
