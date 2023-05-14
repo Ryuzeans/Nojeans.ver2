@@ -38,10 +38,10 @@ struct RotationView1: View {
                 Button {
                     tag += 1
                 } label: {
-                    Text("다음")
+                    Text("다음").kerning(2).font(.customNextButton())
                 }
                 .btnStyle()
-                .padding(.horizontal,16)
+                .padding(16)
 
             }
         }

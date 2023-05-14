@@ -13,6 +13,7 @@ struct DoubleTapViewMain: View {
         case second
         case third
         case four
+        case five
     }
     
     @State private var viewState: ViewState = .first
@@ -36,7 +37,13 @@ struct DoubleTapViewMain: View {
                     viewState = .four
                 })
             case .four:
-                DoubleTapView4()
+                DoubleTapView4(nextViewAction: {
+                    viewState = .five
+                })
+            case .five:
+                DoubleTapViewFinal(nextViewAction: {
+                    viewState = .first
+                })
             }
             
         }

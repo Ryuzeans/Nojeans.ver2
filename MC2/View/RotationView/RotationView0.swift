@@ -21,8 +21,8 @@ struct RotationView0: View {
             Spacer()
             
             Image("RotateExp")
-                .resizable()
-                .frame(width: 280, height: 189)
+//                .resizable()
+//                .frame(width: 344, height: 206)
             //                .rotationEffect(Angle.degrees(rotation))
             //                .onAppear {
             //                    withAnimation(.easeOut(duration: 3.0)) {

@@ -18,6 +18,8 @@ struct LongPressMain: View {
                 LongPressView1(selection: $selection)
             case 2:
                 LongPressView2(selection: $selection)
+            case 3:
+                LongPressFinalView(selection: $selection)
             default:
                 LongPressSubscriptionView(selection: $selection)
             }

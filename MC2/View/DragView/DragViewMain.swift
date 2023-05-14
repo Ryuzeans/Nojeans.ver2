@@ -20,10 +20,12 @@ struct DragViewMain: View {
                 DragView2(tag: $tag)
             case 3:
                 DragView3(tag: $tag)
+            case 4:
+                DragViewFinal(tag: $tag)
             default:
                 DragView0(tag: $tag)
             }
-        }//.background(.red)
+        }
         .navigationBarBackButtonHidden(true)
     }
 }

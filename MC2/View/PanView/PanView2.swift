@@ -39,20 +39,17 @@ struct PanView2: View {
             VStack {
                 
                 Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Text("처음으로")
-                }
-                .btnStyle()
-                .padding(.horizontal,16)
+                Button(action: {
+                    tag += 1
+                }, label: {Text("완료").font(Font.customNextButton()).kerning(2)}).btnStyle()
+                .padding(16)
 
             }
             
             
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 withAnimation {
                     showing = true
                 }

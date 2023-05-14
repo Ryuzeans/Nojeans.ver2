@@ -15,7 +15,7 @@ struct LongPressView2: View {
     
     var body: some View {
         VStack {
-            Text("카메라를 1초간\n눌러 볼까요?")
+            Text("카메라를 1초 동안\n눌러서 추가 기능을\n알아볼까요?")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
                 .padding(.top, 40)
@@ -49,7 +49,7 @@ struct LongPressView2: View {
             Spacer()
             if buttonActive {
                 Button {
-                    // TODO: 다음 화면으로 수정
+                    selection = 3
                 } label: {
                     Text("완료").font(.customNextButton()).kerning(2)
                 }.btnStyle().frame(height: 50)

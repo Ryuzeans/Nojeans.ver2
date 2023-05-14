@@ -20,6 +20,8 @@ struct PanViewMain: View {
                 Home(tag: $tag)
             case 2:
                 PanView2(tag: $tag)
+            case 3:
+                PanViewFinal(tag: $tag)
             default:
                 EmptyView()
             }

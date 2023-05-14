@@ -18,7 +18,7 @@ struct DoubleTapView3: View {
             ZStack{
                 VStack(spacing: 0){
                     
-                    Text(doubleTapActive ? "잘하셨어요!\n" : "검색창을 두 번\n눌러볼까요?" )
+                    Text(buttonActive ? "잘하셨어요!\n" : "검색창을 두 번\n눌러볼까요?" )
                         .font(.customTitle())
                         .frame(maxWidth: .infinity,alignment: .center)
                         .multilineTextAlignment(.center)
@@ -48,20 +48,19 @@ struct DoubleTapView3: View {
                         
                     Spacer()
                     
-                    
-                    
                 }
                 VStack(){
                     Spacer()
-                    Button("다음") {
+                    Button(action: {
                         nextViewAction()
-                    }
+                    }, label: {
+                        Text("다음").kerning(2).font(.customNextButton())
+                    })
                     .opacity(buttonActive ? 1 : 0)
                     .btnStyle()
-                 
                 }
             }
-            .padding(.horizontal,16)
+            .padding(16)
         }
     }
 }

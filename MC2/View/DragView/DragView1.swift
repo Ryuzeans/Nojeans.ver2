@@ -39,7 +39,7 @@ struct DragView1: View {
                                     .padding(10)
                             }
                             else{
-                                Text("잘하셨어요\n")
+                                Text("잘하셨어요!\n")
                                     .font(Font.customTitle())
                                     .multilineTextAlignment(.center)
                                     .padding(10)
@@ -68,7 +68,7 @@ struct DragView1: View {
                 ZStack{
                     VStack{
                         Spacer().frame(height:175)
-                        Image("TouchCircle")
+                        Image("TouchBall")
                             .resizable()
                             .frame(width: !onLongPressed || onClicked ? 100 : 140,
                                    height: !onLongPressed || onClicked ? 100 : 140)
@@ -76,7 +76,7 @@ struct DragView1: View {
                             Image("Arrow")
                                 .resizable()
                                 .frame(width: 22, height: 44)
-                                .padding(9)
+                                .padding(6)
                         }
                         else{
                             Spacer().frame(height: 44)
@@ -97,7 +97,7 @@ struct DragView1: View {
             if isEnded{
                 Button(action: {
                     tag += 1
-                }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
+                }, label: {Text("다음").font(Font.customNextButton()).kerning(2)}).btnStyle().padding(16)
             }
         }
         }

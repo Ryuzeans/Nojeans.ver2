@@ -42,7 +42,7 @@ struct PanView1: View {
                         if(state.isPan){
                             Button(action: {
                                 tag += 1
-                            }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
+                            }, label: {Text("다음").font(Font.customNextButton()).kerning(2)}).btnStyle()
                         }
                     }.padding(16)
                 }
@@ -64,7 +64,7 @@ struct PanJoyStickView: View {
     
     var body: some View {
 
-        Image("PanCircle")
+        Image("TouchBall")
             .resizable()
             .frame(width: 100, height: 100)
             .gesture(
