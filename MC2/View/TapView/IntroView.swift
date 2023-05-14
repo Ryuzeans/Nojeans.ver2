@@ -20,7 +20,7 @@ struct IntroView: View {
             
             if showHomeView{
                 
-                withAnimation{
+                withAnimation(.default){
                     MainView()
                         .transition(.move(edge: .trailing))
                 }
@@ -63,7 +63,7 @@ struct IntroView: View {
                 Indicators()
                     .opacity(isLast ? 0 : 1)
                     .animation(.easeInOut(duration: 0.35), value: isLast)
-                    .offset(y: -180)
+                    .offset(y: -80)
             })
 
 //            .overlay(alignment: .bottom) {
@@ -120,12 +120,12 @@ struct IntroView: View {
         HStack(spacing: 8){
             ForEach(intros.indices,id: \.self){index in
                 Circle()
-                    .fill(Color("BrandColor"))
+                    .fill(Color("BrandColor20"))
                     .frame(width: 15, height: 15)
                     .overlay {
                         if currentIndex == index{
                             Circle()
-                                .stroke(Color.black,lineWidth: 4)
+                                .stroke(Color("BrandColor"),lineWidth: 4)
                                 .frame(width: 15, height: 15)
                                 .matchedGeometryEffect(id: "INDICATOR", in: animation)
                         }
@@ -151,6 +151,7 @@ struct IntroView: View {
                 .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(currentIndex == index ? 0.2 : 0).delay(currentIndex == index ? 0.2 : 0), value: currentIndex)
             
             
+            
             Image(intro.imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -167,6 +168,14 @@ struct IntroView: View {
                         currentIndex += 1
                     }
                 }
+                .overlay(
+                    Image(systemName:"hand.point.up.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 90)
+                        .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
+                        .position(x: 120, y: 250)
+                )
         }
         .offset(y: -30)
     }
@@ -177,35 +186,35 @@ struct IntroView: View {
     func NavBar()->some View{
         let isLast = currentIndex == intros.count
         
-        HStack{
-            Button {
-                // If Greater Than Zero Then Eliminating Index
-                if currentIndex > 0{
-                    currentIndex -= 1
-                }else{
-                    showWalkThroughScreens.toggle()
-                }
-            } label: {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 20))
-                    .font(.title3)
-                    .foregroundColor(Color.black)
-            }
-
-            Spacer()
-            
-            Button("Skip"){
-                currentIndex = intros.count
-            }
-            .font(.system(size: 20))
-            .foregroundColor(Color.black)
-            .opacity(isLast ? 0 : 1)
-            .animation(.easeInOut, value: isLast)
-        }
-        .padding(.horizontal,45)
-        .padding(.top,10)
-        .frame(maxHeight: .infinity,alignment: .top)
-        .offset(y: showWalkThroughScreens ? 0 : -120)
+//        HStack{
+//            Button {
+//                // If Greater Than Zero Then Eliminating Index
+//                if currentIndex > 0{
+//                    currentIndex -= 1
+//                }else{
+//                    showWalkThroughScreens.toggle()
+//                }
+//            } label: {
+//                Image(systemName: "chevron.left")
+//                    .font(.system(size: 20))
+//                    .font(.title3)
+//                    .foregroundColor(Color.black)
+//            }
+//
+//            Spacer()
+//
+//            Button("Skip"){
+//                currentIndex = intros.count
+//            }
+//            .font(.system(size: 20))
+//            .foregroundColor(Color.black)
+//            .opacity(isLast ? 0 : 1)
+//            .animation(.easeInOut, value: isLast)
+//        }
+//        .padding(.horizontal,45)
+//        .padding(.top,10)
+//        .frame(maxHeight: .infinity,alignment: .top)
+//        .offset(y: showWalkThroughScreens ? 0 : -120)
     }
 
     
@@ -231,17 +240,19 @@ struct IntroView: View {
             
             VStack(spacing: 10){
                 
-                Image("DoubleCircle")
+                Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: size.width, height: size.height / 2)
-                    .padding(.top,150)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top,350)
+                    .padding(.horizontal,16)
                 
 //                Text("Endangerd")
 //                    .foregroundColor(.black)
 //                    .font(.system(size: 48).bold())
 //                    .padding(.top,55)
                 
+                Spacer()
                 
                 Text("시작하기")
                     .font(.system(size: 24))
@@ -253,13 +264,13 @@ struct IntroView: View {
                         Rectangle()
                             .fill(Color("BrandColor"))
                             .cornerRadius(20)
-                            .shadow(color: Color.black, radius: 1, y: 2)
+                            
                             
                     }
                     .onTapGesture {
                         showWalkThroughScreens.toggle()
                     }
-                    .padding(.top,30)
+                    .padding(.bottom,40)
             }
             .frame(maxWidth: .infinity,maxHeight: .infinity,alignment: .top)
             .offset(y: showWalkThroughScreens ? -size.height : 0)

@@ -14,7 +14,7 @@ struct MC2App: App {
         WindowGroup {
             
             if UserDefaults.standard.bool(forKey: "goToMain"){
-                 TapViewMain()
+                 IntroView()
              }
             else{
                 MainView()
