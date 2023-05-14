@@ -12,8 +12,7 @@ struct DoubleTapView4: View {
     @State private var isZoomed = false
     @State private var scale: CGFloat = 1.0
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var myObservableObject = MyObservableObject()
-    
+    @State private var isClicked = false
     var body: some View {
         GeometryReader { proxy in
             ZStack(alignment: .bottom){
@@ -27,20 +26,14 @@ struct DoubleTapView4: View {
                         .frame(width: proxy.size.width, height: proxy.size.height)
                         .scaledToFit()
                         .clipShape(Rectangle())
-                        .modifier(ImageModifier2(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height)))
+                        .modifier(ImageModifier2(contentSize: CGSize(width: proxy.size.width, height: proxy.size.height),isClicked: $isClicked))
                     
-                    let _ = print("\(myObservableObject.buttonActive)")
                 }
-                Button {
-                    dismiss()
-                } label: {
-                    Text("다음")
-                        .font(.customNextButton())
+                if(isClicked){
+                    Button(action: {
+                        //tag += 1
+                    }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
                 }
-                .btnStyle()
-                .opacity(myObservableObject.buttonActive ? 1 : 0)
-                
-
             }.padding(16)
         }
     }
@@ -51,18 +44,17 @@ struct ImageModifier2: ViewModifier {
     private var min: CGFloat = 1.0
     private var max: CGFloat = 3.0
     @State var currentScale: CGFloat = 1.0
-    @ObservedObject var myObservableObject = MyObservableObject()
+    @Binding var isClicked: Bool
 
 
-    init(contentSize: CGSize) {
+    init(contentSize: CGSize,isClicked: Binding<Bool>) {
         self.contentSize = contentSize
+        _isClicked = isClicked
     }
     
     var doubleTapGesture: some Gesture {
         TapGesture(count: 2).onEnded {
-            print("----------before\(myObservableObject.buttonActive)")
-            myObservableObject.buttonActive = true
-            print("----------after\(myObservableObject.buttonActive)")
+            isClicked = true
             if currentScale <= min { currentScale = max } else
             if currentScale >= max { currentScale = min } else {
                 currentScale = ((max - min) * 0.5 + min) < currentScale ? max : min
@@ -74,7 +66,7 @@ struct ImageModifier2: ViewModifier {
         ScrollView([.horizontal, .vertical]) {
             content
                 .frame(width: contentSize.width * currentScale, height: contentSize.height * currentScale, alignment: .center)
-                .modifier(PinchToZoom(minScale: min, maxScale: max, scale: $currentScale))
+                .modifier(PinchToZoom(minScale: min, maxScale: max, scale: $currentScale,state: StateViewModel()))
         }
         .gesture(doubleTapGesture)
         .animation(.easeInOut, value: currentScale)
