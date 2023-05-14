@@ -46,8 +46,8 @@ struct TapView1: View {
 
 
 
-struct TapView1_Previews: PreviewProvider {
-    static var previews: some View {
-        TapViewMain()
-    }
-}
+//struct TapView1_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TapViewMain()
+//    }
+//}
