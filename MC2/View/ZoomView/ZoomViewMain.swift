@@ -18,7 +18,8 @@ struct ZoomViewMain: View {
                 ZoomView1(tag: $tag)
             case 2:
                 ZoomView2(tag: $tag)
-                
+            case 3:
+                ZoomViewFinal(tag: $tag)
             default:
                 DragView0(tag: $tag)
             }

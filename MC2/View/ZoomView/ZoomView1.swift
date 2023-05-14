@@ -71,7 +71,7 @@ struct ZoomView1: View {
                 if(isFan && isFold){
                     Button(action: {
                         tag += 1
-                    }, label: {Text("다음").font(Font.customNextButton())}).btnStyle().padding(16)
+                    }, label: {Text("다음").font(Font.customNextButton()).kerning(2)}).btnStyle().padding(16)
                 }
         }
         .gesture(

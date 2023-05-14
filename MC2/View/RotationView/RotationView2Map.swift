@@ -11,12 +11,11 @@ import MapKit
 struct RotationView2Map: View {
     @State private var showing = false
     @Binding var tag :Int
-    @Environment(\.dismiss) private var dismiss
     @State private var buttonActive = false
     var body: some View {
         VStack {
             Spacer().frame(height: 40)
-            Text("지도를\n회전해볼까요?")
+            Text("지도를\n회전해 볼까요?")
                 .font(Font.customTitle())
                 .multilineTextAlignment(.center)
             
@@ -30,9 +29,9 @@ struct RotationView2Map: View {
                             
                 if buttonActive {
                     Button {
-                        dismiss()
+                        tag += 1
                     } label: {
-                        Text("다음").font(.customNextButton()).kerning(2)
+                        Text("완료").font(.customNextButton()).kerning(2)
                     }.btnStyle().frame(height: 50).padding(16)
                 }
                 else {

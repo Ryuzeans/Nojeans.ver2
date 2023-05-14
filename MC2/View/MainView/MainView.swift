@@ -146,7 +146,7 @@ struct MainView: View {
             return AnyView(DragViewMain())
         case "살짝 쓸기":
             return AnyView(SwipeViewMain())
-        case "확대, 축소하기":
+        case "확대 축소하기":
             return AnyView(ZoomViewMain())
         case "회전하기":
             return AnyView(RotationViewMain())

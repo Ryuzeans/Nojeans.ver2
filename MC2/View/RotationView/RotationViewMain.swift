@@ -21,7 +21,7 @@ struct RotationViewMain: View {
             case 2:
                 RotationView2Map(tag: $tag)
             case 3:
-                RotationView3(tag: $tag)
+                RotationViewFinal(tag: $tag)
             default:
                 EmptyView()
             }

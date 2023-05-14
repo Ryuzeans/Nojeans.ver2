@@ -20,13 +20,13 @@ struct DragView3: View {
                 Rectangle().frame(height:0)
                 Spacer().frame(height: 40)
                 if(!isReached){
-                    Text("카메라 어플을\n3초 누른 뒤\n빈 원에 옮겨볼까요?")
+                    Text("카메라를 3초 누른 뒤\n화살표가 가리키는\n곳에 옮겨볼까요?")
                         .font(Font.customTitle())
                         .multilineTextAlignment(.center)
                         .padding(10)
                 }
                 else{
-                    Text("잘하셨어요\n\n")
+                    Text("잘하셨어요!\n\n")
                         .font(Font.customTitle())
                         .padding(10)
 
@@ -55,7 +55,7 @@ struct DragView3: View {
                 Button(action: {
                     tag += 1
                 }) {
-                    Text("다음").font(Font.customNextButton())
+                    Text("완료").font(Font.customNextButton()).kerning(2)
                 }.btnStyle().padding(16)
             }
         }

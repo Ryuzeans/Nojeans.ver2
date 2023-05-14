@@ -28,7 +28,7 @@ struct ZoomView2: View {
                             .font(Font.customTitle())
                     }
 
-                    Image("zoomView_circle")
+                    Image("sample")
                         .resizable()
                         .frame(width: proxy.size.width, height: proxy.size.height)
                         .scaledToFit()
@@ -38,9 +38,9 @@ struct ZoomView2: View {
                 if(state.isPan){
                     Button(action: {
                         tag += 1
-                    }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
+                    }, label: {Text("완료").font(Font.customNextButton()).kerning(2)}).btnStyle().padding(16)
                 }
-            }.padding(16)
+            }
         }
     }
 }

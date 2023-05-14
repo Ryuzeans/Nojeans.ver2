@@ -20,6 +20,8 @@ struct SwipeViewMain: View {
                 SwipeView2(swpSelection: $swpSelection)
             case 3:
                 SwipeView3(swpSelection: $swpSelection)
+            case 4:
+                SwipeViewFinal(swpSelection: $swpSelection)
             default:
                 SwipeSubscriptionView(swpSelection: $swpSelection)
             }

@@ -12,44 +12,47 @@ struct DragView2: View {
     @State private var sliderValue = 0.0
     @State private var isEnd = false
     var body: some View {
-        ZStack(alignment: .bottom){
-            VStack{
-                Spacer().frame(height: 40)
-                if(!isEnd){
-                    Text("원을 좌우로\n움직여보세요")
-                        .font(Font.customTitle())
-                        .multilineTextAlignment(.center)
-                        .padding(10)
-                }
-                else{
-                    Text("잘하셨어요\n\n")
-                        .font(Font.customTitle())
-                        .padding(10)
-                }
-                Spacer().frame(height: 100)
-                Slider(value: $sliderValue){
-                    Image("PanCircle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                }
-                .onChange(of: sliderValue, perform: { value in
-                    if sliderValue > 0.9{
-                        isEnd = true
-                    }
-                })
-                .frame(width: 300, height:50)
-                .tint(Color("BrandColor"))
-                Spacer()
+        VStack{
+            Spacer().frame(height: 40)
+            if(!isEnd){
+                Text("원을 좌우로\n움직여보세요")
+                    .font(Font.customTitle())
+                    .multilineTextAlignment(.center)
+                    .padding(10)
             }
+            else{
+                Text("잘하셨어요!\n")
+                    .font(Font.customTitle())
+                    .multilineTextAlignment(.center)
+                    .padding(10)
+            }
+            Spacer()
+            Slider(value: $sliderValue){
+                Image("TouchBall")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+            }
+            .onChange(of: sliderValue, perform: { value in
+                if sliderValue > 0.8 {
+                    isEnd = true
+                }
+            })
+            .frame(width: 300, height:50)
+            .tint(Color("BrandColor"))
+            
+            Spacer()
+            
             if(isEnd){
                 Button(action: {
                     tag += 1
                 }) {
-                    Text("다음").font(Font.customNextButton())
-                }.btnStyle().padding(16)
+                    Text("다음").font(Font.customNextButton()).kerning(2)
+                }.btnStyle().frame(height: 50)
+            } else {
+                Spacer().frame(height: 50)
             }
-        }
+        }.padding(16)
     }
 }
 

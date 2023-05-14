@@ -49,10 +49,10 @@ struct Home: View {
                     Button(action: {
                         tag += 1
                     }, label: {
-                        Text("다음")
+                        Text("다음").font(.customNextButton()).kerning(2)
                     })
-                        .btnStyle()
-                        .padding(.horizontal,16)
+                    .btnStyle()
+                        .padding(16)
                     
                 }
                 

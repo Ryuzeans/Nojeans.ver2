@@ -71,7 +71,7 @@ struct SwipeView3: View {
 
             if btnActive {
                 Button {
-                    //TODO: FanView로 수정
+                    swpSelection = 4
                 } label: {
                         Text("완료").font(.customNextButton()).kerning(2)
                 }.btnStyle().frame(height: 50)
