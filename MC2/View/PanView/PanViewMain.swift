@@ -17,7 +17,7 @@ struct PanViewMain: View {
             case 0:
                 PanView0()
             case 1:
-                PanView1(tag: $tag)
+                Home(tag: $tag)
             case 2:
                 PanView2(tag: $tag)
             default:

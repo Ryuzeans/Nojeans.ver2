@@ -12,81 +12,41 @@ struct PanView1: View {
     @State private var joystickPosition = CGSize.zero
     @State private var showInitialText = 0
     @Binding var tag :Int
+    @State private var panActive: Bool = false
     
+    @StateObject var state = StateViewModel()
     var body: some View {
-        
-        ZStack {
-            if showInitialText == 0{
-                Image("PanMapOff")
-                    .resizable()
-                    .frame(width: 900,height: 1200)
-                    .position(imagePosition)
-            } else {
-                Image("PanMapOn")
-                    .resizable()
-                    .frame(width: 900,height: 1200)
-                    .position(imagePosition)
-                    .gesture(
-                        DragGesture()
-                            .onChanged {
-                                value in
-                                joystickPosition = value.translation
-                            }
-                            .onEnded { _ in
-                                joystickPosition = .zero
-                                updateImagePosition()
-                            }
-                    )
-                    .offset(x: joystickPosition.width, y: joystickPosition.height)
-            }
+        ScrollViewReader { proxy in
+                    ZStack(alignment: .bottom){
+                        VStack{
+                            Spacer().frame(height: 40)
                             
-            VStack {
-                
-                if showInitialText  == 0 {
-                    Text("숨어있는\n도형들을\n찾아볼까요?")
-                        .font(Font.customTitle())
-                        .multilineTextAlignment(.center)
-                } else if showInitialText == 1{
-                    Text("원을\n상하좌우로\n움직여보세요!")
-                        .font(Font.customTitle())
-                        .multilineTextAlignment(.center)
-                } else {
-                    Text("잘하셨어요!\n이제 뭐든\n 찾을 수 있어요!")
-                        .font(Font.customTitle())
-                        .multilineTextAlignment(.center)
+                            ScrollView([.horizontal, .vertical],showsIndicators: false) {
+                                
+                                Image("PanMapOn")
+                                    .resizable()
+                                    .scaleEffect(0.7)
+                                    
+                            }
+                            
+                            if(!state.isPan){
+                                Text("움직여 볼까요? ")
+                                    .font(Font.customTitle())
+                            }
+                            else{
+                                Text("잘 하셨어요")
+                                    .font(Font.customTitle())
+                            }
+
+                        }
+                        if(state.isPan){
+                            Button(action: {
+                                tag += 1
+                            }, label: {Text("다음").font(Font.customNextButton())}).btnStyle()
+                        }
+                    }.padding(16)
                 }
-                
-                PanJoyStickView(joystickposition: $joystickPosition)
-                    .padding(.bottom, 50)
-            }
-            
-//            Button {
-//                tag += 1
-//            } label: {
-//                Text("다음")
-//            }
-//            .btnStyle()
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                withAnimation(.easeOut) {
-                    showInitialText = 1
-                }
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 9) {
-                withAnimation(.easeOut) {
-                    showInitialText = 2
-                }
-            }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
-                withAnimation(.easeOut) {
-                    self.tag = 2
-                }
-            }
-            
-        }
+
     }
     
     private func updateImagePosition() {
@@ -120,5 +80,4 @@ struct PanJoyStickView: View {
                    
     }
 }
-
 
