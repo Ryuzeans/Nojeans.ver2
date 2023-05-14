@@ -19,8 +19,14 @@ struct ZoomView2: View {
             ZStack(alignment: .bottom){
                 VStack{
                     Spacer().frame(height: 40)
-                    Text("확대해 볼까요?")
-                        .font(Font.customTitle())
+                    if(!state.isPan){
+                        Text("확대해 볼까요?")
+                            .font(Font.customTitle())
+                    }
+                    else{
+                        Text("잘 하셨어요")
+                            .font(Font.customTitle())
+                    }
 
                     Image("zoomView_circle")
                         .resizable()
