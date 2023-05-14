@@ -12,7 +12,13 @@ struct MC2App: App {
     let newBackgroundColor = Color.red
     var body: some Scene {
         WindowGroup {
-            MainView()
+            
+            if UserDefaults.standard.bool(forKey: "goToMain"){
+                 TapViewMain()
+             }
+            else{
+                MainView()
+            }
         }
     }
 }

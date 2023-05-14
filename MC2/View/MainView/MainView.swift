@@ -128,6 +128,9 @@ struct MainView: View {
                 }
             }
         }.accentColor(.red)
+            .onAppear{
+                 UserDefaults.standard.set(true, forKey: "goToMain")
+             }
         
         
     }
