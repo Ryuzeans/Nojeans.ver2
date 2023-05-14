@@ -29,12 +29,14 @@ struct DoubleTapView2: View {
                         .frame(height: doubleTapActive ? geo.size.height : geo.size.height / 3)
                         .onTapGesture(count: 2) {
                             withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.6, blendDuration: 0.6)) {
+                                opactyTapActive = true
                                 doubleTapActive.toggle()
                                 tapcount += 1
+                                
                                 print(tapcount)
                                 if tapcount >= 2 {
                                     oneMoreTapActive.toggle()
-                                    opactyTapActive = false
+                                    
                                     
                                     //                                    nextViewAction()
                                 }
@@ -48,9 +50,9 @@ struct DoubleTapView2: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: handSize)
+                        .opacity(opactyTapActive ? 0 : 1)
                         .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
                         .position(x:doubleTapActive ? 600 : 220,y: flashAnimation ? 550 : 500)
-                    //                        .opacity(flashAnimation ? 1 : 0)
                         .onAppear{
                             withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)){
                                 flashAnimation.toggle()
@@ -82,6 +84,7 @@ struct DoubleTapView2: View {
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
                         .onTapGesture(count: 2) {
                             withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.6, blendDuration: 0.6)) {
+                                opactyTapActive = true
                                 doubleTapActive.toggle()
                                 tapcount += 1
                                 print(tapcount)
