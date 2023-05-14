@@ -95,7 +95,7 @@
 		609EFD9F2A0B70F700702210 /* LongPressMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressMainView.swift; sourceTree = "<group>"; };
 		609EFDA12A0B712600702210 /* LongPressView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressView1.swift; sourceTree = "<group>"; };
 		609EFDA32A0B713C00702210 /* LongPressView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressView2.swift; sourceTree = "<group>"; };
-		B5246A712A0010DF00656A33 /* MC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5246A712A0010DF00656A33 /* Toucher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toucher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5246A742A0010DF00656A33 /* MC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MC2App.swift; sourceTree = "<group>"; };
 		B5246A762A0010DF00656A33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B5246A782A0010E000656A33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		B5246A722A0010DF00656A33 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5246A712A0010DF00656A33 /* MC2.app */,
+				B5246A712A0010DF00656A33 /* Toucher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,9 +310,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5246A702A0010DF00656A33 /* MC2 */ = {
+		B5246A702A0010DF00656A33 /* Toucher */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5246A7F2A0010E000656A33 /* Build configuration list for PBXNativeTarget "MC2" */;
+			buildConfigurationList = B5246A7F2A0010E000656A33 /* Build configuration list for PBXNativeTarget "Toucher" */;
 			buildPhases = (
 				B5246A6D2A0010DF00656A33 /* Sources */,
 				B5246A6E2A0010DF00656A33 /* Frameworks */,
@@ -322,9 +322,9 @@
 			);
 			dependencies = (
 			);
-			name = MC2;
+			name = Toucher;
 			productName = MC2;
-			productReference = B5246A712A0010DF00656A33 /* MC2.app */;
+			productReference = B5246A712A0010DF00656A33 /* Toucher.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -342,7 +342,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B5246A6C2A0010DE00656A33 /* Build configuration list for PBXProject "MC2" */;
+			buildConfigurationList = B5246A6C2A0010DE00656A33 /* Build configuration list for PBXProject "Toucher" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -355,7 +355,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5246A702A0010DF00656A33 /* MC2 */,
+				B5246A702A0010DF00656A33 /* Toucher */,
 			);
 		};
 /* End PBXProject section */
@@ -483,6 +483,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Toucher;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -537,6 +538,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Toucher;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -626,7 +628,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5246A6C2A0010DE00656A33 /* Build configuration list for PBXProject "MC2" */ = {
+		B5246A6C2A0010DE00656A33 /* Build configuration list for PBXProject "Toucher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5246A7D2A0010E000656A33 /* Debug */,
@@ -635,7 +637,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5246A7F2A0010E000656A33 /* Build configuration list for PBXNativeTarget "MC2" */ = {
+		B5246A7F2A0010E000656A33 /* Build configuration list for PBXNativeTarget "Toucher" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5246A802A0010E000656A33 /* Debug */,
