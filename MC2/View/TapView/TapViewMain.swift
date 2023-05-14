@@ -6,16 +6,19 @@ struct TapViewMain: View {
     
     var body: some View {
            ZStack {
-                  switch tag {
-                  case 0:
-                      TapView(tag: $tag)
-                  case 1:
-                      TapView1(tag: $tag)
-                  case 2:
-                      TapView2(tag: $tag)
-
-                  default:
-                      TapView(tag: $tag)
+               switch tag {
+               case 0:
+                   TapView(tag: $tag)
+               case 1:
+                   TapView1(tag: $tag)
+               case 2:
+                   TapView2(tag: $tag)
+               case 3:
+                   //MainView(tag: $tag)
+                   MainView()
+               default:
+                   //MainView(tag: $tag)
+                   MainView()
                   }
 
               }
