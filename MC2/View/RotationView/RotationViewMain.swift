@@ -14,16 +14,17 @@ struct RotationViewMain: View {
             switch tag {
             case 0:
                 RotationView0(tag: $tag)
+//            case 1:
+//                RotationView1(tag: $tag)
             case 1:
-                RotationView1(tag: $tag)
-            case 2:
                 RotationView2(tag: $tag)
+            case 2:
+                RotationView2Map(tag: $tag)
             case 3:
                 RotationView3(tag: $tag)
             default:
                 EmptyView()
             }
-            
         }
         .navigationBarBackButtonHidden(true)
     }
