@@ -136,7 +136,7 @@ struct MainView: View {
         case "길게 누르기":
             return AnyView(LongPressMain())
         case "두 번 누르기":
-            return AnyView(DoubleTapView())
+            return AnyView(DoubleTapViewMain())
         case "화면 움직이기":
             return AnyView(PanViewMain())
         case "끌어오기":

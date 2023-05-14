@@ -70,6 +70,6 @@ struct DoubleTapView3: View {
 
 struct DoubleTapView3_Previews: PreviewProvider {
     static var previews: some View {
-        DoubleTapView()
+        DoubleTapViewMain()
     }
 }

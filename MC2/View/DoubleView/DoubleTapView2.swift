@@ -10,6 +10,8 @@ import SwiftUI
 struct DoubleTapView2: View {
     
     @State private var doubleTapActive: Bool = false
+    @State private var opactyTapActive: Bool = false
+    @State private var oneMoreTapActive: Bool = false
     @State private var tapcount: Int = 0
     @State private var handSize : CGFloat = 150
     @State private var flashAnimation: Bool = false
@@ -23,16 +25,21 @@ struct DoubleTapView2: View {
                     Image("TouchBall")
                         .resizable()
                         .scaledToFit()
-                        .frame(maxWidth: doubleTapActive ? .infinity : 100 )
+                        .frame(maxWidth: doubleTapActive || oneMoreTapActive ? .infinity : 100 )
                         .frame(height: doubleTapActive ? geo.size.height : geo.size.height / 3)
                         .onTapGesture(count: 2) {
-                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.4, blendDuration: 0.4)) {
-                                doubleTapActive = true
+                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.6, blendDuration: 0.6)) {
+                                doubleTapActive.toggle()
                                 tapcount += 1
                                 print(tapcount)
                                 if tapcount >= 2 {
-                                    nextViewAction()
+                                    oneMoreTapActive.toggle()
+                                    opactyTapActive = false
+                                    
+                                    //                                    nextViewAction()
                                 }
+                                print("dt : \(doubleTapActive)")
+                                print("ot : \(oneMoreTapActive)")
                             }
                         }
                         .padding(.horizontal,25)
@@ -43,40 +50,65 @@ struct DoubleTapView2: View {
                         .frame(width: handSize)
                         .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
                         .position(x:doubleTapActive ? 600 : 220,y: flashAnimation ? 550 : 500)
-//                        .opacity(flashAnimation ? 1 : 0)
+                    //                        .opacity(flashAnimation ? 1 : 0)
                         .onAppear{
                             withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)){
-                                                       flashAnimation.toggle()
-                                                       // withAnimation:모든 glow에 적용 .linear: 일정한속도, duration: 0.5초동안 반짝거리기 . repeatforever(autoreverses:true)끝없이 반복
-                                                       
-                                                   }
+                                flashAnimation.toggle()
+                                // withAnimation:모든 glow에 적용 .linear: 일정한속도, duration: 0.5초동안 반짝거리기 . repeatforever(autoreverses:true)끝없이 반복
+                                
+                            }
                         }
                     
                     Text("가볍게 두 번\n눌러볼까요?")
                         .font(.customTitle())
                         .frame(maxWidth: .infinity)
-                        .opacity(doubleTapActive ? 0 : 1)
+                        .opacity(doubleTapActive || oneMoreTapActive ? 0 : 1)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.3)
-
                     
-                    Text("한 번 더\n해볼까요?")
+                    Text("마지막으로\n한번 더!")
+                        .font(.customTitle())
+                        .frame(maxWidth: .infinity)
+                        .opacity(oneMoreTapActive ? 1 : 0)
+                        .position(x: geo.size.width / 2 , y : oneMoreTapActive ? geo.size.height/8.3 : geo.size.height/2)
+                    
+                    
+                    Text("잘했어요\n한번 더!")
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
                         .font(.customTitle())
                         .frame(height: 400)
                         .frame(maxWidth: .infinity)
-                        .opacity(doubleTapActive ? 1 : 0)
+                        .opacity(doubleTapActive || oneMoreTapActive ? 1 : 0)
                         .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
                         .onTapGesture(count: 2) {
-                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.4, blendDuration: 0.4)) {
-                                doubleTapActive = true
+                            withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.6, blendDuration: 0.6)) {
+                                doubleTapActive.toggle()
                                 tapcount += 1
                                 print(tapcount)
-                                if tapcount >= 1 {
-                                    nextViewAction()
+                                if tapcount >= 2 {
+                                    oneMoreTapActive.toggle()
+                                    opactyTapActive = false
+                                    
+                                    //                                    nextViewAction()
                                 }
+                                print("dt : \(doubleTapActive)")
+                                print("ot : \(oneMoreTapActive)")
                             }
                         }
+                    
+                    VStack{
+                        Spacer()
+                        Button {
+                            nextViewAction()
+                        } label: {
+                            Text("다음")
+                                .font(.customNextButton())
+                        }
+                        .btnStyle()
+                        .opacity(tapcount >= 3 ? 1 : 0)
+                        
+                    }
+                    .padding(.horizontal,16)
                 }
             }
         }
@@ -86,6 +118,6 @@ struct DoubleTapView2: View {
 
 struct DoubleTapView2_Previews: PreviewProvider {
     static var previews: some View {
-        DoubleTapView()
+        DoubleTapViewMain()
     }
 }

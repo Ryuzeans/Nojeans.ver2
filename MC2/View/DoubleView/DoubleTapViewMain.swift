@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-struct DoubleTapView: View {
+struct DoubleTapViewMain: View {
     enum ViewState {
         case first
         case second
-        case second1
         case third
         case four
     }
@@ -29,12 +28,8 @@ struct DoubleTapView: View {
             case .second:
 //                EmptyView()
                 DoubleTapView2(nextViewAction: {
-                    viewState = .second1
-                })
-            case .second1:
-//                EmptyView()
-                DoubleTapView2_1(nextViewAction: {
                     viewState = .third
+                    
                 })
             case .third:
                 DoubleTapView3(nextViewAction: {
