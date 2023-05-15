@@ -27,7 +27,7 @@ struct SwipeView3: View {
     
     var body: some View {
         VStack {
-            Text("메시지를 밀어서\n삭제해 보세요")
+            Text(messageData.count == 0 ? "잘하셨어요!\n다음 버튼을\n눌러주세요!" : "메시지를 밀어서\n삭제해 보세요\n")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
                 .padding(.top, 40)
