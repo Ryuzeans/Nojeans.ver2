@@ -27,6 +27,7 @@ struct RotationViewFinal: View {
                 Text("다시하기").font(.customNextButton()).kerning(2)
             }.btnWhiteStyle()
                 .frame(height: 50)
+                .padding(.bottom,8)
             Button {
                 dismiss()
             } label: {

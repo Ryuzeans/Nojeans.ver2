@@ -16,7 +16,7 @@ struct LongPressFinalView: View {
             Spacer().frame(height: 60)
             Image("Logo")
             Spacer()
-            Image("TouchBall").resizable().frame(width: 100, height: 100)
+            Image("long").resizable().frame(width: 140, height: 140)
             Spacer()
             Text("길게 누르기 학습을\n완료했습니다!").font(.customTitle())
                 .multilineTextAlignment(.center)
@@ -27,6 +27,7 @@ struct LongPressFinalView: View {
                 Text("다시하기").font(.customNextButton()).kerning(2)
             }.btnWhiteStyle()
                 .frame(height: 50)
+                .padding(.bottom,8)
             Button {
                 dismiss()
             } label: {

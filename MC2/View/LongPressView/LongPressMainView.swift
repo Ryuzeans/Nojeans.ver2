@@ -36,9 +36,9 @@ struct LongPressSubscriptionView: View {
             Text("Long Tap").font(.customEngTitle()).foregroundColor(Color("SubTitleColor"))
             Spacer()
             
-            Image("TouchBall")
+            Image("long")
                 .resizable()
-                .frame(width: 116, height: 116)
+                .frame(width: 164, height: 164)
             Spacer()
             
             HStack {
