@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IntroView: View {
     
-    @State var showWalkThroughScreens: Bool = false
+    @State var showWalkThroughScreens: Bool = true
     @State var currentIndex: Int = 0
     @State var showHomeView: Bool = false
     @Namespace var animation
@@ -30,7 +30,6 @@ struct IntroView: View {
                     Color("BackgroundColor")
                         .ignoresSafeArea()
                     
-                    IntroScreen()
                     
                     WalkThroughScreens()
                     
@@ -141,6 +140,7 @@ struct IntroView: View {
     func ScreenView(size: CGSize,index: Int)->some View{
         let intro = intros[index]
         
+        
         VStack(spacing: 10){
             
             Text(intro.title)
@@ -186,51 +186,7 @@ struct IntroView: View {
     func NavBar()->some View{
         let isLast = currentIndex == intros.count
         
-//        HStack{
-//            Button {
-//                // If Greater Than Zero Then Eliminating Index
-//                if currentIndex > 0{
-//                    currentIndex -= 1
-//                }else{
-//                    showWalkThroughScreens.toggle()
-//                }
-//            } label: {
-//                Image(systemName: "chevron.left")
-//                    .font(.system(size: 20))
-//                    .font(.title3)
-//                    .foregroundColor(Color.black)
-//            }
-//
-//            Spacer()
-//
-//            Button("Skip"){
-//                currentIndex = intros.count
-//            }
-//            .font(.system(size: 20))
-//            .foregroundColor(Color.black)
-//            .opacity(isLast ? 0 : 1)
-//            .animation(.easeInOut, value: isLast)
-//        }
-//        .padding(.horizontal,45)
-//        .padding(.top,10)
-//        .frame(maxHeight: .infinity,alignment: .top)
-//        .offset(y: showWalkThroughScreens ? 0 : -120)
-    }
 
-    
-    @ViewBuilder
-    func WelcomeView(size: CGSize,index: Int)->some View{
-        VStack(spacing: 10){
-            
-            Text("Endangerd Animals in Africa")
-                .font(.system(size: 78).bold())
-                .foregroundColor(.black)
-                .offset(x: -size.width * CGFloat(currentIndex - index))
-                .animation(.interactiveSpring(response: 0.9, dampingFraction: 0.8, blendDuration: 0.5).delay(0.1).delay(currentIndex == index ? 0.1 : 0), value: currentIndex)
-            
-            
-        }
-        .offset(y: 60)
     }
     
     @ViewBuilder
@@ -243,7 +199,7 @@ struct IntroView: View {
                 Image("Logo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity)
+                    .frame(width: 200)
                     .padding(.top,350)
                     .padding(.horizontal,16)
                 

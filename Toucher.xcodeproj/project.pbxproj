@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0710D28C2A11B3E700D79639 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0710D28B2A11B3E700D79639 /* SplashScreenView.swift */; };
 		07451F8C2A0AAE1C00F557B8 /* DoubleTapView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */; };
 		07767D712A1102050073A8E1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07767D702A1102050073A8E1 /* HomeView.swift */; };
 		07E45CDA2A09EFAB0005314D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E45CD92A09EFAB0005314D /* MainView.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0710D28B2A11B3E700D79639 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		07451F8B2A0AAE1C00F557B8 /* DoubleTapView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapView4.swift; sourceTree = "<group>"; };
 		07767D702A1102050073A8E1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		07E45CD92A09EFAB0005314D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				DC6886052A0B731D00266423 /* TapView2.swift */,
 				DC6886042A0B731D00266423 /* TapViewMain.swift */,
 				07FB4D312A11156E00807427 /* IntroView.swift */,
+				0710D28B2A11B3E700D79639 /* SplashScreenView.swift */,
 			);
 			path = TapView;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				07767D712A1102050073A8E1 /* HomeView.swift in Sources */,
 				B5CCC3702A09474200C418B3 /* RotationViewMain.swift in Sources */,
 				B5246A9D2A01435300656A33 /* RotationView2.swift in Sources */,
+				0710D28C2A11B3E700D79639 /* SplashScreenView.swift in Sources */,
 				609EFDA02A0B70F700702210 /* LongPressMainView.swift in Sources */,
 				60928AE92A11449000EF8FE8 /* PanViewFinal.swift in Sources */,
 				07E45CEB2A09F8C50005314D /* DoubleTapView2.swift in Sources */,
