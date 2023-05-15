@@ -27,19 +27,18 @@ struct DragView2: View {
                     .padding(10)
             }
             Spacer()
-            Slider(value: $sliderValue){
-                Image("TouchBall")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100, height: 100)
+            ZStack{
+                Slider(value: $sliderValue)
+                .onChange(of: sliderValue, perform: { value in
+                    if sliderValue > 0.8 {
+                        isEnd = true
+                    }
+                })
+                .frame(width: 300, height:50)
+                .tint(Color("BrandColor"))
+//                Arrows()
+//                    .rotationEffect(.degrees(180))
             }
-            .onChange(of: sliderValue, perform: { value in
-                if sliderValue > 0.8 {
-                    isEnd = true
-                }
-            })
-            .frame(width: 300, height:50)
-            .tint(Color("BrandColor"))
             
             Spacer()
             

@@ -73,10 +73,9 @@ struct DragView1: View {
                             .frame(width: !onLongPressed || onClicked ? 100 : 140,
                                    height: !onLongPressed || onClicked ? 100 : 140)
                         if(!onLongPressed){
-                            Image("Arrow")
-                                .resizable()
-                                .frame(width: 22, height: 44)
-                                .padding(6)
+                            Arrows()
+                                .rotationEffect(.degrees(270))
+                                .padding(16)
                         }
                         else{
                             Spacer().frame(height: 44)
