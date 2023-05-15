@@ -137,6 +137,8 @@ struct DragView1: View {
             }
             else{
                 draggedOffset = DragView1.defaultCGSize
+                onClicked = false
+                onLongPressed = false
             }
         }
     }
