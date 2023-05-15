@@ -73,7 +73,7 @@ struct ZoomView1: View {
                         tag += 1
                     }, label: {Text("다음").font(Font.customNextButton()).kerning(2)}).btnStyle().padding(16)
                 }
-        }
+        }.background(Color.white)
         .gesture(
             MagnificationGesture()
                 .onChanged { amount in
