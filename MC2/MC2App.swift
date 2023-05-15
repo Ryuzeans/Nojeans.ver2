@@ -13,12 +13,13 @@ struct MC2App: App {
     var body: some Scene {
         WindowGroup {
             
-            if UserDefaults.standard.bool(forKey: "goToMain"){
-                 IntroView()
-             }
-            else{
-                MainView()
-            }
+//            if UserDefaults.standard.bool(forKey: "goToMain"){
+//                 IntroView()
+//             }
+//            else{
+//                MainView()
+//            }
+            ContentView()
         }
     }
 }

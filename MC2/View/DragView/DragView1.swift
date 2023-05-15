@@ -132,6 +132,8 @@ struct DragView1: View {
                     withAnimation(.easeOut(duration: 1)){
                         animationAmount = 2
                         strokeAnimation = 2
+                        animationAmount2 = 3
+                        animationAmount3 = 4
                     }
                 }
             }
