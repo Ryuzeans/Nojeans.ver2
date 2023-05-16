@@ -46,7 +46,7 @@ struct DragView1: View {
                             }
                         }
                         else{
-                            Text("아래의 원을\n2초간 눌러 볼까요?")
+                        Text("아래의 빨간 원을\n2초간 눌러 볼까요?")
                                 .font(Font.customTitle())
                                 .multilineTextAlignment(.center)
                                 .padding(10)
@@ -58,7 +58,7 @@ struct DragView1: View {
                             .resizable()
                             .frame(width: 116, height: 116)
                         Circle()
-                            .stroke(Color.yellow, lineWidth: strokeAnimation)
+                            .stroke(Color.accentColor, lineWidth: strokeAnimation)
                             .frame(width: 100, height: 100)
                             .scaleEffect(animationAmount)
                             .opacity(Double(2 - animationAmount))
@@ -72,6 +72,7 @@ struct DragView1: View {
                             .resizable()
                             .frame(width: !onLongPressed || onClicked ? 100 : 140,
                                    height: !onLongPressed || onClicked ? 100 : 140)
+                            
                         if(!onLongPressed){
                             Arrows()
                                 .rotationEffect(.degrees(270))
@@ -137,6 +138,8 @@ struct DragView1: View {
             }
             else{
                 draggedOffset = DragView1.defaultCGSize
+                onClicked = false
+                onLongPressed = false
             }
         }
     }

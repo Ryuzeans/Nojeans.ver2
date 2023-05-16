@@ -73,16 +73,16 @@ struct ZoomView1: View {
                         tag += 1
                     }, label: {Text("다음").font(Font.customNextButton()).kerning(2)}).btnStyle().padding(16)
                 }
-        }
+        }.background(Color.white)
         .gesture(
             MagnificationGesture()
                 .onChanged { amount in
                     isDraged = true
                     currentAmount = amount - 1
-                    if amount > 5{
+                    if finalAmount + currentAmount > 5{
                         isFan = true
                     }
-                    if isFan && amount < 2{
+                    if isFan && finalAmount + currentAmount < 3{
                         isFold = true
                     }
                     print(amount)

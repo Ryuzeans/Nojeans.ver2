@@ -11,6 +11,8 @@ import MapKit
 struct PanView2: View {
     @State private var showing = false
     @Binding var tag :Int
+    @State private var btnShowing = false
+    
     @Environment(\.dismiss) private var dismiss
 
 
@@ -19,6 +21,11 @@ struct PanView2: View {
         ZStack {
             MapView()
                 .ignoresSafeArea()
+                .gesture(
+                    DragGesture(minimumDistance: 10)
+                        .onChanged{ value in
+                                btnShowing = true
+                        })
             
             Color.black.opacity(showing ? 0 : 0.7)
                 .ignoresSafeArea()
@@ -39,10 +46,13 @@ struct PanView2: View {
             VStack {
                 
                 Spacer()
-                Button(action: {
-                    tag += 1
-                }, label: {Text("완료").font(Font.customNextButton()).kerning(2)}).btnStyle()
-                .padding(16)
+                
+                if btnShowing {
+                    Button(action: {
+                        tag += 1
+                    }, label: {Text("완료").font(Font.customNextButton()).kerning(2)}).btnStyle()
+                        .padding(16)
+                }
 
             }
             

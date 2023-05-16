@@ -38,6 +38,7 @@ struct MapView: UIViewRepresentable {
             parent.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             parent.locationManager.requestWhenInUseAuthorization()
             parent.locationManager.startUpdatingLocation()
+            parent.locationManager.stopUpdatingLocation()
         }
         
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -12,7 +12,7 @@ struct BtnStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth:.infinity)
-            .frame(height: 48)
+            .frame(height: 58)
             .font(.headline)
             .padding(.horizontal, 16)
             .foregroundColor(.white)
@@ -26,7 +26,7 @@ struct BtnWhiteStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth:.infinity)
-            .frame(height: 48)
+            .frame(height: 58)
             .font(.headline)
             .padding(.horizontal, 16)
             .foregroundColor(Color("BrandColor"))

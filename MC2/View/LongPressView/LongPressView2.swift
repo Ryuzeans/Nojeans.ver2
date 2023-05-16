@@ -15,10 +15,10 @@ struct LongPressView2: View {
     
     var body: some View {
         VStack {
-            Text("카메라를 1초 동안\n눌러서 추가 기능을\n알아볼까요?")
+            Spacer().frame(height: 40)
+            Text(!buttonActive ? "카메라를 1초 동안\n눌러서 추가 기능을\n알아볼까요?" : "잘하셨어요!\n다음 버튼을 눌러 주세요!")
                 .font(.customTitle())
                 .multilineTextAlignment(.center)
-                .padding(.top, 40)
             Spacer()
             VStack {
                 Image("Camera")
@@ -43,7 +43,6 @@ struct LongPressView2: View {
                                 buttonActive = true
                             }
                         }
-                        
                     }
             }
             Spacer()
