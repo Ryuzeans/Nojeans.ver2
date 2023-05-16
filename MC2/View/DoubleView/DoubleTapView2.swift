@@ -22,7 +22,7 @@ struct DoubleTapView2: View {
             VStack {
                 ZStack() {
                     
-                    Image("TouchBall")
+                    Image("ToucherCircle")
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: doubleTapActive || oneMoreTapActive ? .infinity : 100 )
@@ -65,7 +65,7 @@ struct DoubleTapView2: View {
                         .font(.customTitle()).multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 0 : 1)
-                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/8.3)
+                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2.5 : geo.size.height/8.3)
                     
                     
                     Text("잘했어요!")
@@ -75,7 +75,7 @@ struct DoubleTapView2: View {
                         .frame(height: 400)
                         .frame(maxWidth: .infinity)
                         .opacity(doubleTapActive ? 1 : 0)
-                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2 : geo.size.height/4)
+                        .position(x: geo.size.width / 2 , y : doubleTapActive ? geo.size.height/2.5 : geo.size.height/4)
                         .onTapGesture(count: 2) {
                             withAnimation(.interactiveSpring(response: 0.7,dampingFraction: 0.6, blendDuration: 0.6)) {
                                 opactyTapActive = true
@@ -101,7 +101,7 @@ struct DoubleTapView2: View {
                                 .font(.customNextButton())
                         }
                         .btnStyle()
-                        .opacity(doubleTapActive ? 1 : 0)
+                        .opacity(opactyTapActive ? 1 : 0)
                     }
                     .padding(16)
                 }

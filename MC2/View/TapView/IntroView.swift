@@ -124,7 +124,7 @@ struct IntroView: View {
                     .overlay {
                         if currentIndex == index{
                             Circle()
-                                .stroke(Color("BrandColor"),lineWidth: 4)
+                                .fill(Color("BrandColor"))
                                 .frame(width: 15, height: 15)
                                 .matchedGeometryEffect(id: "INDICATOR", in: animation)
                         }
@@ -251,9 +251,9 @@ struct Intro: Identifiable{
 }
 
 var intros: [Intro] = [
-    .init(imageName: "DoubleCircle", title: "저를 한번\n눌러보세요.\n\n"),
-    .init(imageName: "DoubleCircle", title: "안녕하세요.\n저는 터치 요청 김터치예요.\n한번 더 눌러보실래요?" ),
-    .init(imageName: "DoubleCircle", title: "잘하셨어요!\n이제 부터 저의 설명에 따라\n터치 여행을 떠나봐요.")
+    .init(imageName: "ToucherCircle", title: "저를 한번\n눌러보세요.\n\n"),
+    .init(imageName: "ToucherCircle", title: "안녕하세요.\n저는 터치 요청 김터치예요.\n한번 더 눌러보실래요?" ),
+    .init(imageName: "ToucherCircle", title: "잘하셨어요!\n이제 부터 저의 설명에 따라\n터치 여행을 떠나봐요.")
 ]
 
 

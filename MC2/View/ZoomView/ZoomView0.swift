@@ -21,7 +21,7 @@ struct ZoomView0: View {
             
             Image("zoomView_circle")
                 .resizable()
-                .frame(width: 208, height: 208)
+                .frame(width: 250, height: 250)
             Spacer()
             
             HStack {
