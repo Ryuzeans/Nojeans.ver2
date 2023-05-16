@@ -37,7 +37,7 @@ struct Home: View {
             VStack{
                 Spacer().frame(height: 40)
                 
-                Text(offset.x <= -220.0 && offset.y <= 0.0 ? "잘하셨어요!" : "돋보기를 찾아볼까요?")
+                Text((offset.x <= -200.0 && offset.y <= 0.0) || ((offset.x <= -200.0 && offset.y >= 0.0)) ? "잘하셨어요!" : "돋보기를 찾아볼까요?")
                     .font(Font.customTitle())
 
                 Spacer()
@@ -45,7 +45,7 @@ struct Home: View {
 
                 
                 Spacer()
-                if(offset.x <= -200.0 && offset.y <= -0.0){
+                if(offset.x <= -200.0 && offset.y <= 0.0) || ((offset.x <= -200.0 && offset.y >= 0.0)) {
                     Button(action: {
                         tag += 1
                     }, label: {
