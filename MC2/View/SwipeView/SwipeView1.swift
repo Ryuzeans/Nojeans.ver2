@@ -43,16 +43,16 @@ struct SwipeView1: View {
                         }
                         .offset(x: 0, y: 40)
                         
-                        Image(systemName:"hand.point.up.fill")
-                            .resizable()
-                            .frame(width: 90, height: 120)
-                            .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
-                            .offset(x: self.offset, y: 150 )
-                            .onAppear {
-                                withAnimation(.easeInOut(duration: 0.9).repeatForever()) {
-                                    self.offset = 0
-                                }
-                            }
+//                        Image(systemName:"hand.point.up.fill")
+//                            .resizable()
+//                            .frame(width: 90, height: 120)
+//                            .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
+//                            .offset(x: self.offset, y: 150 )
+//                            .onAppear {
+//                                withAnimation(.easeInOut(duration: 0.9).repeatForever()) {
+//                                    self.offset = 0
+//                                }
+//                            }
                     }
                     
                     else if selectedIndex == 1 {

@@ -79,10 +79,10 @@ struct ZoomView1: View {
                 .onChanged { amount in
                     isDraged = true
                     currentAmount = amount - 1
-                    if amount > 5{
+                    if finalAmount + currentAmount > 5{
                         isFan = true
                     }
-                    if isFan && amount < 2{
+                    if isFan && finalAmount + currentAmount < 3{
                         isFold = true
                     }
                     print(amount)

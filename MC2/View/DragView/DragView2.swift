@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DragView2: View {
     @Binding var tag :Int
-    @State private var sliderValue = 0.0
+    @State private var sliderValue = 0.2
     @State private var isEnd = false
     var body: some View {
         VStack{
