@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Group 96.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Group 94.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

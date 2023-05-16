@@ -25,7 +25,7 @@ struct LongPressView1: View {
             Spacer()
             
             ZStack {
-                Image("TouchBall")
+                Image("ToucherCircle")
                     .resizable()
                     .frame(width: 116, height: 116)
                     .padding(.top, 36)

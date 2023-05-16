@@ -22,10 +22,10 @@ struct DoubleTapView1: View {
                 .font(.customEngTitle())
             Spacer()
             
-            Image("TouchBall")
+            Image("DoubleCircle 1")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 116, height: 116)
+                .frame(width: 200, height: 200)
             Spacer()
             
             HStack {

@@ -68,7 +68,7 @@ struct DragView1: View {
                 ZStack{
                     VStack{
                         Spacer().frame(height:175)
-                        Image("TouchBall")
+                        Image("ToucherCircle")
                             .resizable()
                             .frame(width: !onLongPressed || onClicked ? 100 : 140,
                                    height: !onLongPressed || onClicked ? 100 : 140)

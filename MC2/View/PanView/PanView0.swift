@@ -33,7 +33,7 @@ struct PanView0: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 240, height: 240)
-                Image("TouchBall")
+                Image("ToucherCircle")
                     .resizable()
                     .frame(width: 116, height: 116)
                     .offset(x: position.width, y: position.height)

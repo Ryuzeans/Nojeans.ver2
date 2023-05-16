@@ -37,7 +37,7 @@ struct SwipeView1: View {
                     if selectedIndex == 0 {
                         HStack(spacing: 26) {
                             Arrows()
-                            Image("TouchBall")
+                            Image("ToucherCircle")
                                 .resizable()
                                 .frame(width: 100, height: 100)
                         }
@@ -57,7 +57,7 @@ struct SwipeView1: View {
                     
                     else if selectedIndex == 1 {
                         HStack(spacing: 26) {
-                            Image("TouchBall")
+                            Image("ToucherCircle")
                                 .resizable()
                                 .frame(width: 100, height: 100)
                             Arrows().rotationEffect(.degrees(180))

@@ -13,6 +13,7 @@ struct Home: View {
     // SInce were going to fetch offset for both vertical and horizontal so were using CGPoint....
     @State var offset: CGPoint = .zero
     @State private var buttonActive: Bool = false
+    @State private var appearActive: Bool = false
     @Binding var tag :Int
     @State private var offset1: CGFloat = 50
     
@@ -20,47 +21,47 @@ struct Home: View {
         
         let _ = print("Offset x: \(String(format: "%.1f", offset.x))")
         let _ = print("Offset y: \(String(format: "%.1f", offset.y))")
-            
+        
         ZStack {
             CustomScrollView(offset: $offset, showIndicators: true, axis: .vertical, content: {
+                
+                // Your General SCroll View COntent....
+                VStack(spacing: 15){
                     
-                    // Your General SCroll View COntent....
-                    VStack(spacing: 15){
-                        
-                        Image("PanMapOn")
-                            .resizable()
-                            .scaleEffect(0.7)
-                    }
+                    Image("PanMapOn")
+                        .resizable()
+                        .scaleEffect(0.7)
+                }
                 
                 
             })
             VStack{
                 Spacer().frame(height: 40)
                 
-                Text(offset.x <= -220.0 && offset.y <= 0.0 ? "잘하셨어요!" : "돋보기를 찾아볼까요?")
+                Text(offset.x <= -130.0 && offset.y <= 0.0 ? "잘하셨어요!" : "돋보기를 찾아볼까요?")
                     .font(Font.customTitle())
-
-                Spacer()
-                
-
                 
                 Spacer()
-                if(offset.x <= -200.0 && offset.y <= -0.0){
+                
+                
+                Spacer()
+                if(offset.x <= -130.0 && offset.y <= -0.0){
                     Button(action: {
                         tag += 1
                     }, label: {
                         Text("다음").font(.customNextButton()).kerning(2)
                     })
                     .btnStyle()
-                        .padding(16)
+                    .padding(16)
                     
                 }
                 
             }
+
             
             
         }
-
+        
     }
     
 }
@@ -98,11 +99,11 @@ struct CustomScrollView<Content: View>: View {
             content
             // Getting Offset....
                 .overlay(
-                
+                    
                     // Using Geomtry Reader to get offset...
                     
                     GeometryReader{proxy -> Color in
-                    
+                        
                         let rect = proxy.frame(in: .global)
                         
                         if startOffset == .zero{
@@ -121,7 +122,7 @@ struct CustomScrollView<Content: View>: View {
                     }
                     // Since were also fetching horizontal offset...
                     // so setting width to full so that minX will be Zero...
-                    .frame(width: UIScreen.main.bounds.width, height: 0)
+                        .frame(width: UIScreen.main.bounds.width, height: 0)
                     
                     ,alignment: .top
                 )
