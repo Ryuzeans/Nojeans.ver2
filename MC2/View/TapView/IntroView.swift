@@ -168,14 +168,7 @@ struct IntroView: View {
                         currentIndex += 1
                     }
                 }
-                .overlay(
-                    Image(systemName:"hand.point.up.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 90)
-                        .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
-                        .position(x: 120, y: 250)
-                )
+                
         }
         .offset(y: -30)
     }
