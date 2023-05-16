@@ -46,20 +46,20 @@ struct DoubleTapView2: View {
                         }
                         .padding(.horizontal,25)
                     
-                    Image(systemName:"hand.point.up.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: handSize)
-                        .opacity(opactyTapActive ? 0 : 1)
-                        .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
-                        .position(x:doubleTapActive ? 600 : 220,y: flashAnimation ? 550 : 500)
-                        .onAppear{
-                            withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)){
-                                flashAnimation.toggle()
-                                // withAnimation:모든 glow에 적용 .linear: 일정한속도, duration: 0.5초동안 반짝거리기 . repeatforever(autoreverses:true)끝없이 반복
-                                
-                            }
-                        }
+//                    Image(systemName:"hand.point.up.fill")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: handSize)
+//                        .opacity(opactyTapActive ? 0 : 1)
+//                        .foregroundColor(Color(red: 0.91, green: 0.58, blue: 0.44))
+//                        .position(x:doubleTapActive ? 600 : 220,y: flashAnimation ? 550 : 500)
+//                        .onAppear{
+//                            withAnimation(.linear(duration: 0.8).repeatForever(autoreverses: true)){
+//                                flashAnimation.toggle()
+//                                // withAnimation:모든 glow에 적용 .linear: 일정한속도, duration: 0.5초동안 반짝거리기 . repeatforever(autoreverses:true)끝없이 반복
+//
+//                            }
+//                        }
                     
                     Text("빠르게 두 번\n눌러볼까요?")
                         .font(.customTitle()).multilineTextAlignment(.center)

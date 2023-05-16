@@ -46,7 +46,7 @@ struct DragView1: View {
                             }
                         }
                         else{
-                            Text("아래의 원을\n2초간 눌러 볼까요?")
+                        Text("아래의 빨간 원을\n2초간 눌러 볼까요?")
                                 .font(Font.customTitle())
                                 .multilineTextAlignment(.center)
                                 .padding(10)
