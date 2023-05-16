@@ -58,7 +58,7 @@ struct DragView1: View {
                             .resizable()
                             .frame(width: 116, height: 116)
                         Circle()
-                            .stroke(Color.yellow, lineWidth: strokeAnimation)
+                            .stroke(Color.accentColor, lineWidth: strokeAnimation)
                             .frame(width: 100, height: 100)
                             .scaleEffect(animationAmount)
                             .opacity(Double(2 - animationAmount))
@@ -72,6 +72,7 @@ struct DragView1: View {
                             .resizable()
                             .frame(width: !onLongPressed || onClicked ? 100 : 140,
                                    height: !onLongPressed || onClicked ? 100 : 140)
+                            
                         if(!onLongPressed){
                             Arrows()
                                 .rotationEffect(.degrees(270))
