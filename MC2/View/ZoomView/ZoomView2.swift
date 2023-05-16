@@ -20,7 +20,7 @@ struct ZoomView2: View {
                 VStack{
                     Spacer().frame(height: 40)
                     if(!state.isPan){
-                        Text("확대해 볼까요?")
+                        Text("두 손가락을 이용해서\n확대해 볼까요?")
                             .font(Font.customTitle())
                     }
                     else{
