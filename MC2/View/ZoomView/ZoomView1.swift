@@ -32,7 +32,7 @@ struct ZoomView1: View {
                 Spacer().frame(height: 40)
                 Rectangle().frame(height:0)
                 if(isFan && !isFold){
-                    Text("이번엔 원을\n가운데로 모아볼까요?")
+                    Text("이번엔 하트를\n줄여 볼까요?")
                         .font(Font.customTitle())
                         .multilineTextAlignment(.center)
                 }
@@ -48,11 +48,12 @@ struct ZoomView1: View {
                     
                 }
                 ZStack{
-                    Rectangle()
-                        .frame(width: 42,height: 22)
-                        .cornerRadius(10)
-                        .foregroundColor(Color("SubTitleColor"))
+                    Image(systemName: "heart.fill")
+                        .resizable()
+                        .frame(width: 40,height: 40)
                         .scaleEffect(finalAmount + currentAmount)
+                        .foregroundColor(Color.red)
+                        
             
                     VStack{
                         VStack{
@@ -79,10 +80,10 @@ struct ZoomView1: View {
                 .onChanged { amount in
                     isDraged = true
                     currentAmount = amount - 1
-                    if finalAmount + currentAmount > 5{
+                    if finalAmount + currentAmount > 4{
                         isFan = true
                     }
-                    if isFan && finalAmount + currentAmount < 3{
+                    if isFan && finalAmount + currentAmount < 3.5{
                         isFold = true
                     }
                     print(amount)
